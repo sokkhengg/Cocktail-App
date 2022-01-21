@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-function SignupForm() {
+function SignupForm({ setCurrentUser }) {
 
     function handleSignupSubmit(e) {
         e.preventDefault();
@@ -22,7 +22,7 @@ function SignupForm() {
           body: JSON.stringify(user_object),
         })
           .then((r) => r.json())
-          .then((data) => console.log(data)) //console logs the return user - set in state?
+          .then((user) => setCurrentUser(user))
       }
 
   return (
