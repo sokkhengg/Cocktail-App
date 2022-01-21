@@ -1,5 +1,5 @@
 import "./App.css";
-//import SignupForm from "./SignupForm";
+import SignupForm from "./SignupForm";
 import Header from "./Header";
 import LoginForm from "./LoginForm";
 import { useEffect, useState } from "react";
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* <SignupForm /> */}
+      <SignupForm />
 
       {/* checks if the currentUser exists and shows a confirmation message if so, or displays the login form */}
       {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> }

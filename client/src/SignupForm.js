@@ -22,7 +22,7 @@ function SignupForm() {
           body: JSON.stringify(user_object),
         })
           .then((r) => r.json())
-          .then((data) => console.log(data)); //console logs the return user - set in state?
+          .then((data) => console.log(data)) //console logs the return user - set in state?
       }
 
   return (
