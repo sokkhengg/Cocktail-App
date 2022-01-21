@@ -10,9 +10,9 @@ User.destroy_all
 puts "Replanting Seeds"
 
 
-user0 = User.create(username: "Sean")
-user1 = User.create(username: "Sok")
-user2 = User.create(username: "Been")
+user0 = User.create(username: "Sean", password:"dfsdfsdf")
+user1 = User.create(username: "Sok", password:"dfsdfsdf")
+user2 = User.create(username: "Been", password:"dfsdfsdf")
 
 ingredient1 = Ingredient.create(name: "Whiskey")
 ingredient2 = Ingredient.create(name: "Lemon")

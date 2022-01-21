@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :user_ingredients, only: [ :index, :create, :show, :destroy ]
   resources :users, only: [ :index, :show, :create ]
 
-  get "/me", to: "users#show"
-  post "/login", to: "sessions#create"
-  delete "/logout", to: "sessions#destroy"
+  get "/auth", to: "users#show" # used for continuous authentication as the user moves through the app
+  post "/login", to: "sessions#create" #creates a new session when the user fills out the login form
+  delete "/logout", to: "sessions#destroy" #idk about this one yet
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

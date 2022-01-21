@@ -1,19 +1,23 @@
 class UsersController < ApplicationController
 
+  #skip_before_action :authorize, only: :create
+  #wrap_parameters format: []
+
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
-  wrap_parameters format: []
+
 
     # might not need
     def index
         render json: User.all, status: :ok
     end
 
+    #used for auth
     def show
-      user = User.find_by(id: session[:user_id])
-      if user
-        render json: user
+      current_user = User.find(session[:user_id])
+      if current_user
+        render json: current_user
       else
         render json: { error: "Not authorized" }, status: :unauthorized
       end
