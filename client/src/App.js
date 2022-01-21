@@ -1,34 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+//import SignupForm from "./SignupForm";
+import Header from "./Header";
+import LoginForm from "./LoginForm";
+import { useEffect, useState } from "react";
 
 function App() {
 
-  function handleSubmit(e){
-    e.preventDefault();
-    console.log(e)
-    const user_object = {
-      username: e.target[0].value,
-      password: e.target[1].value
-    }
+  // state for the current logged in use, set in the useEffect & fetch below
+  const [currentUser, setCurrentUser] = useState('')
 
-    fetch("http://localhost:3000/users", {
-      method: "POST",  
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(user_object)
+  // auth keeps the user logged in as they move through the app (doesn't work if the page is refreshed!)
+  useEffect(() => {
+    fetch("auth") // hits the auth endpoint aka users#show in the UsersController
+    .then(res => {
+      if(res.ok){
+        res.json().then(user => setCurrentUser(user)) // sets the state
+      }
     })
-    .then(r => r.json())
-    .then(data => console.log(data))
-  }
-
+  },[])
+  
   return (
     <div className="App">
-      <form onSubmit={e => handleSubmit(e)}>
-        <input type="text" placeholder="username"></input>
-        <input type="text" placeholder="password"></input>
-        <button>Submit</button>
-      </form>
+      <Header />
+      {/* <SignupForm /> */}
+
+      {/* checks if the currentUser exists and shows a confirmation message if so, or displays the login form */}
+      {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> }
     </div>
   );
 }
