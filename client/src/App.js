@@ -1,8 +1,13 @@
 import "./App.css";
-import SignupForm from "./SignupForm";
-import Header from "./Header";
-import LoginForm from "./LoginForm";
 import { useEffect, useState } from "react";
+import { Switch, Route } from 'react-router-dom';
+
+import SignupForm from "./components/User/SignupForm";
+import Header from "./components/Header/Header";
+import LoginForm from "./components/User/LoginForm";
+import CocktailList from "./components/Cocktails/CocktailList"
+import MyCocktailList from "./components/Cocktails/MyCocktailList"
+
 
 function App() {
 
@@ -22,10 +27,44 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SignupForm />
 
       {/* checks if the currentUser exists and shows a confirmation message if so, or displays the login form */}
-      {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> }
+      {/* {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> } */}
+
+      <Switch>
+        <Route
+            path="/signup"
+            component={() => (
+              <SignupForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> )}
+        />
+
+        <Route
+            path="/login"
+            component={() => (
+              <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} />
+            )}
+          />
+
+        <Route
+            path="/cocktail-list"
+            component={() => (
+              <CocktailList
+              />
+            )}
+          />
+    
+        <Route
+            path="/my-cocktail-list"
+            component={() => (
+              <MyCocktailList
+              />
+            )}
+          />
+     
+      
+
+      </Switch>
+
     </div>
   );
 }
