@@ -1,0 +1,289 @@
+ingredient_name,ingredient_id
+151 proof rum,1
+7-Up,2
+Absinthe,3
+Absolut Citron,4
+Absolut Kurant,5
+Absolut Peppar,6
+Absolut Vodka,7
+Advocaat,8
+Agave Syrup,9
+Ale,10
+Almond flavoring,11
+Amaretto,12
+Añejo rum,13
+Angelica root,14
+Angostura bitters,15
+Anis,16
+Anise,17
+Anisette,18
+Aperol,19
+Apfelkorn,20
+Apple,21
+Apple brandy,22
+Apple cider,23
+Apple juice,24
+Apple schnapps,25
+Applejack,26
+Apricot brandy,27
+Aquavit,28
+Bacardi Limon,29
+Bailey's irish cream,30
+Baileys irish cream,31
+Banana,32
+Banana liqueur,33
+Beer,34
+Benedictine,35
+Berries,36
+Bitter lemon,37
+Bitters,38
+Black Sambuca,39
+Blackberry brandy,40
+Blackcurrant cordial,41
+Blackcurrant squash,42
+Blended whiskey,43
+Blue Curacao,44
+Blueberry schnapps,45
+Bourbon,46
+Brandy,47
+Brown sugar,48
+Butter,49
+Butterscotch schnapps,50
+Cachaca,51
+Campari,52
+Candy,53
+Cantaloupe,54
+Carbonated soft drink,55
+Carbonated water,56
+Cardamom,57
+Carrot,58
+Cayenne pepper,59
+Celery salt,60
+Chambord raspberry liqueur,61
+Champagne,62
+Cherries,63
+Cherry,64
+Cherry brandy,65
+Cherry Heering,66
+Chocolate,67
+Chocolate ice-cream,68
+Chocolate liqueur,69
+Chocolate syrup,70
+Cider,71
+Cinnamon,72
+Cloves,73
+Club soda,74
+Coca-Cola,75
+Cocoa powder,76
+Coconut liqueur,77
+Coconut milk,78
+Coconut rum,79
+Coconut syrup,80
+Coffee,81
+Coffee brandy,82
+Coffee liqueur,83
+Cognac,84
+Cointreau,85
+Condensed milk,86
+Coriander,87
+Corn syrup,88
+Cornstarch,89
+Corona,90
+Cranberries,91
+Cranberry juice,92
+Cranberry vodka,93
+Cream,94
+Cream of coconut,95
+Creme de Banane,96
+Creme de Cacao,97
+Creme de Cassis,98
+Creme de Mure,99
+Crown Royal,100
+Curacao,101
+Daiquiri mix,102
+Dark Creme de Cacao,103
+Dark rum,104
+Demerara Sugar,105
+Dr. Pepper,106
+Drambuie,107
+Dry Vermouth,108
+Dubonnet Rouge,109
+Egg,110
+Egg white,111
+Egg Yolk,112
+Erin Cream,113
+Espresso,114
+Everclear,115
+Fennel seeds,116
+Firewater,117
+Food coloring,118
+Frangelico,119
+Fresh Lemon Juice,120
+Fruit,121
+Fruit juice,122
+Fruit punch,123
+Galliano,124
+Gin,125
+Ginger,126
+Ginger ale,127
+Ginger beer,128
+Godiva liqueur,129
+Goldschlager,130
+Grain alcohol,131
+Grand Marnier,132
+Grape juice,133
+Grape soda,134
+Grapefruit juice,135
+Green Chartreuse,136
+Green Creme de Menthe,137
+Grenadine,138
+Guinness stout,139
+Half-and-half,140
+Heavy cream,141
+Honey,142
+Hot chocolate,143
+Hot Damn,144
+Ice,145
+Iced tea,146
+Irish cream,147
+Irish whiskey,148
+Jack Daniels,149
+Jägermeister,150
+Jim Beam,151
+Johnnie Walker,152
+Kahlua,153
+Kirschwasser,154
+Kiwi,155
+Kiwi liqueur,156
+Kool-Aid,157
+Kummel,158
+Lager,159
+Lemon,160
+Lemon juice,161
+Lemon peel,162
+Lemon vodka,163
+Lemon-lime soda,164
+Lemonade,165
+Licorice root,166
+Light cream,167
+Light rum,168
+Lillet Blanc,169
+Lime,170
+Lime juice,171
+Lime juice cordial,172
+Lime peel,173
+Lime vodka,174
+Limeade,175
+Malibu rum,176
+Mango,177
+Maple syrup,178
+Maraschino cherry,179
+Maraschino liqueur,180
+Marshmallows,181
+Maui,182
+Melon liqueur,183
+Midori melon liqueur,184
+Milk,185
+Mint,186
+Mint syrup,187
+Mountain Dew,188
+Nutmeg,189
+Olive,190
+Olive Brine,191
+Orange,192
+Orange bitters,193
+Orange Curacao,194
+Orange juice,195
+Orange peel,196
+Orange spiral,197
+Oreo cookie,198
+Orgeat syrup,199
+Ouzo,200
+Papaya,201
+Passion fruit juice,202
+Passion fruit syrup,203
+Peach Bitters,204
+Peach brandy,205
+Peach nectar,206
+Peach schnapps,207
+Peach Vodka,208
+Peachtree schnapps,209
+Peppermint extract,210
+Peppermint schnapps,211
+Pepsi Cola,212
+Peychaud bitters,213
+Pina colada mix,214
+Pineapple,215
+Pineapple juice,216
+Pink lemonade,217
+Pisang Ambon,218
+Pisco,219
+Port,220
+Powdered sugar,221
+Prosecco,222
+Raspberry Liqueur,223
+Raspberry syrup,224
+Raspberry vodka,225
+Red wine,226
+Ricard,227
+Root beer,228
+Rum,229
+Rumple Minze,230
+Salt,231
+Sambuca,232
+Sarsaparilla,233
+Schweppes Russchian,234
+Scotch,235
+Sherbet,236
+Sherry,237
+Sirup of roses,238
+Sloe gin,239
+Soda water,240
+Sour mix,241
+Southern Comfort,242
+Spiced rum,243
+Sprite,244
+Strawberries,245
+Strawberry liqueur,246
+Strawberry schnapps,247
+strIngredient1,248
+strIngredient2,249
+strIngredient3,250
+strIngredient4,251
+strIngredient5,252
+strIngredient6,253
+Sugar,254
+Sugar syrup,255
+Surge,256
+Sweet and sour,257
+Sweet Vermouth,258
+Tabasco sauce,259
+Tea,260
+Tennessee whiskey,261
+Tequila,262
+Tia maria,263
+Tomato juice,264
+Tonic water,265
+Triple sec,266
+Tropicana,267
+Vanilla,268
+Vanilla extract,269
+Vanilla Ice-Cream,270
+Vanilla vodka,271
+Vermouth,272
+Vodka,273
+Water,274
+Whipped cream,275
+Whipping cream,276
+Whiskey,277
+Whisky,278
+White Creme de Menthe,279
+White Rum,280
+Wild Turkey,281
+Wine,282
+Worcestershire sauce,283
+Wormwood,284
+Yellow Chartreuse,285
+Yoghurt,286
+Yukon Jack,287
+Zima,288
