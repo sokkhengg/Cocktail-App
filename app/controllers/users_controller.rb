@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: :create
+  # skip_before_action :authorized, only: :create
 
   #wrap_parameters format: []
 

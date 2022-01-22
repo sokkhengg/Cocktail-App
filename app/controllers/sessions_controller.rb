@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   #skip checking authorization because we know they haven't (they're trying to login for the first time)
-  skip_before_action :authorized, only: :create
+  # skip_before_action :authorized
   
   #login
   def create

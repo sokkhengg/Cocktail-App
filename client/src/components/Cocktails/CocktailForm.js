@@ -128,60 +128,60 @@ function CocktailForm({ ingredients }) {
 
           <Select options={ingredients_array} />
 
-          <label htmlFor="measure_1">Measure: </label>
+          <label htmlFor="measure_1"></label>
           <input
             required
-            placeholder="Measure"
+            placeholder="measure..."
             type="text"
             title="measure_1"
           />
 
           <Select options={ingredients_array} />
 
-          <label htmlFor="measure_2">Measure: </label>
+          <label htmlFor="measure_2"></label>
           <input
             required
-            placeholder="Measure"
+            placeholder="measure..."
             type="text"
             title="measure_2"
           />
 
           <Select options={ingredients_array} />
 
-          <label htmlFor="measure_3">Measure: </label>
+          <label htmlFor="measure_3"></label>
           <input
             required
-            placeholder="Measure"
+            placeholder="measure..."
             type="text"
             title="measure_3"
           />
 
           <Select options={ingredients_array} />
 
-          <label htmlFor="measure_4">Measure: </label>
+          <label htmlFor="measure_4"></label>
           <input
             required
-            placeholder="Measure"
+            placeholder="measure..."
             type="text"
             title="measure_4"
           />
 
           <Select options={ingredients_array} />
 
-          <label htmlFor="measure_5">Measure: </label>
+          <label htmlFor="measure_5"></label>
           <input
             required
-            placeholder="Measure"
+            placeholder="measure..."
             type="text"
             title="measure_5"
           />
 
           <Select options={ingredients_array} />
 
-          <label htmlFor="measure_6">Measure: </label>
+          <label htmlFor="measure_6"></label>
           <input
             required
-            placeholder="Measure"
+            placeholder="measure..."
             type="text"
             title="measure_6"
           />

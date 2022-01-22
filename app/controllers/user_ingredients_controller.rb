@@ -4,23 +4,23 @@ class UserIngredientsController < ApplicationController
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   
         def index
-            render json: UserIngredient.all
+          render json: UserIngredient.all
         end
     
         def show
-          user_ingredient = find_user_ingredient
-          render json: user_ingredient
+          this_users_ingredients = UserIngredient.all.where(:user_id => params[:id])  
+          render json: this_users_ingredients
         end
     
         def create
-          user = UserIngredient.create!(user_ingredient_params)
-          rendre json: user, status: :created
+          new_user_ingredient = UserIngredient.create!(user_ingredient_params)
+          render json: new_user_ingredient.ingredient, status: :created
         end
     
         private
     
         def find_user_ingredient
-          user = UserIngredient.find(params[:id])
+          user_ingredient = UserIngredient.find(params[:id])
         end
     
         def user_ingredient_params

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy" #idk about this one yet.
   # delete the session, but when the user log back in since using post method, it will create a new session.
   
+
+
+  
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
