@@ -1,3 +1,26 @@
+.header {
+  background: #1194ff;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* testing the style might use bootstrap later */
+.form {
+  display: flex;
+    justify-content: space-around;
+          /* background: #1194ff; */
+          position: fixed;
+          overflow: hidden;
+        width: 100%;
+        margin-top: 0px;
+}
+
+
 .title {
     color: white;
     cursor: pointer;
