@@ -1,13 +1,12 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function LoginForm({ setCurrentUser }) {
-      
-    function handleLoginSubmit(e) {
+  function handleLoginSubmit(e) {
     e.preventDefault();
     console.log(e);
 
@@ -16,19 +15,20 @@ function LoginForm({ setCurrentUser }) {
       password: e.target[1].value,
     };
 
-    fetch("http://localhost:3000/login", { //hits the "login" endpoint aka "session#create"
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(user_object)
-    })
-    .then((r) => {
-        if (r.ok) {
-          r.json().then((user) => setCurrentUser(user));
-        } else {
-          r.json().then((err) => console.log(err));
-        }})
+    fetch('http://localhost:3000/login', {
+      //hits the "login" endpoint aka "session#create"
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user_object),
+    }).then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setCurrentUser(user));
+      } else {
+        r.json().then((err) => console.log(err));
+      }
+    });
   }
 
   return (
