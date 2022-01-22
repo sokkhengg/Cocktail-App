@@ -12,7 +12,7 @@ function CocktailCard({cocktail}) {
   return (
     <div>
       <div>{name}</div>
-      <div>{category}</div>
+      {/* <div>{category}</div>
       <div>{image}</div>
       <div>{iba}</div>
       <div>{glass}</div>
@@ -23,7 +23,7 @@ function CocktailCard({cocktail}) {
       <div>{ingredient_5_name}{measure_5}</div>
       <div>{ingredient_6_name}{measure_6}</div>
       <div>{instructions}</div>
-      <div>{alcoholic}</div>
+      <div>{alcoholic}</div> */}
     </div>
   );
 }

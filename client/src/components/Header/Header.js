@@ -20,6 +20,12 @@ function Header() {
           </li>
 
           <li className="nav-links">
+            <Link to="/cocktail-list" className="link">
+              Cocktails
+            </Link>
+          </li>
+
+          <li className="nav-links">
             <Link to="/my-liquor-cabinet" className="link">
               My Liquor Cabinet
             </Link>
