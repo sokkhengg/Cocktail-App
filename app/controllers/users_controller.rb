@@ -17,17 +17,20 @@ class UsersController < ApplicationController
 
     #used for auth
     def show
-      current_user = User.find(session[:user_id])
-      if current_user
-        render json: current_user
-      else
-        render json: { error: "Not authorized" }, status: :unauthorized
-      end
+    render json: @current_user
+
+      # current_user = User.find(session[:user_id])
+      # if current_user
+      #   render json: current_user
+      # else
+      #   render json: { error: "Not authorized" }, status: :unauthorized
+      # end
     end
   
 
     def create
       user = User.create!(user_params)
+      session[:user_id] = user.id
       render json: user, status: :created
     end
 
