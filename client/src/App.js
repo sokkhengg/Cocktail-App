@@ -14,7 +14,7 @@ function App() {
   // state for the current logged in use, set in the useEffect & fetch below
   const [currentUser, setCurrentUser] = useState('');
   const [ingredients, setIngredients] = useState('');
-  const [cocktails, setCocktails] = useState([]);
+  const [cocktails, setCocktails] = useState('');
 
   
 
@@ -32,15 +32,17 @@ function App() {
   useEffect(() => {
     fetch('/cocktails')
       .then((r) => r.json())
-      .then((data) => setCocktails(data));
+      .then((cocktails) => setCocktails(cocktails));
   }, []);
+
+  console.log(cocktails)
 
   //Filters cocktails
   // const [cocktailFilter, setCocktailFilter] = useState('');
 
   // const cocktailsToDisplay = cocktails.filter((cocktail) => {
-  //   return cocktailFilter === '' || cocktail.name === cocktailFilter;
-  // });
+  //   cocktail.name.toLowerCase().includes(cocktailFilter.toLowerCase());
+  // })
 
   // grabs all ingredients from the backend, for use in various forms
   useEffect(() => {
@@ -55,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-
+      
       {/* checks if the currentUser exists and shows a confirmation message if so, or displays the login form */}
       {/* {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> } */}
 
