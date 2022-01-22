@@ -42,6 +42,13 @@ function Header() {
               Login
             </Link>
           </li>
+
+          {/* <li className="nav-links">
+            <Link to="/signup" className="link">
+              Sign Up
+            </Link>
+          </li> */}
+          
         </ul>
       </nav>
     </div>

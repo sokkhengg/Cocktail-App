@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function SignupForm({ setCurrentUser }) {
+  const [errors, setErrors] = useState([]);
+
   function handleSignupSubmit(e) {
     e.preventDefault();
     const user_object = {
@@ -13,7 +15,7 @@ function SignupForm({ setCurrentUser }) {
       password: e.target[1].value,
     };
 
-    fetch('http://localhost:3000/users', {
+    fetch('signup', {
       // hits the users#create endpoint to add a new user to the database
       method: 'POST',
       headers: {
@@ -21,8 +23,16 @@ function SignupForm({ setCurrentUser }) {
       },
       body: JSON.stringify(user_object),
     })
-      .then((r) => r.json())
-      .then((user) => setCurrentUser(user));
+      // .then((r) => r.json())
+      // .then((user) => setCurrentUser(user));
+      .then((r) => {
+        // setIsLoading(false);
+        if (r.ok) {
+          r.json().then((user) => setCurrentUser(user));
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      });
   }
 
   return (
