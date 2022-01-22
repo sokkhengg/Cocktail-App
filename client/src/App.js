@@ -8,6 +8,7 @@ import LoginForm from './components/User/LoginForm';
 import CocktailList from './components/Cocktails/CocktailList';
 import MyCocktailList from './components/Cocktails/MyCocktailList';
 import CocktailForm from './components/Cocktails/CocktailForm';
+import MyLiquorCabinet from './components/User/MyLiquorCabinet';
 
 function App() {
   // state for the current logged in use, set in the useEffect & fetch below
@@ -86,6 +87,11 @@ function App() {
         <Route
           path="/new-cocktail"
           component={() => <CocktailForm ingredients={ingredients} />}
+        />
+
+<Route
+          path="/my-liquor-cabinet"
+          component={() => <MyLiquorCabinet ingredients={ingredients} currentUser={currentUser} />}
         />
       </Switch>
     </div>

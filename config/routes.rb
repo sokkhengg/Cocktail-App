@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create" #creates a new session when the user fills out the login form
   delete "/logout", to: "sessions#destroy" #idk about this one yet
   
+
+
+  
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
