@@ -2,7 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import SignupForm from './components/User/SignupForm';
+import SignupForm from './SignupForm';
 import Header from './components/Header/Header';
 import LoginForm from './components/User/LoginForm';
 import CocktailList from './components/Cocktails/CocktailList';
