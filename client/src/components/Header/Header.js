@@ -5,7 +5,10 @@ import Nav from 'react-bootstrap/Nav'
 import Container from "react-bootstrap/Container";
 import './Header.css';
 
-function Header() {
+function Header({currentUser}) {
+
+
+  console.log(currentUser)
   return (
     // <div className="header">
     //   <nav>
@@ -61,7 +64,11 @@ function Header() {
     <Nav.Link href="/my-liquor-cabinet">My Liquor Cabinet</Nav.Link>
     <Nav.Link href="/new-cocktail">New Cocktail</Nav.Link>
     <Nav.Link href="/login">Login</Nav.Link>
-    <Nav.Link href="/signup">Sign Up</Nav.Link>
+
+{/* need to figure out a ternary to decide what login links to display */}
+    {/* {currentUser ? <p>logged in as {currentUser}</p> : <Nav.Link href="/login">Login</Nav.Link>}
+    {currentUser ? null : <Nav.Link href="/signup">Sign Up</Nav.Link>} */}
+    {/* <p>logged in as {currentUser}</p> */}
   </Nav>
 </Navbar.Collapse>
 </Container>
