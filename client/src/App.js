@@ -9,6 +9,7 @@ import CocktailList from './components/Cocktails/CocktailList';
 import MyCocktailList from './components/Cocktails/MyCocktailList';
 import CocktailForm from './components/Cocktails/CocktailForm';
 import MyLiquorCabinet from './components/User/MyLiquorCabinet';
+import CocktailDetail from './components/Cocktails/CocktailDetail';
 
 function App() {
   // state for the current logged in use, set in the useEffect & fetch below
@@ -62,6 +63,12 @@ function App() {
       {/* {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> } */}
 
       <Switch>
+
+      <Route
+          path="/cocktails/:id"
+          component={() => <CocktailDetail />}
+        />
+
         <Route
           path="/signup"
           component={() => (
