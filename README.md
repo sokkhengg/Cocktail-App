@@ -14,5 +14,5 @@ As a user, I can:
 
 Front-end: React<br />
 Back-end: Rails<br />
-Front-end Framework: Bootstrap
+Front-end Framework: Bootstrap.
 

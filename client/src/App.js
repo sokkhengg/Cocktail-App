@@ -5,11 +5,11 @@ import { Switch, Route } from 'react-router-dom';
 import SignupForm from './components/User/SignupForm';
 import Header from './components/Header/Header';
 import LoginForm from './components/User/LoginForm';
+import Form from './components/User/Form';
 import CocktailList from './components/Cocktails/CocktailList';
 import MyCocktailList from './components/Cocktails/MyCocktailList';
 import CocktailForm from './components/Cocktails/CocktailForm';
 import MyLiquorCabinet from './components/User/MyLiquorCabinet';
-import CocktailDetail from './components/Cocktails/CocktailDetail';
 
 function App() {
   // state for the current logged in use, set in the useEffect & fetch below
@@ -54,19 +54,13 @@ function App() {
 
   return (
     <div className="App">
-      <Header currentUser={currentUser}/>
+      <Header />
       
       {/* checks if the currentUser exists and shows a confirmation message if so, or displays the login form */}
       {/* {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> } */}
 
       <Switch>
-
-      <Route
-          path="/cocktails/:id"
-          component={() => <CocktailDetail />}
-        />
-
-        <Route
+        {/* <Route
           path="/signup"
           component={() => (
             <SignupForm
@@ -74,12 +68,12 @@ function App() {
               currentUser={currentUser}
             />
           )}
-        />
+        /> */}
 
         <Route
           path="/login"
           component={() => (
-            <LoginForm
+            <Form
               setCurrentUser={setCurrentUser}
               currentUser={currentUser}
             />

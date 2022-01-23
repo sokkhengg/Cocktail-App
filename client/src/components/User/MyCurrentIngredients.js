@@ -4,11 +4,12 @@ function MyCurrentIngredients({currentUser}) {
 
     const [currentIngredients, setCurrentIngredients] = useState("");
 
-    useEffect(() => {
-        fetch(`http://localhost:3000/user_ingredients/1`) //hardcoded for ease of testing! replace with your user_id
-        .then(r => r.json())
-        .then(r => setCurrentIngredients(r))
-    }, [])
+    // need to hard code the id for now
+    // useEffect(() => {
+    //     fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
+    //     .then(r => r.json())
+    //     .then(r => setCurrentIngredients(r))
+    // }, [])
 
 
   return (

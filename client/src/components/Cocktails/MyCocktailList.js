@@ -21,6 +21,7 @@ console.log(cocktails)
 
   return (
     <div>
+
       <Container>
         <Row
           xs={1}
@@ -34,6 +35,7 @@ console.log(cocktails)
             )) : null}
           </Row>
           </Container>
+
     </div>
   );
 }
