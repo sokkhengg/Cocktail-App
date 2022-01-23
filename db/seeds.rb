@@ -65,6 +65,13 @@ user0 = User.create(username: "Sean", password:"asdf")
 user1 = User.create(username: "Sok", password:"asdf")
 user2 = User.create(username: "Been", password:"asdf")
 
+UserCocktail.create(user_id: 3, cocktail_id:1)
+UserCocktail.create(user_id: 3, cocktail_id:2)
+UserCocktail.create(user_id: 3, cocktail_id:3)
+UserCocktail.create(user_id: 3, cocktail_id:4)
+UserCocktail.create(user_id: 3, cocktail_id:5)
+UserCocktail.create(user_id: 3, cocktail_id:6)
+
 
 # added by some method on the backend....?
 # user_cocktail1 = UserCocktail.create(user_id: 1, cocktail_id: 1)
