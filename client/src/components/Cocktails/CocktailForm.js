@@ -98,7 +98,7 @@ function CocktailForm({ ingredients }) {
 
               <Form.Select aria-label="Default select example">
   <option>Please Choose...</option>
-  <option value="Beer">Beer</option>
+            <option value="Beer">Beer</option>
             <option value="Cocktail">Cocktail</option>
             <option value="Cocoa">Cocoa</option>
             <option value="Coffee / Tea">Coffee / Tea</option>
@@ -183,6 +183,7 @@ function CocktailForm({ ingredients }) {
             type="text"
           /> */}
 
+          <Form.Label>Ingredients:</Form.Label>
           <Select options={ingredients_array} />
 
           <label htmlFor="measure_1"></label>
