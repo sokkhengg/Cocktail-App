@@ -57,7 +57,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header currentUser={currentUser}/>
       
       {/* checks if the currentUser exists and shows a confirmation message if so, or displays the login form */}
       {/* {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> } */}
