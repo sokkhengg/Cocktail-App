@@ -44,6 +44,7 @@ function AddNewIngredient({ ingredients, currentUser }) {
     }).then(r => r.json()).then(r => {
         console.log(r)
         setAddedIngredient(r)
+        //add code to update the new ingredient on the frontend too!
     })
   }
 
