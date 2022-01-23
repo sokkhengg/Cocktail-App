@@ -7,14 +7,21 @@ class UserIngredientsController < ApplicationController
           render json: UserIngredient.all
         end
     
+        #get all ingredients belonging to the current user
         def show
           this_users_ingredients = UserIngredient.all.where(:user_id => params[:id])  
-          render json: this_users_ingredients
+          render json: this_users_ingredients, include: [:ingredient]
         end
     
         def create
           new_user_ingredient = UserIngredient.create!(user_ingredient_params)
           render json: new_user_ingredient.ingredient, status: :created
+        end
+
+        def destroy
+          user_ingredient = find_user_ingredient
+          user_ingredient.destroy
+          render json: { message: "User Ingredient deleted" }, status: :ok
         end
     
         private
