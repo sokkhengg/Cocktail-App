@@ -3,7 +3,7 @@ import React from "react";
 function MyCocktailList() {
   return (
     <div>
-      <nav>List</nav>
+      <nav>Show all the Cocktail user have</nav>
     </div>
   );
 }

@@ -37,7 +37,7 @@ function LoginForm({ setCurrentUser }) {
     <>
       <Container>
         <Row>
-          <Col>LOGIN FORM</Col>
+          <Col></Col>
           <Col xs={6}>
             <Form onSubmit={(e) => handleLoginSubmit(e)}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -52,11 +52,11 @@ function LoginForm({ setCurrentUser }) {
               <Button variant="primary" type="submit">
                 Log in
               </Button>
-              <Button variant="primary" type="submit">
+              {/* <Button variant="primary" type="submit">
               <Link to="/signup" className="link">
               Sign Up
             </Link>
-              </Button>
+              </Button> */}
               {/* <Form.Group className="mb-3" controlId="formBasicLink">
 
               <p className="nav-links">

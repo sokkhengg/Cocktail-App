@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import SignupForm from './components/User/SignupForm';
 import Header from './components/Header/Header';
 import LoginForm from './components/User/LoginForm';
+import Form from './components/User/Form';
 import CocktailList from './components/Cocktails/CocktailList';
 import MyCocktailList from './components/Cocktails/MyCocktailList';
 import CocktailForm from './components/Cocktails/CocktailForm';
@@ -62,7 +63,7 @@ function App() {
       {/* {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> } */}
 
       <Switch>
-        <Route
+        {/* <Route
           path="/signup"
           component={() => (
             <SignupForm
@@ -70,12 +71,12 @@ function App() {
               currentUser={currentUser}
             />
           )}
-        />
+        /> */}
 
         <Route
           path="/login"
           component={() => (
-            <LoginForm
+            <Form
               setCurrentUser={setCurrentUser}
               currentUser={currentUser}
             />

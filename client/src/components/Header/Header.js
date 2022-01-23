@@ -39,7 +39,7 @@ function Header() {
 
           <li className="nav-links">
             <Link to="/login" className="link">
-              Login
+              Login/Signup
             </Link>
           </li>
 

@@ -1,7 +1,12 @@
 import { useState } from 'react';
-import './Form.css';
+// import './Form.css';
 import React, { Component } from 'react'
 import Select from 'react-select'
+import Button from 'react-bootstrap/esm/Button';
+import Container from 'react-bootstrap/esm/Container';
+import Row from 'react-bootstrap/esm/Row';
+import Col from 'react-bootstrap/esm/Col';
+import Form from 'react-bootstrap/Form';
 
 // refactor and styling using boostrap
 function CocktailForm({ ingredients }) {
@@ -19,6 +24,7 @@ function CocktailForm({ ingredients }) {
     const renamedObj = renameKeys(obj, newKeys);
     ingredients_array.push(renamedObj)
   }
+
   //console.log(ingredients_array)
   function renameKeys(obj, newKeys) {
     const keyValues = Object.keys(obj).map(key => {
@@ -58,24 +64,57 @@ function CocktailForm({ ingredients }) {
     });
   }
 
+  // style using react bootstrap
   return (
-    <div className='form'>
-      <section>
-        <form onSubmit={handleCocktailSubmit}>
+    <>
+      <Container>
+      <Row>
+          <Col></Col>
+          <Col xs={6}>
+
+    {/* <div className='form'> */}
+      {/* <section> */}
+        <Form onSubmit={handleCocktailSubmit}>
           <h4>Add a New Cocktail</h4>
-          <label htmlFor="name">Cocktail Name: </label>
+
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Cocktail Name:</Form.Label>
+                <Form.Control type="text" placeholder="Cocktail Name" />
+              </Form.Group>
+          {/* <label htmlFor="name">Cocktail Name: </label>
           <input
             required
             placeholder="Cocktail Name"
             type="text"
             title="name"
-          />
+          /> */}
 
-          <label htmlFor="category">Catgory: </label>
-          <select
+
+          {/* <label htmlFor="category">Category: </label> */}
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Category:</Form.Label>
+                <Form.Control type="text" placeholder="Category" />
+              </Form.Group>
+
+              <Form.Select aria-label="Default select example">
+  <option>Please Choose...</option>
+  <option value="Beer">Beer</option>
+            <option value="Cocktail">Cocktail</option>
+            <option value="Cocoa">Cocoa</option>
+            <option value="Coffee / Tea">Coffee / Tea</option>
+            <option value="Homemade Liqueur">Homemade Liqueur</option>
+            <option value="Milk / Float / Shake">Milk / Float / Shake</option>
+            <option value="Ordinary Drink">Ordinary Drink</option>
+            <option value="Other">Other</option>
+            <option value="Punch / Party Drink">Punch / Party Drink</option>
+            <option value="Shot">Shot</option>
+            <option value="Soft Drink / Soda">Soft Drink / Soda</option>
+</Form.Select>
+
+          {/* <select
             required
             name="category"
-            placeholder="Catgory"
+            placeholder="Category"
           >
             <option value="" disabled selected hidden>
               Please Choose...
@@ -91,45 +130,64 @@ function CocktailForm({ ingredients }) {
             <option value="Punch / Party Drink">Punch / Party Drink</option>
             <option value="Shot">Shot</option>
             <option value="Soft Drink / Soda">Soft Drink / Soda</option>
-          </select>
+          </select> */}
 
-          <label htmlFor="image">Image URL: </label>
+          {/* <label htmlFor="image">Image URL: </label>
           <input
             required
             placeholder="Image URL"
             type="text"
             title="image"
-          />
+          /> */}
+<br/>
+<Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Image URL:</Form.Label>
+                <Form.Control type="text" placeholder="Image URL" />
+              </Form.Group>
 
-          <label htmlFor="iba">IBA: </label>
+          {/* <label htmlFor="iba">IBA: </label>
           <input
             required
             placeholder="IBA"
             type="text"
             title="iba"
-          />
+          /> */}
 
-          <label htmlFor="glass">Glass Type: </label>
+<Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>IBA:</Form.Label>
+                <Form.Control type="text" placeholder="IBA" />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Glass Type:</Form.Label>
+                <Form.Control type="text" placeholder="Glass Type" />
+              </Form.Group>
+          {/* <label htmlFor="glass">Glass Type: </label>
           <input
             required
             placeholder="Glasstype"
             type="text"
             title="glass"
-          />
+          /> */}
 
-          <label htmlFor="instructions">Instructions: </label>
+<Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Instructions:</Form.Label>
+                <Form.Control type="text" placeholder="Instructions" />
+              </Form.Group>
+          {/* <label htmlFor="instructions">Instructions: </label>
           <textarea
-            rows="8"
+            rows="5"
             cols="50"
             required
             placeholder="Instructions"
             type="text"
-          />
+          /> */}
 
           <Select options={ingredients_array} />
 
           <label htmlFor="measure_1"></label>
           <input
+           rows="5"
             required
             placeholder="measure..."
             type="text"
@@ -185,11 +243,22 @@ function CocktailForm({ ingredients }) {
             type="text"
             title="measure_6"
           />
+<br/>
+<Button variant="primary" type="submit">
+Add Cocktail
+              </Button>
+          {/* <button>Add Cocktail</button> */}
+        </Form>
+      {/* </section> */}
+    {/* </div> */}
+    </Col>
 
-          <button>Add Cocktail</button>
-        </form>
-      </section>
-    </div>
+          <Col></Col>
+    </Row>
+    </Container>
+
+    </>
+
   );
 }
 

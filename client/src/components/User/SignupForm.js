@@ -51,6 +51,8 @@ function SignupForm({ setCurrentUser }) {
                 <Form.Label>Password</Form.Label>
                 <Form.Control type="password" placeholder="Password" />
               </Form.Group>
+              
+            <p>Click Sign Up to create a new account</p>
               <Button variant="primary" type="submit">
                 Sign Up
               </Button>
