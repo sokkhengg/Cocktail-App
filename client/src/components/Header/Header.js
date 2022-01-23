@@ -59,11 +59,11 @@ function Header({currentUser}) {
 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 <Navbar.Collapse id="responsive-navbar-nav">
   <Nav className="me-auto">
-    <Nav.Link href="/my-cocktails"> My Cocktails</Nav.Link>
-    <Nav.Link href="/cocktail-list">Cocktails</Nav.Link>
-    <Nav.Link href="/my-liquor-cabinet">My Liquor Cabinet</Nav.Link>
-    <Nav.Link href="/new-cocktail">New Cocktail</Nav.Link>
-    <Nav.Link href="/login">Login</Nav.Link>
+    <Nav.Link className="nav-links" href="/my-cocktails"> My Cocktails</Nav.Link>
+    <Nav.Link className="nav-links" href="/cocktail-list">Cocktails</Nav.Link>
+    <Nav.Link className="nav-links" href="/my-liquor-cabinet">My Liquor Cabinet</Nav.Link>
+    <Nav.Link className="nav-links" href="/new-cocktail">New Cocktail</Nav.Link>
+    <Nav.Link className="nav-links" href="/login">Login</Nav.Link>
 
 {/* need to figure out a ternary to decide what login links to display */}
     {/* {currentUser ? <p>logged in as {currentUser}</p> : <Nav.Link href="/login">Login</Nav.Link>}
