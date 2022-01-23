@@ -7,5 +7,7 @@ class User < ApplicationRecord
 
     validates :username, presence: true, uniqueness: true
     validates :username, length: { in: 3..30}
+
     validates :password, length: { in: 1..20, message: "Password should be between 8 and 20 characters." }
+
 end

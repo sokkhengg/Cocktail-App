@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
+
 
 function LoginForm({ setCurrentUser }) {
   function handleLoginSubmit(e) {
@@ -15,7 +17,7 @@ function LoginForm({ setCurrentUser }) {
       password: e.target[1].value,
     };
 
-    fetch('http://localhost:3000/login', {
+    fetch('login', {
       //hits the "login" endpoint aka "session#create"
       method: 'POST',
       headers: {
@@ -50,6 +52,19 @@ function LoginForm({ setCurrentUser }) {
               <Button variant="primary" type="submit">
                 Log in
               </Button>
+              <Button variant="primary" type="submit">
+              <Link to="/signup" className="link">
+              Sign Up
+            </Link>
+              </Button>
+              {/* <Form.Group className="mb-3" controlId="formBasicLink">
+
+              <p className="nav-links">
+            <Link to="/signup" className="link">
+              Sign Up
+            </Link>
+          </p>
+              </Form.Group> */}
             </Form>
           </Col>
           <Col></Col>

@@ -40,6 +40,7 @@ function Header() {
     //         </Link>
     //       </li>
 
+
     //       <li className="nav-links">
     //         <Link to="/login" className="link">
     //           Login
@@ -60,11 +61,13 @@ function Header() {
     <Nav.Link href="/my-liquor-cabinet">My Liquor Cabinet</Nav.Link>
     <Nav.Link href="/new-cocktail">New Cocktail</Nav.Link>
     <Nav.Link href="/login">Login</Nav.Link>
+    <Nav.Link href="/signup">Sign Up</Nav.Link>
   </Nav>
 </Navbar.Collapse>
 </Container>
 </Navbar>
 </>
+
   );
 }
 
