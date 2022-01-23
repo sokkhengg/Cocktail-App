@@ -2,7 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-function Header() {
+
+function Header({currentUser}) {
+
+
   return (
     <div className="header">
       <nav>
