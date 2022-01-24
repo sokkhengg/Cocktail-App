@@ -14,7 +14,7 @@ class CocktailsController < ApplicationController
 
     def create
         cocktail = Cocktail.create!(cocktail_params)
-        render json: cocktail, status: :created
+        render json: cocktail.id, status: :created
     end
 
     #come back later

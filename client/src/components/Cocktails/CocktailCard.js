@@ -16,9 +16,9 @@ function CocktailCard({cocktail}) {
 
 
   return (
-    <div>
-      <Card border="success" style={{ width: '18rem' }}>
-      <Link to={cocktail ? `/cocktails/${id}` :null} ><Card.Img variant="top" src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg" /></Link>
+    <>
+      <Card border="secondary" style={{  width: "18rem", margin: "10px" }} >
+      <Link to={cocktail ? `/cocktails/${id}` :null} ><Card.Img className="card-image-top" variant="top" style={{width: "109%"}} src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg" /></Link>
         <Card.Body>
           <Card.Title>{name} <span className='alcoholic'>{alcoholic}</span></Card.Title>
           <Card.Text>
@@ -27,7 +27,7 @@ function CocktailCard({cocktail}) {
           <Link to={cocktail ? `/cocktails/${id}` :null} >Make a {name}</Link>
         </Card.Body>
       </Card>
-    </div>
+    </>
   );
 }
 

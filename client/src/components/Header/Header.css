@@ -9,6 +9,10 @@
   z-index: 999;
 }
 
+.nav-container {
+  justify-content: space-around;
+}
+
 /* testing the style might use bootstrap later */
 .form {
   display: flex;
@@ -44,12 +48,15 @@
       .nav-links {
         color: white;
         cursor: pointer;
+        text-decoration: none;
+        margin-right: 10px;
         }
 
       .link {
           text-decoration: none;
           color: white;
           cursor: pointer;
+          text-decoration: none;
       }
       
       .nav-links:hover {

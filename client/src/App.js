@@ -36,7 +36,7 @@ function App() {
       .then((cocktails) => setCocktails(cocktails));
   }, []);
 
-  console.log(cocktails)
+  //console.log(cocktails)
 
   //Filters cocktails
   // const [cocktailFilter, setCocktailFilter] = useState('');
@@ -53,7 +53,7 @@ function App() {
   }, []);
 
 
-  console.log(cocktails)
+  //console.log(cocktails)
 
   return (
     <div className="App">

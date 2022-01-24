@@ -1,7 +1,9 @@
-
-   
 .alcoholic {
     color: green;
     font-size: .5em;
     vertical-align: text-top;
+}
+
+.card-img-top {
+    margin-left: -12px;
 }
