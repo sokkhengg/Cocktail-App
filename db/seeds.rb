@@ -53,13 +53,36 @@ csv.each do |row|
   t.measure_5 = row['measure_5']
   t.measure_6 = row['measure_6']
 
-
   t.save
-  puts "#{t.name} saved"
 end
 
-puts "There are now #{Cocktail.count} rows in the cocktails table"
- 
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'Cocktail App Data - Final - Cleaned Cocktails.csv'))
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+csv.each do |row|
+  cocktail = Cocktail.find_or_create_by(name:row['cocktail_name'])
+
+  ingredient_1_name = Ingredient.find_or_create_by(name:row['ingredient_1_name'])
+  ingredient_2_name = Ingredient.find_or_create_by(name:row['ingredient_2_name'])
+  ingredient_3_name = Ingredient.find_or_create_by(name:row['ingredient_3_name'])
+  ingredient_4_name = Ingredient.find_or_create_by(name:row['ingredient_4_name'])
+  ingredient_5_name = Ingredient.find_or_create_by(name:row['ingredient_5_name'])
+  ingredient_6_name = Ingredient.find_or_create_by(name:row['ingredient_6_name'])
+
+  measure_1 = row['measure_1']
+  measure_2 = row['measure_2']
+  measure_3 = row['measure_3']
+  measure_4 = row['measure_4']
+  measure_5 = row['measure_5']
+  measure_6 = row['measure_6']
+
+  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_1_name, measure:measure_1)
+  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_2_name, measure:measure_2)
+  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_3_name, measure:measure_3)
+  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_4_name, measure:measure_4)
+  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_5_name, measure:measure_5)
+  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_6_name, measure:measure_6)
+
+end 
 
 user0 = User.create(username: "Sean", password:"asdf")
 user1 = User.create(username: "Sok", password:"asdf")
@@ -71,32 +94,6 @@ UserCocktail.create(user_id: 3, cocktail_id:3)
 UserCocktail.create(user_id: 3, cocktail_id:4)
 UserCocktail.create(user_id: 3, cocktail_id:5)
 UserCocktail.create(user_id: 3, cocktail_id:6)
-
-
-# added by some method on the backend....?
-# user_cocktail1 = UserCocktail.create(user_id: 1, cocktail_id: 1)
-# user_cocktail2 = UserCocktail.create(user_id: 1, cocktail_id: 2)
-# user_cocktail3 = UserCocktail.create(user_id: 2, cocktail_id: 1)
-# user_cocktail4 = UserCocktail.create(user_id: 3, cocktail_id: 1)
-# user_cocktail5 = UserCocktail.create(user_id: 3, cocktail_id: 2)
-
-# This will be added by logged in users, no need to seed?
-# user_ingredient1 = UserIngredient.create(user_id: 1, ingredient_id: 1)
-# user_ingredient2 = UserIngredient.create(user_id: 1, ingredient_id: 5)
-# user_ingredient3 = UserIngredient.create(user_id: 2, ingredient_id: 3)
-# user_ingredient4 = UserIngredient.create(user_id: 2, ingredient_id: 3)
-# user_ingredient5 = UserIngredient.create(user_id: 3, ingredient_id: 1)
-# user_ingredient6 = UserIngredient.create(user_id: 3, ingredient_id: 2)
-# user_ingredient7 = UserIngredient.create(user_id: 3, ingredient_id: 3)
-
-#how do we seed this????????
-# cocktail_ingredient1 = CocktailIngredient.create(cocktail_id:1, ingredient_id:2)
-# cocktail_ingredient2 = CocktailIngredient.create(cocktail_id:1, ingredient_id:1)
-# cocktail_ingredient3 = CocktailIngredient.create(cocktail_id:1, ingredient_id:4)
-# cocktail_ingredient4 = CocktailIngredient.create(cocktail_id:2, ingredient_id:5)
-# cocktail_ingredient5 = CocktailIngredient.create(cocktail_id:2, ingredient_id:2)
-# cocktail_ingredient6 = CocktailIngredient.create(cocktail_id:2, ingredient_id:4)
-
 
 
 puts "Seeds Planted. Drink up"

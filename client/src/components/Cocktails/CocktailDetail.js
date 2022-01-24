@@ -28,16 +28,16 @@ function CocktailDetail({}) {
       // checks each ingredient (individually) in this cocktail against those,
       // if the user has that ingredient the ternary(ln50) displays a ✅ emoji
 
-        // useEffect(() => {
-        //   // fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
-        //   fetch(`http://localhost:3000/user_ingredients/1`) //hardcoded for ease of testing! replace with your user_id
-        //     .then((r) => r.json())
-        //     .then((r) => setCurrentUserIngredients(r));
-        // }, []);
+        useEffect(() => {
+          // fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
+          fetch(`http://localhost:3000/user_ingredients/1`) //hardcoded for ease of testing! replace with your user_id
+            .then((r) => r.json())
+            .then((r) => setCurrentUserIngredients(r));
+        }, []);
 
-        // const found1 = currentUserIngredients.find(i => i.ingredient.name === ingredient_1_name)
+        const found1 = currentUserIngredients.find(i => i.ingredient.name === ingredient_1_name)
 
-        const found1 = true //remove this line when testing!
+        // const found1 = true //remove this line when testing!
 
   return (
     <div>
