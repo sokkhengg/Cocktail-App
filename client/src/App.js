@@ -39,10 +39,10 @@ function App() {
   //console.log(cocktails)
 
   //Filters cocktails
-  // const [cocktailFilter, setCocktailFilter] = useState('');
+  // const [cocktailSearch, setCocktailSearch] = useState('');
 
   // const cocktailsToDisplay = cocktails.filter((cocktail) => {
-  //   cocktail.name.toLowerCase().includes(cocktailFilter.toLowerCase());
+  //   cocktail.name.toLowerCase().includes(cocktailSearch.toLowerCase());
   // })
 
   // grabs all ingredients from the backend, for use in various forms
@@ -89,7 +89,7 @@ function App() {
           )}
         />
 
-        <Route path="/cocktail-list" component={() => <CocktailList cocktails={cocktails}/>} />
+        <Route path="/cocktail-list" component={() => <CocktailList cocktails={cocktails} />} />
 
         <Route path="/my-cocktail-list" component={() => <MyCocktailList />} />
 

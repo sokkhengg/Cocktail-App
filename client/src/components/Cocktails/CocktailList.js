@@ -7,10 +7,11 @@ import CocktailCard from "./CocktailCard"
 function CocktailList({cocktails}) {
   return (
     <>
-
-    {/* <Row>
-    <Col></Col>
-    <Col xs={12}> */}
+      {/* <input
+        type="text"
+        placeholder="Search..."
+        onChange={(e) => setCocktailSearch(e.target.value)}
+      /> */}
     <Container>
         <Row
           xs={1}
@@ -23,11 +24,7 @@ function CocktailList({cocktails}) {
             )) : null}
           </Row>
           </Container>
-          {/* </Col>
-    <Col></Col> */}
-  {/* </Row> */}
-  
-        
+          
       </>
   );
 }
