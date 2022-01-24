@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 function CocktailDetail({}) {
 
     const [cocktail, setCocktail] = useState([]);
+    const [currentUserIngredients, setCurrentUserIngredients] = useState([]);
 
     const { id } = useParams();
 
@@ -23,7 +24,20 @@ function CocktailDetail({}) {
         ingredient_5_id, ingredient_6_id, measure_1, measure_2, measure_3, measure_4,
         measure_5, measure_6 } = cocktail
 
-        
+      // Grabs the current users's ingredients,
+      // checks each ingredient (individually) in this cocktail against those,
+      // if the user has that ingredient the ternary(ln50) displays a ✅ emoji
+
+        // useEffect(() => {
+        //   // fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
+        //   fetch(`http://localhost:3000/user_ingredients/1`) //hardcoded for ease of testing! replace with your user_id
+        //     .then((r) => r.json())
+        //     .then((r) => setCurrentUserIngredients(r));
+        // }, []);
+
+        // const found1 = currentUserIngredients.find(i => i.ingredient.name === ingredient_1_name)
+
+        const found1 = true //remove this line when testing!
 
   return (
     <div>
@@ -33,12 +47,13 @@ function CocktailDetail({}) {
           <Card.Title>{name}</Card.Title>
           <Card.Text>
             <ul>
-                {ingredient_1_id ? <li>{ingredient_1_name}  *{measure_1}</li> : null}
-                {ingredient_2_id ? <li>{ingredient_2_name}  *{measure_2}</li> : null}
-                {ingredient_3_id ? <li>{ingredient_3_name}  *{measure_3}</li> : null}
-                {ingredient_4_id ? <li>{ingredient_4_name}  *{measure_4}</li> : null}
-                {ingredient_5_id ? <li>{ingredient_5_name}  *{measure_6}</li> : null}
-                {ingredient_6_id ? <li>{ingredient_6_name}  *{measure_6}</li> : null}
+                {ingredient_1_id ? <li>{measure_1} {ingredient_1_name} {found1 ? "✅" : null}</li> : null}
+                {ingredient_2_id ? <li>{measure_2} {ingredient_2_name}</li> : null}
+                {ingredient_3_id ? <li>{measure_3} {ingredient_3_name}</li> : null}
+                {ingredient_4_id ? <li>{measure_4} {ingredient_4_name}</li> : null}
+                {ingredient_5_id ? <li>{measure_6} {ingredient_5_name}</li> : null}
+                {ingredient_6_id ? <li>{measure_6} {ingredient_6_name}</li> : null}
+
             </ul>
             <p>{instructions}</p>
           </Card.Text>

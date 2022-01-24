@@ -8,7 +8,7 @@ import './Header.css';
 function Header({currentUser}) {
 
 
-  console.log(currentUser)
+  //console.log(currentUser)
   return (
     // <div className="header">
     //   <nav>
