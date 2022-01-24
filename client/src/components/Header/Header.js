@@ -53,18 +53,23 @@ function Header({currentUser}) {
     //   </nav>
     // </div>
 <>
-<Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+<Navbar className='sticky-top' collapseOnSelect expand="md" bg="dark" variant="dark">
 <Container>
-<Navbar.Brand href="/home">Cocktail App</Navbar.Brand>
+<Navbar.Brand path="/home">Cocktail App</Navbar.Brand>
 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 <Navbar.Collapse id="responsive-navbar-nav">
-  <Nav className="me-auto">
-    <Nav.Link className="nav-links" href="/my-cocktails"> My Cocktails</Nav.Link>
-    <Nav.Link className="nav-links" href="/cocktail-list">Cocktails</Nav.Link>
-    <Nav.Link className="nav-links" href="/my-liquor-cabinet">My Liquor Cabinet</Nav.Link>
-    <Nav.Link className="nav-links" href="/new-cocktail">New Cocktail</Nav.Link>
-    <Nav.Link className="nav-links" href="/login">Login</Nav.Link>
+  <Nav className="nav-container">
+  <Link className="nav-links" to="/my-cocktails"> My Cocktails</Link>
+    <Link className="nav-links" to="/cocktail-list">Cocktails</Link>
+    <Link className="nav-links" to="/my-liquor-cabinet">My Liquor Cabinet</Link>
+    <Link className="nav-links" to="/new-cocktail">New Cocktail</Link>
+    <Link className="nav-links" to="/login">Login</Link>
 
+
+
+    {/* testing tabs from react bootstrap    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3"    {/* <Nav.Link className="nav-links" href="/new-cocktail">New Cocktail</Nav.Link>> */}
+
+{/* </Tabs */}
 {/* need to figure out a ternary to decide what login links to display */}
     {/* {currentUser ? <p>logged in as {currentUser}</p> : <Nav.Link href="/login">Login</Nav.Link>}
     {currentUser ? null : <Nav.Link href="/signup">Sign Up</Nav.Link>} */}

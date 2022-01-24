@@ -52,19 +52,19 @@ function LoginForm({ setCurrentUser }) {
               <Button variant="primary" type="submit">
                 Log in
               </Button>
-              {/* <Button variant="primary" type="submit">
+             <Button variant="primary" type="submit">
               <Link to="/signup" className="link">
               Sign Up
             </Link>
-              </Button> */}
-              {/* <Form.Group className="mb-3" controlId="formBasicLink">
+              </Button>
+              <Form.Group className="mb-3" controlId="formBasicLink">
 
               <p className="nav-links">
             <Link to="/signup" className="link">
               Sign Up
             </Link>
           </p>
-              </Form.Group> */}
+              </Form.Group>
             </Form>
           </Col>
           <Col></Col>
