@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import Select from 'react-select';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Select from "react-select";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
-function AddNewIngredient({ ingredients, currentUser }) {
-  const [ingredientToAdd, setIngredientToAdd] = useState('');
-  const [addedIngredient, setAddedIngredient] = useState('');
+function AddNewIngredient({ ingredients, currentUser, ingredientsUpdated, setIngredientsUpdated }) {
+  const [ingredientToAdd, setIngredientToAdd] = useState("");
+  const [addedIngredient, setAddedIngredient] = useState("");
+  const [duplicatedIngredientError, setDuplicatedIngredientError] = useState("")
 
-  const newKeys = { id: 'value', name: 'label' };
+  const newKeys = { id: "value", name: "label" };
   const ingredients_array = [];
   for (let i = 0; i < ingredients.length; i++) {
     const obj = ingredients[i];
@@ -27,27 +28,32 @@ function AddNewIngredient({ ingredients, currentUser }) {
 
   function handleSubmitUserIngredients(e) {
     e.preventDefault();
-    console.log(ingredientToAdd);
-
-    const user_id = currentUser.id;
-    const ingredient_id = ingredientToAdd.value;
 
     const newUserIngredient = {
-      user_id: user_id,
-      ingredient_id: ingredient_id,
+      user_id: currentUser.id,
+      ingredient_id: ingredientToAdd.value,
     };
 
     fetch(`http://localhost:3000/user_ingredients/`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(newUserIngredient),
     })
-      .then((r) => r.json())
       .then((r) => {
-        console.log(r);
-        setAddedIngredient(r);
+        if (r.ok) {
+          r.json().then((ingredient) => {
+            setIngredientsUpdated(!ingredientsUpdated)
+            setAddedIngredient(ingredient);
+            setTimeout(() => {setAddedIngredient("")}, 3000);
+            });
+        } else {
+          r.json().then((err) => {
+            setDuplicatedIngredientError(err)
+            setTimeout(() => {setDuplicatedIngredientError("")}, 3000); //deletes the error message after 3 seconds
+          });
+        }
       });
   }
 
@@ -61,21 +67,32 @@ function AddNewIngredient({ ingredients, currentUser }) {
         <Row>
           <Col></Col>
           <Col xs={6}>
-            <Form onSubmit={(e) => handleSubmitUserIngredients(e)}>
-              <Select
-                options={ingredients_array}
-                onChange={(e) => handleSelectChange(e)}
-              />
-              <Button variant="primary" type="submit">
-                I Have It!
-              </Button>
+            <Form onSubmit={(e) => handleSubmitUserIngredients(e)} className="text-center">
+              <Row>
+                <Col xs={10}>
+                  <Select
+                    options={ingredients_array}
+                    onChange={(e) => handleSelectChange(e)}
+                  />
+                </Col>
+                <Col>
+                  <Button variant="primary" type="submit">
+                    Add
+                  </Button>
+                </Col>
+                <Col>
+                <br />
+                {addedIngredient ? <p>🎉 &nbsp;&nbsp;Added {addedIngredient.name}!</p> : null}
+                {duplicatedIngredientError ? <p>You already added that!</p> : null}
+                </Col>
+              </Row>
             </Form>
           </Col>
           <Col></Col>
         </Row>
       </Container>
 
-      {addedIngredient ? <p>You added {addedIngredient.name}</p> : null}
+      
     </div>
   );
 }

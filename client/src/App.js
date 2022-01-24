@@ -14,6 +14,7 @@ import CocktailDetail from './components/Cocktails/CocktailDetail';
 function App() {
   // state for the current logged in use, set in the useEffect & fetch below
   const [currentUser, setCurrentUser] = useState('');
+
   const [ingredients, setIngredients] = useState('');
   const [cocktails, setCocktails] = useState('');
 

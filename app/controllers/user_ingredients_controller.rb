@@ -9,13 +9,21 @@ class UserIngredientsController < ApplicationController
     
         #get all ingredients belonging to the current user
         def show
-          this_users_ingredients = UserIngredient.all.where(:user_id => params[:id])  
+          this_users_ingredients = UserIngredient.all.where(:user_id => params[:id]).order(:ingredient_id)  
           render json: this_users_ingredients, include: [:ingredient]
         end
     
         def create
-          new_user_ingredient = UserIngredient.create!(user_ingredient_params)
-          render json: new_user_ingredient.ingredient, status: :created
+          user = UserIngredient.find_by_user_id(params[:user_id])
+          ingredient = UserIngredient.find_by_ingredient_id(params[:ingredient_id])
+
+          if user && ingredient #checks to see if the user already has this ingredient
+            render json: {"message: " => "You can't add the same ingredient twice"}, status: :conflict
+          else
+            new_user_ingredient = UserIngredient.create!(user_ingredient_params)
+            render json: new_user_ingredient.ingredient, status: :created
+          end
+
         end
 
         def destroy
