@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_01_20_221848) do
   create_table "cocktail_ingredients", force: :cascade do |t|
     t.bigint "ingredient_id"
     t.bigint "cocktail_id"
+    t.string "measure"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cocktail_id"], name: "index_cocktail_ingredients_on_cocktail_id"

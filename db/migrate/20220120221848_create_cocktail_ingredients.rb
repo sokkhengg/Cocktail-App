@@ -3,7 +3,8 @@ class CreateCocktailIngredients < ActiveRecord::Migration[6.1]
     create_table :cocktail_ingredients do |t|
       t.references :ingredient
       t.references :cocktail
-      
+
+      t.string :measure
       t.timestamps
     end
   end
