@@ -55,7 +55,7 @@ function Header({currentUser}) {
 <>
 <Navbar className='sticky-top' collapseOnSelect expand="md" bg="dark" variant="dark">
 <Container>
-<Navbar.Brand path="/home">Cocktail App</Navbar.Brand>
+<Navbar.Brand path="/home" className='title'>Cocktail App</Navbar.Brand>
 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 <Navbar.Collapse id="responsive-navbar-nav">
   <Nav className="nav-container">

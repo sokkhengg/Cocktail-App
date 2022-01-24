@@ -57,14 +57,6 @@ function LoginForm({ setCurrentUser }) {
               Sign Up
             </Link>
               </Button>
-              <Form.Group className="mb-3" controlId="formBasicLink">
-
-              <p className="nav-links">
-            <Link to="/signup" className="link">
-              Sign Up
-            </Link>
-          </p>
-              </Form.Group>
             </Form>
           </Col>
           <Col></Col>
