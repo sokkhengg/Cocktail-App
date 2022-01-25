@@ -5,36 +5,57 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import CocktailCard from "./CocktailCard";
 import Pagination from "react-bootstrap/Pagination";
+import Form from "react-bootstrap/Form";
 
 function CocktailList({ currentUser }) {
+  const [cocktails, setCocktails] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalCocktails, setTotalCocktails] = useState();
+  const [resultsPerPage, setResultsPerPage] = useState(24);
 
-  const [cocktails, setCocktails] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1)
 
-   //grabs all cocktails
-  //  page take a couple second beofore loading the cocktails that user want to make
-   useEffect(() => {
-    fetch(`/cocktails?per_page=24&page=${currentPage}`)
+  //grabs all cocktails
+  useEffect(() => {
+    fetch(`/cocktails?per_page=${resultsPerPage}&page=${currentPage}`)
       .then((r) => r.json())
       .then((cocktails) => {
-        console.log(cocktails)
-        setCocktails(cocktails)
-      });
-  }, []);
+        setCocktails(cocktails);
+  }, [currentPage, resultsPerPage]);
+
+  useEffect(() => {
+    fetch(`/cocktail-total`)
+      .then((r) => r.json())
+      .then((r) => setTotalCocktails(r));
+  }, [resultsPerPage]);
 
   function handleNextClick() {
-    setCurrentPage(currentPage + 1)
+    setCurrentPage(currentPage + 1);
   }
 
   function handlePreviousClick() {
-    if (currentPage >= 2)
-      setCurrentPage(currentPage - 1)
-    else
-      console.log("can't go back anymore!")
+    setCurrentPage(currentPage - 1);
   }
 
   function handlePageClick(page) {
-    setCurrentPage(parseInt(page.target.text))
+    setCurrentPage(parseInt(page.target.text));
+  }
+
+
+  function handleResultsPerPage(e) {
+    setResultsPerPage(parseInt(e.target.value));
+  }
+
+  let items = [];
+  for (let number = 1; number <= Math.ceil(totalCocktails / resultsPerPage ); number++) {
+    items.push(
+      <Pagination.Item
+        key={number}
+        active={number === currentPage}
+        onClick={handlePageClick}
+      >
+        {number}
+      </Pagination.Item>
+    );
   }
 
 //   const [cocktailSearch, setCocktailSearch] = useState('');
@@ -50,24 +71,36 @@ function CocktailList({ currentUser }) {
 
   return (
     <>
-<Container>
-      <Row>
-        <Col></Col>
-        <Col xs={10} flex className="d-flex justify-content-center">
-          <Pagination>
-            {currentPage === 1 ? <Pagination.Prev disabled /> : <Pagination.Prev onClick={handlePreviousClick} /> }
-
-            {currentPage === 1 ? <Pagination.Item active>{1}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{1}</Pagination.Item>}
-            {currentPage === 2 ? <Pagination.Item active>{2}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{2}</Pagination.Item>}
-            {currentPage === 3 ? <Pagination.Item active>{3}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{3}</Pagination.Item>}
-            {currentPage === 4 ? <Pagination.Item active>{4}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{4}</Pagination.Item>}
-            {currentPage === 5 ? <Pagination.Item active>{5}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{5}</Pagination.Item>}
-
-            <Pagination.Next onClick={handleNextClick} />
-          </Pagination>
-        </Col>
-        <Col></Col>
-      </Row>
+      <Container id="top-pagination">
+        <Row>
+          <Col>
+            <Form.Select
+              aria-label="Results per page"
+              onChange={handleResultsPerPage}
+            >
+              <option>Results per page</option>
+              <option value="24">24</option>
+              <option value="48">48</option>
+              <option value="72">72</option>
+            </Form.Select>
+          </Col>
+          <Col xs={10} flex className="d-flex justify-content-center">
+            <Pagination>
+              {currentPage === 1 ? (
+                <Pagination.Prev disabled />
+              ) : (
+                <Pagination.Prev onClick={handlePreviousClick} />
+              )}
+              <Pagination>{items}</Pagination>
+              {currentPage === Math.ceil(totalCocktails / 24) ? (
+                <Pagination.Next disabled />
+              ) : (
+                <Pagination.Next onClick={handleNextClick} />
+              )}
+            </Pagination>
+          </Col>
+          <Col></Col>
+        </Row>
       </Container>
 
       {/* <div >
@@ -87,30 +120,36 @@ function CocktailList({ currentUser }) {
         >
           {cocktails
             ? cocktails.map((cock) => (
-                <CocktailCard key={cock.id} cocktail={cock} currentUser={currentUser} />
+                <CocktailCard
+                  key={cock.id}
+                  cocktail={cock}
+                  currentUser={currentUser}
+                />
               ))
             : null}
         </Row>
       </Container>
 
       <Container>
-      <Row>
-        <Col></Col>
-        <Col xs={10} flex className="d-flex justify-content-center">
-          <Pagination>
-            {currentPage === 1 ? <Pagination.Prev disabled /> : <Pagination.Prev onClick={handlePreviousClick} /> }
-
-            {currentPage === 1 ? <Pagination.Item active>{1}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{1}</Pagination.Item>}
-            {currentPage === 2 ? <Pagination.Item active>{2}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{2}</Pagination.Item>}
-            {currentPage === 3 ? <Pagination.Item active>{3}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{3}</Pagination.Item>}
-            {currentPage === 4 ? <Pagination.Item active>{4}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{4}</Pagination.Item>}
-            {currentPage === 5 ? <Pagination.Item active>{5}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{5}</Pagination.Item>}
-
-            <Pagination.Next onClick={handleNextClick} />
-          </Pagination>
-        </Col>
-        <Col></Col>
-      </Row>
+        <Row>
+          <Col></Col>
+          <Col xs={10} flex className="d-flex justify-content-center">
+            <Pagination>
+              {currentPage === 1 ? (
+                <Pagination.Prev disabled />
+              ) : (
+                <Pagination.Prev onClick={handlePreviousClick} />
+              )}
+              <Pagination>{items}</Pagination>
+              {currentPage === Math.ceil(totalCocktails / 24) ? (
+                <Pagination.Next disabled />
+              ) : (
+                <Pagination.Next onClick={handleNextClick} />
+              )}
+            </Pagination>
+          </Col>
+          <Col></Col>
+        </Row>
       </Container>
     </>
   );

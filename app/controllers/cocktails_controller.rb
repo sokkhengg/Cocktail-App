@@ -20,6 +20,11 @@ class CocktailsController < ApplicationController
         render json: cocktail.id, status: :created
     end
 
+    def total
+        total = Cocktail.count
+        render json: total, status: :ok
+    end
+
     #come back later
     def destroy
         cocktail = find_cocktail

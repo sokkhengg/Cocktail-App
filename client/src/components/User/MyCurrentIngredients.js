@@ -12,6 +12,7 @@ function MyCurrentIngredients({
   ingredientsUpdated,
   setIngredientsUpdated,
 }) {
+
   useEffect(() => {
     // fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
     fetch(`http://localhost:3000/user_ingredients/1`) //hardcoded for ease of testing! replace with your user_id
@@ -46,7 +47,7 @@ function MyCurrentIngredients({
         >
           <ListGroup as="ul" variant="flush">
             {currentIngredients.length > 0
-              ? currentIngredients.map((ingredient) => {
+              ? currentIngredients.filter(i => i.ingredient.id !== 289 ).map((ingredient) => {
                   return (
                     <>
                       <ListGroup.Item

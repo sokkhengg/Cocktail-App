@@ -19,9 +19,7 @@ class UserCocktailsController < ApplicationController
             end
 
         end
-        
         render json: cocktails
     end
-
 
 end

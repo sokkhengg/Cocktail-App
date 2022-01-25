@@ -66,5 +66,23 @@
      border-bottom: red;
      border-color: red;
      border: solid;
-     width: 100%;
+    width: 100%;
+  }
+
+  .page-item {
+    color: #053538 !important;
+    border: red !important
+  }
+
+  .page-link {
+    color: #595959 !important;
+    background-color: #fafafa !important;
+  }
+
+  .page-item.active {
+    background-color: #ddca3f !important;
+  }
+
+  #top-pagination {
+    margin-top: 20px
   }
