@@ -20,7 +20,7 @@ function CocktailList({ currentUser }) {
       .then((r) => r.json())
       .then((cocktails) => {
         setCocktails(cocktails);
-  }, [currentPage, resultsPerPage]);
+  })}, [currentPage, resultsPerPage]);
 
   useEffect(() => {
     fetch(`/cocktail-total`)
