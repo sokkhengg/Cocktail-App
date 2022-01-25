@@ -12,6 +12,7 @@ User.destroy_all
 puts "Replanting Seeds"
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Cocktail App Data - Final - Ingredients.csv'))
+
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
     t = Ingredient.new
@@ -21,7 +22,9 @@ csv.each do |row|
 
 puts "There are now #{Ingredient.count} rows in the ingredients table"
 
+
 puts "Adding cocktails"
+
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Cocktail App Data - Final - Cleaned Cocktails.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
