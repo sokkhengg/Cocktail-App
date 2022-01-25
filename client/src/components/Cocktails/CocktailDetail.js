@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from 'react-bootstrap/Card'
+import Image from 'react-bootstrap/Image'
 import { Link } from 'react-router-dom';
 import { useParams } from "react-router-dom";
 
@@ -36,29 +37,31 @@ function CocktailDetail({}) {
         }, []);
 
         const found1 = currentUserIngredients.find(i => i.ingredient.name === ingredient_1_name)
+        const found2 = currentUserIngredients.find(i => i.ingredient.name === ingredient_2_name)
+        const found3 = currentUserIngredients.find(i => i.ingredient.name === ingredient_3_name)
+        const found4 = currentUserIngredients.find(i => i.ingredient.name === ingredient_4_name)
+        const found5 = currentUserIngredients.find(i => i.ingredient.name === ingredient_5_name)
+        const found6 = currentUserIngredients.find(i => i.ingredient.name === ingredient_6_name)
 
         // const found1 = true //remove this line when testing!
 
   return (
-    <div>
-      <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg" />
-        <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Text>
-            <ul>
-                {ingredient_1_id ? <li>{measure_1} {ingredient_1_name} {found1 ? "✅" : null}</li> : null}
-                {ingredient_2_id ? <li>{measure_2} {ingredient_2_name}</li> : null}
-                {ingredient_3_id ? <li>{measure_3} {ingredient_3_name}</li> : null}
-                {ingredient_4_id ? <li>{measure_4} {ingredient_4_name}</li> : null}
-                {ingredient_5_id ? <li>{measure_6} {ingredient_5_name}</li> : null}
-                {ingredient_6_id ? <li>{measure_6} {ingredient_6_name}</li> : null}
+    <div className='detail-container'>
+        <img className="cocktail-image" src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg" alt={name}/>
+          <h1>{name} <span className='alcoholic'>{alcoholic}</span></h1>
+          <h6>{category}</h6>
+          {iba? <p>{iba}</p> : null}
+          {glass? <p>{glass}</p> : null}
 
-            </ul>
+            <ul>
+                  {ingredient_1_id ? <li>{measure_1} {ingredient_1_name} {found1 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                  {ingredient_2_id ? <li>{measure_2} {ingredient_2_name} {found2 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                  {ingredient_3_id ? <li>{measure_3} {ingredient_3_name} {found3 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                  {ingredient_4_id ? <li>{measure_4} {ingredient_4_name} {found4 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                  {ingredient_5_id ? <li>{measure_6} {ingredient_5_name} {found5 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                  {ingredient_6_id ? <li>{measure_6} {ingredient_6_name} {found6 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+              </ul>
             <p>{instructions}</p>
-          </Card.Text>
-        </Card.Body>
-      </Card>
     </div>
   );
 }

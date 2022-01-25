@@ -4,6 +4,55 @@
     vertical-align: text-top;
 }
 
+.have {
+    color: green;
+    font-size: .5em;
+    vertical-align: text-top;
+}
+
+.need {
+    color: red;
+    font-size: .5em;
+    vertical-align: text-top;
+}
+
 .card-img-top {
     margin-left: -12px;
 }
+
+.make {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+  .make:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+    color: white;
+  }
+
+  button {
+      background-color: maroon;
+      border-radius: 20%;
+      border-color: black ;
+  }
+
+  .cocktail-image {
+      border-radius: 15%;
+      width: 400px;
+      height: auto;
+      padding: 15px;
+  }
+
+  .detail-container {
+      text-align: center;
+      margin: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+  }

@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import SignupForm from './components/User/SignupForm';
 import Header from './components/Header/Header';
-import LoginForm from './components/User/LoginForm';
+import Form from './components/User/Form';
 import CocktailList from './components/Cocktails/CocktailList';
 import MyCocktailList from './components/Cocktails/MyCocktailList';
 import CocktailForm from './components/Cocktails/CocktailForm';
@@ -25,7 +25,7 @@ function App() {
     fetch('auth') // hits the auth endpoint aka users#show in the UsersController
       .then((res) => {
         if (res.ok) {
-          res.json().then((user) => setCurrentUser(user)); // sets the state
+          res.json().then((user) => setCurrentUser([user])); // sets the state
         }
       });
   }, []);
@@ -83,7 +83,7 @@ function App() {
         <Route
           path="/login"
           component={() => (
-            <LoginForm
+            <Form
               setCurrentUser={setCurrentUser}
               currentUser={currentUser}
             />

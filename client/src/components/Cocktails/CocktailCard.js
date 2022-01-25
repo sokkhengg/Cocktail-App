@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import './Cocktail.css';
 import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
 function CocktailCard({cocktail}) {
@@ -14,6 +16,24 @@ function CocktailCard({cocktail}) {
     ingredient_5_id, ingredient_6_id, measure_1, measure_2, measure_3, measure_4,
     measure_5, measure_6 } = cocktail
 
+  
+    const [currentUserIngredients, setCurrentUserIngredients] = useState([]);
+
+    // const { id } = useParams();
+
+    useEffect(() => {
+      // fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
+      fetch(`http://localhost:3000/user_ingredients/1`) //hardcoded for ease of testing! replace with your user_id
+        .then((r) => r.json())
+        .then((r) => setCurrentUserIngredients(r));
+    }, []);
+
+    const found1 = currentUserIngredients.find(i => i.ingredient.name === ingredient_1_name)
+    const found2 = currentUserIngredients.find(i => i.ingredient.name === ingredient_2_name)
+    const found3 = currentUserIngredients.find(i => i.ingredient.name === ingredient_3_name)
+    const found4 = currentUserIngredients.find(i => i.ingredient.name === ingredient_4_name)
+    const found5 = currentUserIngredients.find(i => i.ingredient.name === ingredient_5_name)
+    const found6 = currentUserIngredients.find(i => i.ingredient.name === ingredient_6_name)
 
   return (
     <>
@@ -22,9 +42,16 @@ function CocktailCard({cocktail}) {
         <Card.Body>
           <Card.Title>{name} <span className='alcoholic'>{alcoholic}</span></Card.Title>
           <Card.Text>
-            {instructions}
+            <ul>
+                {ingredient_1_id ? <li>{measure_1} {ingredient_1_name} {found1 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                {ingredient_2_id ? <li>{measure_2} {ingredient_2_name} {found2 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                {ingredient_3_id ? <li>{measure_3} {ingredient_3_name} {found3 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                {ingredient_4_id ? <li>{measure_4} {ingredient_4_name} {found4 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                {ingredient_5_id ? <li>{measure_6} {ingredient_5_name} {found5 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+                {ingredient_6_id ? <li>{measure_6} {ingredient_6_name} {found6 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
+            </ul>
           </Card.Text>
-          <Link to={cocktail ? `/cocktails/${id}` :null} >Make a {name}</Link>
+          <Button variant="success"><Link className='make' to={cocktail ? `/cocktails/${id}` :null} >Make a {name}</Link></Button>
         </Card.Body>
       </Card>
     </>
@@ -32,3 +59,8 @@ function CocktailCard({cocktail}) {
 }
 
 export default CocktailCard;
+
+
+
+               
+             
