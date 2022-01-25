@@ -6,12 +6,13 @@ import Col from "react-bootstrap/Col";
 import CocktailCard from "./CocktailCard";
 import Pagination from "react-bootstrap/Pagination";
 
-function CocktailList({ }) {
+function CocktailList({ currentUser }) {
 
   const [cocktails, setCocktails] = useState([]);
   const [currentPage, setCurrentPage] = useState(1)
 
    //grabs all cocktails
+  //  page take a couple second beofore loading the cocktails that user want to make
    useEffect(() => {
     fetch(`/cocktails?per_page=24&page=${currentPage}`)
       .then((r) => r.json())
@@ -19,7 +20,7 @@ function CocktailList({ }) {
         console.log(cocktails)
         setCocktails(cocktails)
       });
-  }, [currentPage]);
+  }, []);
 
   function handleNextClick() {
     setCurrentPage(currentPage + 1)
@@ -86,7 +87,7 @@ function CocktailList({ }) {
         >
           {cocktails
             ? cocktails.map((cock) => (
-                <CocktailCard key={cock.id} cocktail={cock} />
+                <CocktailCard key={cock.id} cocktail={cock} currentUser={currentUser} />
               ))
             : null}
         </Row>

@@ -29,7 +29,8 @@ class UsersController < ApplicationController
   
 
     def create
-      user = User.create!(user_params)
+      user = User.create!(:username=>params[:username], :password=>params[:password])
+      default_ingredient = UserIngredient.create!(:user_id => user.id, :ingredient_id => 289)
       session[:user_id] = user.id
       render json: user, status: :created
     end
@@ -41,7 +42,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.permit(:username, :password)
+      params.permit(:username, :password, :user)
     end
 
     def render_unprocessable_entity_response(exception)

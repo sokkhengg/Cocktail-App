@@ -15,7 +15,7 @@ function App() {
   // state for the current logged in use, set in the useEffect & fetch below
   const [currentUser, setCurrentUser] = useState('');
 
-  const [ingredients, setIngredients] = useState('');
+  const [ingredients, setIngredients] = useState([]);
 
   // auth keeps the user logged in as they move through the app (doesn't work if the page is refreshed!)
   useEffect(() => {
@@ -57,7 +57,7 @@ function App() {
 
       <Route
           path="/cocktails/:id"
-          component={() => <CocktailDetail />}
+          component={() => <CocktailDetail currentUser={currentUser}/>}
         />
 
         <Route
@@ -80,9 +80,9 @@ function App() {
           )}
         />
 
-        <Route path="/cocktail-list" component={() => <CocktailList />} />
+        <Route path="/cocktail-list" component={() => <CocktailList currentUser={currentUser}/>} />
 
-        <Route path="/my-cocktail-list" component={() => <MyCocktailList />} />
+        <Route path="/my-cocktail-list" component={() => <MyCocktailList currentUser={currentUser} />} />
 
         <Route
           path="/new-cocktail"

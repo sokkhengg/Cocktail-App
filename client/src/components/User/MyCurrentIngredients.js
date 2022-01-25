@@ -50,7 +50,7 @@ function MyCurrentIngredients({
                   return (
                     <>
                       <ListGroup.Item
-                        key={ingredient.ingredient.name}
+                        key={ingredient.ingredient.id}
                         as="li"
                         className="d-flex justify-content-between align-items-start"
                       >
@@ -66,7 +66,7 @@ function MyCurrentIngredients({
                           data-useringredient-id={ingredient.id}
                           onClick={(e) => handleDeleteUserIngredient(e)}
                         >
-                          x
+                          🗑️
                         </Button>
                       </ListGroup.Item>
                     </>
