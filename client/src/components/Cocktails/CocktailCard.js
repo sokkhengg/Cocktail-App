@@ -5,6 +5,8 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
+// might have an option for user to leave their review 
+
 function CocktailCard({ cocktail, currentUser }) {
   const [deleteCocktail, setDeleteCocktail] = useState([]);
   const [currentUserIngredients, setCurrentUserIngredients] = useState([]);
