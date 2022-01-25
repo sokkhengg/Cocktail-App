@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy" #idk about this one yet.
   # delete the session, but when the user log back in since using post method, it will create a new session.
 
-  get "/my-custom-cocktails", to: "user_cocktails#user_cocktails_all"
+  get "/my-custom-cocktails", to: "user_cocktails#user_cocktails_all" #returns the cocktails a user can make
+  
+  get "/cocktail-total", to: "cocktails#total" #returns the total number of cocktails in the db (for pagination)
   
 
 

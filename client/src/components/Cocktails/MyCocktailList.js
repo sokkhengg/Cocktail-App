@@ -2,16 +2,18 @@ import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import CocktailCard from "./CocktailCard"
+import Spinner from 'react-bootstrap/Spinner'
 
 function MyCocktailList({ currentUser }) {
 
   const [myCocktails, setMyCocktails] = useState([])
+  const [loading, setLoading] = useState(false)
 
   //Fetch is SLOW - need to add a loading animation on the entire page!!!
   
   useEffect(() => {
-    //fetch(`http://127.0.0.1:3000/my-custom-cocktails/?id=${currentUser.id}`)
-    fetch(`http://127.0.0.1:3000/my-custom-cocktails/?id=1`) //hardcoded for testing!!!!!
+    //fetch(`/my-custom-cocktails/?id=${currentUser.id}`)
+    fetch(`/my-custom-cocktails/?id=1`) //hardcoded for testing!!!!!
     .then(r => r.json())
     .then(r => setMyCocktails(r));
   }, []);

@@ -71,3 +71,21 @@
      border-color: red;
      border: solid;
   }
+
+  .page-item {
+    color: #053538 !important;
+    border: red !important
+  }
+
+  .page-link {
+    color: #595959 !important;
+    background-color: #fafafa !important;
+  }
+
+  .page-item.active {
+    background-color: #ddca3f !important;
+  }
+
+  #top-pagination {
+    margin-top: 20px
+  }
