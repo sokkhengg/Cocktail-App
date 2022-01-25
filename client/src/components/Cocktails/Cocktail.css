@@ -56,3 +56,18 @@
   ul {
     list-style-type: none;
   }
+
+
+  .instructions {
+      text-align: left;
+      border: black;
+      border: solid;
+      border-color: #020051;
+      border-radius: 2px;
+  }
+
+  .border {
+     border-bottom: red;
+     border-color: red;
+     border: solid;
+  }

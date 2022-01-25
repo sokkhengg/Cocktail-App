@@ -73,6 +73,26 @@ function CocktailList({ }) {
             : null}
         </Row>
       </Container>
+
+      <Container>
+      <Row>
+        <Col></Col>
+        <Col xs={10} flex className="d-flex justify-content-center">
+          <Pagination>
+            {currentPage === 1 ? <Pagination.Prev disabled /> : <Pagination.Prev onClick={handlePreviousClick} /> }
+
+            {currentPage === 1 ? <Pagination.Item active>{1}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{1}</Pagination.Item>}
+            {currentPage === 2 ? <Pagination.Item active>{2}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{2}</Pagination.Item>}
+            {currentPage === 3 ? <Pagination.Item active>{3}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{3}</Pagination.Item>}
+            {currentPage === 4 ? <Pagination.Item active>{4}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{4}</Pagination.Item>}
+            {currentPage === 5 ? <Pagination.Item active>{5}</Pagination.Item> : <Pagination.Item onClick={handlePageClick}>{5}</Pagination.Item>}
+
+            <Pagination.Next onClick={handleNextClick} />
+          </Pagination>
+        </Col>
+        <Col></Col>
+      </Row>
+      </Container>
     </>
   );
 }

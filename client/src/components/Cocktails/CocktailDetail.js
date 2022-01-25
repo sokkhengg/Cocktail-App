@@ -49,11 +49,12 @@ function CocktailDetail({}) {
     <div className='detail-container'>
         <img className="cocktail-image" src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg" alt={name}/>
           <h1>{name} <span className='alcoholic'>{alcoholic}</span></h1>
-          <h6>{category}</h6>
-          {iba? <p>{iba}</p> : null}
-          {glass? <p>{glass}</p> : null}
-
-            <ul>
+          <h6>Category: {category}</h6>
+          {iba? <p>IBA: {iba}</p> : null}
+          {glass? <p>Glass: {glass}</p> : null}
+          <div className='instructions'>
+            <h6>Ingredients:</h6>
+            <ul className='ingredient-list'>
                   {ingredient_1_id ? <li>{measure_1} {ingredient_1_name} {found1 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
                   {ingredient_2_id ? <li>{measure_2} {ingredient_2_name} {found2 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
                   {ingredient_3_id ? <li>{measure_3} {ingredient_3_name} {found3 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
@@ -62,6 +63,7 @@ function CocktailDetail({}) {
                   {ingredient_6_id ? <li>{measure_6} {ingredient_6_name} {found6 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
               </ul>
             <p>{instructions}</p>
+          </div>
     </div>
   );
 }

@@ -5,3 +5,4 @@ class UserCocktailsController < ApplicationController
     end
 
 end
+

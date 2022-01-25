@@ -6,7 +6,7 @@ class CocktailsController < ApplicationController
     def index
         cocktails = Cocktail.all
         response.headers["item_count"] = cocktails.count
-        paginate json: cocktails, status: :ok
+        paginate json: cocktails.as_json, status: :ok
         # render json: Cocktail.all
     end
 
