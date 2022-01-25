@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import CocktailCard from "./CocktailCard";
 import Pagination from "react-bootstrap/Pagination";
 
-function CocktailList({ }) {
+function CocktailList({ currentUser }) {
 
   const [cocktails, setCocktails] = useState('');
   const [currentPage, setCurrentPage] = useState(1)
@@ -68,7 +68,7 @@ function CocktailList({ }) {
         >
           {cocktails
             ? cocktails.map((cock) => (
-                <CocktailCard key={cock.id} cocktail={cock} />
+                <CocktailCard key={cock.id} cocktail={cock} currentUser={currentUser} />
               ))
             : null}
         </Row>
