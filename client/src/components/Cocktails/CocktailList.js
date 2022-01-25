@@ -12,6 +12,7 @@ function CocktailList({ currentUser }) {
   const [currentPage, setCurrentPage] = useState(1)
 
    //grabs all cocktails
+  //  page take a couple second beofore loading the cocktails that user want to make
    useEffect(() => {
     fetch(`/cocktails?per_page=24&page=${currentPage}`)
       .then((r) => r.json())
@@ -19,7 +20,7 @@ function CocktailList({ currentUser }) {
         console.log(cocktails)
         setCocktails(cocktails)
       });
-  }, [currentPage]);
+  }, []);
 
   function handleNextClick() {
     setCurrentPage(currentPage + 1)
