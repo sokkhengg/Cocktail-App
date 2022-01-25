@@ -6,7 +6,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 function CocktailCard({ cocktail, currentUser }) {
-  const [deleteCocktail, setDeleteCocktail] = useState([])
+  const [deleteCocktail, setDeleteCocktail] = useState([]);
   const [currentUserIngredients, setCurrentUserIngredients] = useState([]);
 
   const {
@@ -47,12 +47,11 @@ function CocktailCard({ cocktail, currentUser }) {
   }, []);
 
   function handleLikeClick(e) {
-
     const cocktailLiked = {
       cocktail_id: e.target.attributes[2].value,
       user_id: 1,
-      like: true
-    }
+      like: true,
+    };
 
     fetch(`/user_cocktails`, {
       method: "POST",
@@ -73,20 +72,21 @@ function CocktailCard({ cocktail, currentUser }) {
   }
 
   // testing add a button to delete a drink that user try to make
-function handleDeleteUserCocktailList(e) {
-  const CocktailToDelete = e.target.attributes[0].value;
-  fetch(`http://localhost:3000/cocktails/${CocktailToDelete}`, {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then((r) => r.json())
-    .then((r) => {
-      console.log(r);
-      setDeleteCocktail(!deleteCocktail);
-    });
-}
+  function handleDeleteUserCocktailList(e) {
+    // need to get the right id
+    const CocktailToDelete = e.target.attributes[0].value;
+    fetch(`http://localhost:3000/cocktails/${CocktailToDelete}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((r) => r.json())
+      .then((r) => {
+        console.log(r);
+        setDeleteCocktail(!deleteCocktail);
+      });
+  }
 
   const found1 = currentUserIngredients.find(
     (i) => i.ingredient.name === ingredient_1_name
@@ -208,14 +208,14 @@ function handleDeleteUserCocktailList(e) {
         </Card.Body>
         {/* testing a delete button */}
         <Button
-                          variant="outline-danger"
-                          
-                          size="sm"
-                          // data-useringredient-id={ingredient.id}
-                          onClick={(e) => handleDeleteUserCocktailList(e)}
-                        >
-                          🗑️
-                        </Button>
+          variant="outline-danger"
+          size="sm"
+          // get the that we wanted to deleted 
+          data-cocktail-id={cocktail.id}
+          onClick={(e) => handleDeleteUserCocktailList(e)}
+        >
+          🗑️
+        </Button>
       </Card>
     </>
   );
