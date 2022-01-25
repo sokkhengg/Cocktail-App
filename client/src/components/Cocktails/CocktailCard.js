@@ -7,10 +7,8 @@ import { Link } from 'react-router-dom';
 
 function CocktailCard({cocktail}) {
 
-  // const path = {cocktails ? `/cocktails/${id}` :null};
-
-
-  const { id, name, instructions, alcoholic, category, image, glass, iba, ingredient_1_name,
+ 
+  const { name, instructions, alcoholic, category, image, glass, iba, ingredient_1_name,
     ingredient_2_name, ingredient_3_name, ingredient_4_name, ingredient_5_name,
     ingredient_6_name, ingredient_1_id, ingredient_2_id, ingredient_3_id, ingredient_4_id,
     ingredient_5_id, ingredient_6_id, measure_1, measure_2, measure_3, measure_4,
@@ -38,9 +36,12 @@ function CocktailCard({cocktail}) {
   return (
     <>
       <Card border="secondary" style={{  width: "18rem", margin: "10px" }} >
-      <Link to={cocktail ? `/cocktails/${id}` :null} ><Card.Img className="card-image-top" variant="top" style={{width: "109.5%"}} src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg" /></Link>
+      <Link to={cocktail ? `/cocktails/${cocktail.id}` :null} ><Card.Img className="card-image-top" variant="top" style={{width: "109.5%"}} src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg" /></Link>
+      <br></br>
+      <div className="border"></div>
         <Card.Body>
           <Card.Title>{name} <span className='alcoholic'>{alcoholic}</span></Card.Title>
+          <div className="border"></div>
           <Card.Text>
             <ul>
                 {ingredient_1_id ? <li>{measure_1} {ingredient_1_name} {found1 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
@@ -51,7 +52,7 @@ function CocktailCard({cocktail}) {
                 {ingredient_6_id ? <li>{measure_6} {ingredient_6_name} {found6 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
             </ul>
           </Card.Text>
-          <Button variant="success"><Link className='make' to={cocktail ? `/cocktails/${id}` :null} >Make a {name}</Link></Button>
+          <Link className='make' to={cocktail ? `/cocktails/${cocktail.id}` :null} ><Button variant="success">Make a {name}</Button></Link>
         </Card.Body>
       </Card>
     </>

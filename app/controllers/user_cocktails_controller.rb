@@ -23,3 +23,4 @@ class UserCocktailsController < ApplicationController
 
 
 end
+
