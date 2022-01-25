@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import CocktailCard from "./CocktailCard"
 
-function CocktailList({cocktails}) {
+function MyCocktailList({cocktails}) {
   return (
     <div>
         <Container>
@@ -22,4 +22,4 @@ function CocktailList({cocktails}) {
   );
 }
 
-export default CocktailList;
+export default MyCocktailList;

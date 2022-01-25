@@ -12,7 +12,7 @@ class CocktailsController < ApplicationController
 
     def show
         cocktail = find_cocktail
-        render json: cocktail
+        render json: cocktail.as_json, status: :ok
     end
 
     def create

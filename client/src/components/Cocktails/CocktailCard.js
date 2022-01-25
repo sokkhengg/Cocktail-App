@@ -52,7 +52,7 @@ function CocktailCard({cocktail}) {
                 {ingredient_6_id ? <li>{measure_6} {ingredient_6_name} {found6 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
             </ul>
           </Card.Text>
-          <Link className='make' to={cocktail ? `/cocktails/${cocktail.id}` :null} ><Button variant="success">Make a {name}</Button></Link>
+          <Link className='make' to={cocktail ? `/cocktails/${cocktail.id}` :null} ><button className='card-button'>Make a {name}</button></Link>
         </Card.Body>
       </Card>
     </>
