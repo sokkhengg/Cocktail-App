@@ -202,7 +202,7 @@ function CocktailForm({ ingredients }) {
 
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>Ingredients:</Form.Label>
+              <Form.Label>Ingredients 1:</Form.Label>
               <Select
                 options={ingredients_array}
                 onChange={(e) => handleIngredient1(e)}
@@ -218,7 +218,7 @@ function CocktailForm({ ingredients }) {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>Ingredients:</Form.Label>
+              <Form.Label>Ingredients 2:</Form.Label>
               <Select
                 options={ingredients_array}
                 onChange={(e) => handleIngredient2(e)}
@@ -229,7 +229,7 @@ function CocktailForm({ ingredients }) {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>Ingredients:</Form.Label>
+              <Form.Label>Ingredients 3:</Form.Label>
               <Select
                 options={ingredients_array}
                 onChange={(e) => handleIngredient3(e)}
@@ -243,7 +243,7 @@ function CocktailForm({ ingredients }) {
 {/* ingredient second row */}
           <Row className="mb-3">
             <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>Ingredients:</Form.Label>
+              <Form.Label>Ingredients 4:</Form.Label>
               <Select
                   options={ingredients_array}
                   onChange={(e) => handleIngredient4(e)}
@@ -254,7 +254,7 @@ function CocktailForm({ ingredients }) {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>Ingredients:</Form.Label>
+              <Form.Label>Ingredients 5:</Form.Label>
               <Select
                   options={ingredients_array}
                   onChange={(e) => handleIngredient5(e)}
@@ -265,7 +265,7 @@ function CocktailForm({ ingredients }) {
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
-              <Form.Label>Ingredients:</Form.Label>
+              <Form.Label>Ingredients 6:</Form.Label>
               
               <Select
                   options={ingredients_array}
