@@ -157,29 +157,29 @@ function CocktailForm({ ingredients }) {
              <Form onSubmit={handleCocktailSubmit}>
           <h4>Add a New Cocktail</h4>
           <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Cocktail Name:</Form.Label>
               <Form.Control type="text" placeholder="Cocktail Name" />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Image URL:</Form.Label>
               <Form.Control type="text" placeholder="Image URL" />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Glass Type:</Form.Label>
               <Form.Control type="text" placeholder="Glass Type" />
             </Form.Group>
           </Row>
 
           <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Instructions:</Form.Label>
               <Form.Control type="text" placeholder="Instructions" />
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Cocktail Name:</Form.Label>
               <Form.Select defaultValue="Choose...">
                 <option>Choose Category...</option>
@@ -201,70 +201,68 @@ function CocktailForm({ ingredients }) {
           </Row>
 
           <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Ingredients 1:</Form.Label>
               <Select
                 options={ingredients_array}
                 onChange={(e) => handleIngredient1(e)}
               />
-
-              <label htmlFor="measure_1"></label>
-              <input
-                rows="5"
-                placeholder="measure..."
-                type="text"
-                title="measure_1"
-              />
+              <Form.Group as={Col} controlId="formGridName">
+                <Form.Control type="text" placeholder="measure...1" />
+              </Form.Group>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Ingredients 2:</Form.Label>
               <Select
                 options={ingredients_array}
                 onChange={(e) => handleIngredient2(e)}
               />
-
-              <label htmlFor="measure_2"></label>
-              <input placeholder="measure..." type="text" title="measure_2" />
+              <Form.Group as={Col} controlId="formGridName">
+                <Form.Control type="text" placeholder="measure...2" />
+              </Form.Group>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Ingredients 3:</Form.Label>
               <Select
                 options={ingredients_array}
                 onChange={(e) => handleIngredient3(e)}
               />
 
-              <label htmlFor="measure_3"></label>
-              <input placeholder="measure..." type="text" title="measure_3" />
+              <Form.Group as={Col} controlId="formGridName">
+                <Form.Control type="text" placeholder="measure...3" />
+              </Form.Group>
             </Form.Group>
           </Row>
 
 {/* ingredient second row */}
           <Row className="mb-3">
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Ingredients 4:</Form.Label>
               <Select
                   options={ingredients_array}
                   onChange={(e) => handleIngredient4(e)}
                 />
 
-                <label htmlFor="measure_4"></label>
-                <input placeholder="measure..." type="text" title="measure_4" />
+<Form.Group as={Col} controlId="formGridName">
+                <Form.Control type="text" placeholder="measure...4" />
+              </Form.Group>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Ingredients 5:</Form.Label>
               <Select
                   options={ingredients_array}
                   onChange={(e) => handleIngredient5(e)}
                 />
 
-                <label htmlFor="measure_5"></label>
-                <input placeholder="measure..." type="text" title="measure_5" />
+<Form.Group as={Col} controlId="formGridName">
+                <Form.Control type="text" placeholder="measure...5" />
+              </Form.Group>
             </Form.Group>
 
-            <Form.Group as={Col} controlId="formGridState">
+            <Form.Group as={Col} controlId="formGridName">
               <Form.Label>Ingredients 6:</Form.Label>
               
               <Select
@@ -272,8 +270,9 @@ function CocktailForm({ ingredients }) {
                   onChange={(e) => handleIngredient6(e)}
                 />
 
-                <label htmlFor="measure_6"></label>
-                <input placeholder="measure..." type="text" title="measure_6" />
+<Form.Group as={Col} controlId="formGridName">
+                <Form.Control type="text" placeholder="measure...6" />
+              </Form.Group>
             </Form.Group>
           </Row>
 

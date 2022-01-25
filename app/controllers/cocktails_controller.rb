@@ -12,7 +12,7 @@ class CocktailsController < ApplicationController
 
     def show
         cocktail = find_cocktail
-        render json: cocktail
+        render json: cocktail.as_json, status: :ok
     end
 
     def create
@@ -26,11 +26,12 @@ class CocktailsController < ApplicationController
     end
 
     #come back later
-    # def destroy
-    #     cocktail = find_cocktail
-    #     cocktail.destroy
-    #     head :no_content
-    # end
+    def destroy
+        cocktail = find_cocktail
+        cocktail.destroy
+        render json: { message: "Cocktail deleted" }, status: :ok
+        # head :no_content
+    end
 
     private
     

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/esm/Card";
 import Row from "react-bootstrap/Row";
 import CocktailCard from "./CocktailCard"
 import Spinner from 'react-bootstrap/Spinner'
+
 
 function MyCocktailList({ currentUser }) {
 
@@ -22,7 +24,13 @@ function MyCocktailList({ currentUser }) {
 
   return (
     <div>
-      <h3>You can make {myCocktails.length} cocktails!</h3>
+      <Card className="text-center">
+  <Card.Body>
+    <Card.Title>You can make {myCocktails.length} cocktails!</Card.Title>
+  </Card.Body>
+</Card>
+      
+      
         <Container>
         <Row
           xs={1}

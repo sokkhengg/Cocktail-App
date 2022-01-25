@@ -13,13 +13,13 @@ function CocktailList({ currentUser }) {
   const [totalCocktails, setTotalCocktails] = useState();
   const [resultsPerPage, setResultsPerPage] = useState(24);
 
+
   //grabs all cocktails
   useEffect(() => {
     fetch(`/cocktails?per_page=${resultsPerPage}&page=${currentPage}`)
       .then((r) => r.json())
       .then((cocktails) => {
         setCocktails(cocktails);
-      });
   }, [currentPage, resultsPerPage]);
 
   useEffect(() => {
@@ -40,6 +40,7 @@ function CocktailList({ currentUser }) {
     setCurrentPage(parseInt(page.target.text));
   }
 
+
   function handleResultsPerPage(e) {
     setResultsPerPage(parseInt(e.target.value));
   }
@@ -56,6 +57,17 @@ function CocktailList({ currentUser }) {
       </Pagination.Item>
     );
   }
+
+//   const [cocktailSearch, setCocktailSearch] = useState('');
+  
+
+ 
+//   const cocktailsToDisplay = cocktails.filter((cocktail) => {
+//     cocktail.name.toLowerCase().includes(cocktailSearch.toLowerCase())
+//   }) 
+
+// console.log(cocktails)
+// console.log(cocktailsToDisplay)
 
   return (
     <>
@@ -90,6 +102,14 @@ function CocktailList({ currentUser }) {
           <Col></Col>
         </Row>
       </Container>
+
+      {/* <div >
+        <input
+          type="text"
+          placeholder="Search by cocktail..."
+          onChange={(e) => setCocktailSearch(e.target.value)}
+        />
+      </div> */}
 
       <Container>
         <Row

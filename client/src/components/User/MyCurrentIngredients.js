@@ -67,7 +67,7 @@ function MyCurrentIngredients({
                           data-useringredient-id={ingredient.id}
                           onClick={(e) => handleDeleteUserIngredient(e)}
                         >
-                          x
+                          🗑️
                         </Button>
                       </ListGroup.Item>
                     </>
