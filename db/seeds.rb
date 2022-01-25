@@ -11,7 +11,6 @@ User.destroy_all
 
 puts "Replanting Seeds"
 
-
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Cocktail App Data - Final - Ingredients.csv'))
 
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
@@ -19,10 +18,14 @@ csv.each do |row|
     t = Ingredient.new
     t.name = row['ingredient_name']
     t.save
-    puts "#{t.name} saved"
   end
 
 puts "There are now #{Ingredient.count} rows in the ingredients table"
+
+
+puts "Adding cocktails"
+
+
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Cocktail App Data - Final - Cleaned Cocktails.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
@@ -56,11 +59,15 @@ csv.each do |row|
   t.save
 end
 
+puts "Added Cocktails"
+
 def create_cocktail_ingredient (cock, ing, mea)
   if !ing.blank?
     CocktailIngredient.create(cocktail:cock, ingredient:ing, measure:mea)
   end
 end
+
+puts "Adding CocktailIngredients"
 
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Cocktail App Data - Final - Cleaned Cocktails.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
@@ -73,39 +80,34 @@ csv.each do |row|
   ingredient_4_name = Ingredient.find_or_create_by(name:row['ingredient_4_name'])
   ingredient_5_name = Ingredient.find_or_create_by(name:row['ingredient_5_name'])
   ingredient_6_name = Ingredient.find_or_create_by(name:row['ingredient_6_name'])
-
   measure_1 = row['measure_1']
   measure_2 = row['measure_2']
   measure_3 = row['measure_3']
   measure_4 = row['measure_4']
   measure_5 = row['measure_5']
   measure_6 = row['measure_6']
-
   create_cocktail_ingredient(cocktail, ingredient_1_name, measure_1)
   create_cocktail_ingredient(cocktail, ingredient_2_name, measure_2)
   create_cocktail_ingredient(cocktail, ingredient_3_name, measure_3)
   create_cocktail_ingredient(cocktail, ingredient_4_name, measure_4)
   create_cocktail_ingredient(cocktail, ingredient_5_name, measure_5)
   create_cocktail_ingredient(cocktail, ingredient_6_name, measure_6)
-  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_1_name, measure:measure_1)
-  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_2_name, measure:measure_2)
-  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_3_name, measure:measure_3)
-  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_4_name, measure:measure_4)
-  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_5_name, measure:measure_5)
-  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_6_name, measure:measure_6)
 
 end 
 
+puts "Added CocktailIngredients"
+
+puts "Adding test users"
 user0 = User.create(username: "Sean", password:"asdf")
 user1 = User.create(username: "Sok", password:"asdf")
-user2 = User.create(username: "Been", password:"asdf")
+user2 = User.create(username: "Ben", password:"asdf")
+puts "Added test users"
 
-# UserCocktail.create(user_id: 3, cocktail_id:1)
-# UserCocktail.create(user_id: 3, cocktail_id:2)
-# UserCocktail.create(user_id: 3, cocktail_id:3)
-# UserCocktail.create(user_id: 3, cocktail_id:4)
-# UserCocktail.create(user_id: 3, cocktail_id:5)
-# UserCocktail.create(user_id: 3, cocktail_id:6)
+puts "Seeding nil ingredient for test users"
+UserIngredient.create!(:user_id => 1, :ingredient_id => 289)
+UserIngredient.create!(:user_id => 2, :ingredient_id => 289)
+UserIngredient.create!(:user_id => 3, :ingredient_id => 289)
+puts "Seeded nil ingredient for test users"
 
 
 puts "Seeds Planted. Drink up"

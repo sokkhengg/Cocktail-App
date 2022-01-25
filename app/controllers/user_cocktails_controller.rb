@@ -8,14 +8,16 @@ class UserCocktailsController < ApplicationController
         user = User.find(params[:id]) #find current user
         cocktails = []
 
-        # # loop through all Cocktail and checking the ingredient
+        # # loop through all Cocktails and check the ingredient
         Cocktail.all.each do |c|
             ctail = c.ingredients.all? do |i|
                 user.ingredients.include?(i)
             end
+
             if ctail 
                 cocktails.push(c)
             end
+
         end
         
         render json: cocktails
@@ -23,4 +25,3 @@ class UserCocktailsController < ApplicationController
 
 
 end
-
