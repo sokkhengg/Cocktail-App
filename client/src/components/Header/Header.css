@@ -9,9 +9,6 @@
   z-index: 999;
 }
 
-.nav-container {
-  justify-content: space-around;
-}
 
 /* testing the style might use bootstrap later */
 .form {
@@ -24,32 +21,34 @@
         margin-top: 0px;
 }
 
+.nav-bar {
+  background-color: #020051;
+  color:white;
+}
+
+.nav-container {
+  float:right;
+}
+
+.nav-items {
+  color:white;
+}
 
 .title {
     color: white;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 2em;
     text-decoration: none;
     }
 
-    nav ul {
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-        background: #1194ff;
-        position: fixed;
-        z-index: 2;
-        padding: 5px;
-        overflow: hidden;
-        width: 100%;
-        margin-top: 0px;
-      }
       
       .nav-links {
         color: white;
         cursor: pointer;
         text-decoration: none;
         margin-right: 10px;
+        padding: 15px;
+        text-align: right;
         }
 
       .link {
@@ -60,9 +59,14 @@
       }
       
       .nav-links:hover {
-        transform: scale(1.1);
-        transition: 0.3s;
+        color: white;
       }
+
+      .nav-link.active { 
+        background-color: #d3a526;
+        border: black;
+        /* border-radius: 20%; */
+       }
       
       /* @media only screen and (max-width: 1136px) {
         nav ul {

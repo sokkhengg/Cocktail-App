@@ -52,11 +52,6 @@ function LoginForm({ setCurrentUser }) {
               <Button variant="primary" type="submit">
                 Log in
               </Button>
-             <Button variant="primary" type="submit">
-              <Link to="/signup" className="link">
-              Sign Up
-            </Link>
-              </Button>
             </Form>
           </Col>
           <Col></Col>

@@ -6,7 +6,7 @@ import SignupForm from './SignupForm';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
-export default function Form() {
+export default function Form({currentUser, setCurrentUser}) {
   return (
     <div>
       <Tabs
@@ -15,10 +15,12 @@ export default function Form() {
         className="mb-3"
       >
         <Tab eventKey="login" title="Login">
-          <LoginForm />
+          <LoginForm setCurrentUser={setCurrentUser}
+              currentUser={currentUser}/>
         </Tab>
         <Tab eventKey="signup" title="Signup">
-          <SignupForm />
+          <SignupForm setCurrentUser={setCurrentUser}
+              currentUser={currentUser}/>
         </Tab>
       </Tabs>
     </div>
