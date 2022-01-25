@@ -7,6 +7,8 @@ function MyCocktailList({ currentUser }) {
 
   const [myCocktails, setMyCocktails] = useState([])
 
+  //Fetch is SLOW - need to add a loading animation on the entire page!!!
+  
   useEffect(() => {
     //fetch(`http://127.0.0.1:3000/my-custom-cocktails/?id=${currentUser.id}`)
     fetch(`http://127.0.0.1:3000/my-custom-cocktails/?id=1`) //hardcoded for testing!!!!!
@@ -18,6 +20,7 @@ function MyCocktailList({ currentUser }) {
 
   return (
     <div>
+      <h3>You can make {myCocktails.length} cocktails!</h3>
         <Container>
         <Row
           xs={1}
