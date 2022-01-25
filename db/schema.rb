@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_221848) do
+ActiveRecord::Schema.define(version: 2022_01_25_052257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,9 @@ ActiveRecord::Schema.define(version: 2022_01_20_221848) do
     t.bigint "cocktail_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "review"
+    t.boolean "made"
+    t.boolean "like"
     t.index ["cocktail_id"], name: "index_user_cocktails_on_cocktail_id"
     t.index ["user_id"], name: "index_user_cocktails_on_user_id"
   end

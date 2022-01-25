@@ -14,6 +14,7 @@ function SignupForm({ setCurrentUser }) {
       username: e.target[0].value,
       password: e.target[1].value,
     };
+    console.log(user_object)
 
     fetch('signup', {
       // hits the users#create endpoint to add a new user to the database
