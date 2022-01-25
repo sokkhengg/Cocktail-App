@@ -4,7 +4,10 @@ class CocktailsController < ApplicationController
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
     def index
-        render json: Cocktail.all
+        cocktails = Cocktail.all
+        response.headers["item_count"] = cocktails.count
+        paginate json: cocktails, status: :ok
+        # render json: Cocktail.all
     end
 
     def show

@@ -10,6 +10,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     origins '*'
 
     resource '*',
+      :expose => ['item_count'],
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end

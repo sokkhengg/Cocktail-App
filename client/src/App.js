@@ -16,9 +16,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState('');
 
   const [ingredients, setIngredients] = useState('');
-  const [cocktails, setCocktails] = useState('');
-
-  
 
   // auth keeps the user logged in as they move through the app (doesn't work if the page is refreshed!)
   useEffect(() => {
@@ -28,13 +25,6 @@ function App() {
           res.json().then((user) => setCurrentUser(user)); // sets the state
         }
       });
-  }, []);
-
-  //grabs all cocktails
-  useEffect(() => {
-    fetch('/cocktails')
-      .then((r) => r.json())
-      .then((cocktails) => setCocktails(cocktails));
   }, []);
 
   //console.log(cocktails)
@@ -90,7 +80,7 @@ function App() {
           )}
         />
 
-        <Route path="/cocktail-list" component={() => <CocktailList cocktails={cocktails} />} />
+        <Route path="/cocktail-list" component={() => <CocktailList />} />
 
         <Route path="/my-cocktail-list" component={() => <MyCocktailList />} />
 
