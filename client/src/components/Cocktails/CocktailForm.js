@@ -207,9 +207,14 @@ function CocktailForm({ ingredients }) {
                 options={ingredients_array}
                 onChange={(e) => handleIngredient1(e)}
               />
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control type="text" placeholder="measure...1" />
-              </Form.Group>
+
+              <label htmlFor="measure_1"></label>
+              <input
+                rows="5"
+                placeholder="measure..."
+                type="text"
+                title="measure_1"
+              />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
@@ -218,9 +223,9 @@ function CocktailForm({ ingredients }) {
                 options={ingredients_array}
                 onChange={(e) => handleIngredient2(e)}
               />
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control type="text" placeholder="measure...2" />
-              </Form.Group>
+
+              <label htmlFor="measure_2"></label>
+              <input placeholder="measure..." type="text" title="measure_2" />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
@@ -230,9 +235,8 @@ function CocktailForm({ ingredients }) {
                 onChange={(e) => handleIngredient3(e)}
               />
 
-              <Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control type="text" placeholder="measure...3" />
-              </Form.Group>
+              <label htmlFor="measure_3"></label>
+              <input placeholder="measure..." type="text" title="measure_3" />
             </Form.Group>
           </Row>
 
@@ -245,9 +249,8 @@ function CocktailForm({ ingredients }) {
                   onChange={(e) => handleIngredient4(e)}
                 />
 
-<Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control type="text" placeholder="measure...4" />
-              </Form.Group>
+                <label htmlFor="measure_4"></label>
+                <input placeholder="measure..." type="text" title="measure_4" />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
@@ -257,9 +260,8 @@ function CocktailForm({ ingredients }) {
                   onChange={(e) => handleIngredient5(e)}
                 />
 
-<Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control type="text" placeholder="measure...5" />
-              </Form.Group>
+                <label htmlFor="measure_5"></label>
+                <input placeholder="measure..." type="text" title="measure_5" />
             </Form.Group>
 
             <Form.Group as={Col} controlId="formGridState">
@@ -270,9 +272,8 @@ function CocktailForm({ ingredients }) {
                   onChange={(e) => handleIngredient6(e)}
                 />
 
-<Form.Group as={Col} controlId="formGridEmail">
-                <Form.Control type="text" placeholder="measure...6" />
-              </Form.Group>
+                <label htmlFor="measure_6"></label>
+                <input placeholder="measure..." type="text" title="measure_6" />
             </Form.Group>
           </Row>
 
