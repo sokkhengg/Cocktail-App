@@ -8,7 +8,7 @@ import Pagination from "react-bootstrap/Pagination";
 
 function CocktailList({ currentUser }) {
 
-  const [cocktails, setCocktails] = useState('');
+  const [cocktails, setCocktails] = useState([]);
   const [currentPage, setCurrentPage] = useState(1)
 
    //grabs all cocktails
@@ -37,6 +37,16 @@ function CocktailList({ currentUser }) {
     setCurrentPage(parseInt(page.target.text))
   }
 
+//   const [cocktailSearch, setCocktailSearch] = useState('');
+  
+
+ 
+//   const cocktailsToDisplay = cocktails.filter((cocktail) => {
+//     cocktail.name.toLowerCase().includes(cocktailSearch.toLowerCase())
+//   }) 
+
+// console.log(cocktails)
+// console.log(cocktailsToDisplay)
 
   return (
     <>
@@ -59,6 +69,14 @@ function CocktailList({ currentUser }) {
         <Col></Col>
       </Row>
       </Container>
+
+      {/* <div >
+        <input
+          type="text"
+          placeholder="Search by cocktail..."
+          onChange={(e) => setCocktailSearch(e.target.value)}
+        />
+      </div> */}
 
       <Container>
         <Row

@@ -20,25 +20,21 @@
     margin-left: -12px;
 }
 
-.make {
+.card-button {
+    color: white;
+    background-color: #020051;
+    cursor: pointer;
+    text-decoration: none;
     color: white;
     cursor: pointer;
     text-decoration: none;
-      color: white;
-      cursor: pointer;
-      text-decoration: none;
+    border-radius: 5px;
     }
 
-  .make:hover {
-    transform: scale(1.1);
-    transition: 0.3s;
-    color: white;
-  }
 
-  button {
-      background-color: maroon;
-      border-radius: 20%;
-      border-color: black ;
+  .card-button {
+      background-color: #020051;
+      border-color: white ;
   }
 
   .cocktail-image {
@@ -70,4 +66,5 @@
      border-bottom: red;
      border-color: red;
      border: solid;
+     width: 100%;
   }

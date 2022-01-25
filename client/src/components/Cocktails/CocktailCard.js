@@ -189,6 +189,7 @@ function handleDeleteUserCocktailList(e) {
               ) : null}
             </ul>
           </Card.Text>
+
           <Link
             className="make"
             to={cocktail ? `/cocktails/${cocktail.id}` : null}
@@ -205,6 +206,7 @@ function handleDeleteUserCocktailList(e) {
               Like
             </Button>
           ) : null} */}
+
         </Card.Body>
         {/* testing a delete button */}
         <Button
