@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create" #creates a new session when the user fills out the login form
   delete "/logout", to: "sessions#destroy" #idk about this one yet.
   # delete the session, but when the user log back in since using post method, it will create a new session.
+
+  get "/my-custom-cocktails", to: "user_cocktails#user_cocktails_all"
   
 
 

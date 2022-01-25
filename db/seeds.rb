@@ -56,6 +56,12 @@ csv.each do |row|
   t.save
 end
 
+def create_cocktail_ingredient (cock, ing, mea)
+  if !ing.blank?
+    CocktailIngredient.create(cocktail:cock, ingredient:ing, measure:mea)
+  end
+end
+
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'Cocktail App Data - Final - Cleaned Cocktails.csv'))
 csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
 csv.each do |row|
@@ -75,12 +81,18 @@ csv.each do |row|
   measure_5 = row['measure_5']
   measure_6 = row['measure_6']
 
-  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_1_name, measure:measure_1)
-  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_2_name, measure:measure_2)
-  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_3_name, measure:measure_3)
-  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_4_name, measure:measure_4)
-  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_5_name, measure:measure_5)
-  CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_6_name, measure:measure_6)
+  create_cocktail_ingredient(cocktail, ingredient_1_name, measure_1)
+  create_cocktail_ingredient(cocktail, ingredient_2_name, measure_2)
+  create_cocktail_ingredient(cocktail, ingredient_3_name, measure_3)
+  create_cocktail_ingredient(cocktail, ingredient_4_name, measure_4)
+  create_cocktail_ingredient(cocktail, ingredient_5_name, measure_5)
+  create_cocktail_ingredient(cocktail, ingredient_6_name, measure_6)
+  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_1_name, measure:measure_1)
+  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_2_name, measure:measure_2)
+  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_3_name, measure:measure_3)
+  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_4_name, measure:measure_4)
+  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_5_name, measure:measure_5)
+  # CocktailIngredient.create(cocktail:cocktail, ingredient:ingredient_6_name, measure:measure_6)
 
 end 
 
@@ -88,12 +100,12 @@ user0 = User.create(username: "Sean", password:"asdf")
 user1 = User.create(username: "Sok", password:"asdf")
 user2 = User.create(username: "Been", password:"asdf")
 
-UserCocktail.create(user_id: 3, cocktail_id:1)
-UserCocktail.create(user_id: 3, cocktail_id:2)
-UserCocktail.create(user_id: 3, cocktail_id:3)
-UserCocktail.create(user_id: 3, cocktail_id:4)
-UserCocktail.create(user_id: 3, cocktail_id:5)
-UserCocktail.create(user_id: 3, cocktail_id:6)
+# UserCocktail.create(user_id: 3, cocktail_id:1)
+# UserCocktail.create(user_id: 3, cocktail_id:2)
+# UserCocktail.create(user_id: 3, cocktail_id:3)
+# UserCocktail.create(user_id: 3, cocktail_id:4)
+# UserCocktail.create(user_id: 3, cocktail_id:5)
+# UserCocktail.create(user_id: 3, cocktail_id:6)
 
 
 puts "Seeds Planted. Drink up"
