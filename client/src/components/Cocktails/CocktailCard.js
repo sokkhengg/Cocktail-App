@@ -147,7 +147,7 @@ function CocktailCard({ cocktail, currentUser }) {
             </Card.Title>
             <div className="border"></div>
             <Card.Text>
-              <ul>
+              <ul className='card-list'>
                 {ingredient_1_id ? (
                   <li>
                     {measure_1} {ingredient_1_name}{" "}

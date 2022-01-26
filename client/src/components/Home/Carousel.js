@@ -17,7 +17,7 @@ function CocktailCarousel() {
   return (
     
     <section >
-      <h1>Welcome to the Cocktail App</h1>
+      <h1 className='home-header'>Welcome to the Cocktail App</h1>
       <Carousel className="carousel">
         {cocktails.map((cock, index) => {
           return (
@@ -40,7 +40,13 @@ function CocktailCarousel() {
           );
         })}
       </Carousel>
-      <h6>Login or create an account and enjoy a lenthy list of cocktail recipes. Add ingredients to My Liquor Cabinet and see which cocktails you have all the ingredients for in My Cocktails! The Cocktails page provides a long list of cocktail recipes that let you know which ingredients you still need!</h6>
+      <div>
+        <ul className='app-instructions'>
+          <li ><Link to='/login'>Login</Link> or create an account and enjoy a lenthy list of cocktail recipes.</li>
+          <li>Add ingredients to My Liquor Cabinet and see which cocktails you have all the ingredients for in My Cocktails!</li>
+          <li>The Cocktails page provides a long list of cocktail recipes that let you know which ingredients you still need!</li>
+        </ul>
+      </div>
     </section>
   );
 }
