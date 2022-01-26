@@ -13,11 +13,8 @@ function MyCocktailList({ currentUser }) {
   const [myCocktails, setMyCocktails] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  //Fetch is SLOW - need to add a loading animation on the entire page!!!
-
   useEffect(() => {
     //fetch(`/my-custom-cocktails/?id=${currentUser.id}`)
-
     fetch(`/my-custom-cocktails/?id=1`) //hardcoded for testing!!!!!
       .then((r) => r.json())
       .then((r) => {

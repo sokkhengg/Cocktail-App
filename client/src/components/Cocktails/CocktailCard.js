@@ -6,8 +6,6 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import ListGroup from "react-bootstrap/ListGroup";
-import Badge from "react-bootstrap/Badge";
 
 // might have an option for user to leave their review
 
@@ -52,12 +50,13 @@ function CocktailCard({ cocktail, currentUser }) {
       .then((r) => setCurrentUserIngredients(r));
   }, []);
 
-  function handleLikeClick(e) {
+  function handleLikeClick(cocktail) {
     const cocktailLiked = {
-      cocktail_id: e.target.attributes[2].value,
+      cocktail_id: cocktail.id,
       user_id: 1,
-      like: true,
+      like:true
     };
+    console.log(cocktailLiked)
 
     fetch(`/user_cocktails`, {
       method: "POST",
@@ -127,7 +126,7 @@ function CocktailCard({ cocktail, currentUser }) {
           </Link>
           <div
             class="overlay"
-            onClick={() => console.log("clicked", { cocktail })}
+            onClick={() => handleLikeClick(cocktail)}
           >
             ♡
           </div>

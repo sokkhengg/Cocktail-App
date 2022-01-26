@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Card from 'react-bootstrap/Card'
-import Image from 'react-bootstrap/Image'
-import { Link } from 'react-router-dom';
+import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { useParams } from "react-router-dom";
 
 function CocktailDetail({}) {
@@ -47,12 +47,36 @@ function CocktailDetail({}) {
 
   return (
     <div className='detail-container'>
+<Container>
+<Row>
+    <Col></Col>
+    <Col>
+    <div class="container">
         <img className="cocktail-image" src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg" alt={name}/>
-          <h1>{name} <span className='alcoholic'>{alcoholic}</span></h1>
+
+        <div
+            class="overlay"
+            onClick={() => console.log("clicked", { cocktail })}
+          >
+            ♡
+          </div>
+        </div>
+
+        
+        
+
+          <h1>{name} <br />
+          
+          <span className='alcoholic'>{alcoholic}</span></h1>
+          <div className="border"></div>
+          <br />
           <h6>Category: {category}</h6>
+          
           {iba? <p>IBA: {iba}</p> : null}
           {glass? <p>Glass: {glass}</p> : null}
+          <div className="border"></div>
           <div className='instructions'>
+            <br />
             <h6>Ingredients:</h6>
             <ul className='ingredient-list'>
                   {ingredient_1_id ? <li>{measure_1} {ingredient_1_name} {found1 ? <span className='have'>✅</span> : <span className='need'>Need</span>}</li> : null}
@@ -64,6 +88,10 @@ function CocktailDetail({}) {
               </ul>
             <p>{instructions}</p>
           </div>
+          </Col>
+    <Col></Col>
+  </Row>
+  </Container>
     </div>
   );
 }
