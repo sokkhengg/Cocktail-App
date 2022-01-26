@@ -1,93 +1,134 @@
 .alcoholic {
-    color: green;
-    font-size: .5em;
-    vertical-align: text-top;
+  color: green;
+  font-size: 0.5em;
+  vertical-align: text-top;
 }
 
 .have {
-    color: green;
-    font-size: .5em;
-    vertical-align: text-top;
+  color: green;
+  font-size: 0.5em;
+  vertical-align: text-top;
 }
 
 .need {
-    color: red;
-    font-size: .5em;
-    vertical-align: text-top;
+  color: red;
+  font-size: 0.5em;
+  vertical-align: text-top;
 }
 
 .card-img-top {
-    margin-left: -12px;
+  margin-left: -12px;
 }
 
 .card-button {
-    color: white;
-    background-color: #020051;
-    cursor: pointer;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    text-decoration: none;
-    border-radius: 5px;
-    }
-
-
-  .card-button {
-      background-color: #020051;
-      border-color: white ;
-  }
-
-  .cocktail-image {
-      border-radius: 15%;
-      width: 400px;
-      height: auto;
-      padding: 15px;
-  }
-
-  .detail-container {
-      text-align: center;
-      margin: 20px;
-  }
-
-  ul {
-    list-style-type: none;
-  }
-
-
-  .instructions {
-      text-align: left;
-      border: black;
-      border: solid;
-      border-color: #020051;
-      border-radius: 2px;
-  }
-
-  .border {
-     border-bottom: red;
-     border-color: red;
-     border: solid;
-    width: 100%;
-  }
-
-  .page-item {
-    color: #053538 !important;
-    border: red !important
-  }
-
-  .page-link {
-    color: #595959 !important;
-    background-color: #fafafa !important;
-  }
-
-  .page-item.active {
-    background-color: #ddca3f !important;
-  }
-
-  #top-pagination {
-    margin-top: 20px
-  }
-
-  .fill { 
-    margin-top: 250px
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
+
+.card-title {
+  margin-bottom: 0.5rem !important;
+}
+
+.cocktail-image {
+  border-radius: 15%;
+  width: 400px;
+  height: auto;
+  padding: 15px;
+}
+
+.detail-container {
+  text-align: center;
+  margin: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.instructions {
+  text-align: left;
+  border: black;
+  border: solid;
+  border-color: #020051;
+  border-radius: 2px;
+}
+
+.border {
+  border-bottom: red;
+  border-color: red;
+  border: solid;
+  width: 100%;
+}
+
+.page-link {
+  color: #595959 !important;
+  background-color: #fafafa !important;
+}
+
+.page-item.active {
+  background-color: #d3a526 !important;
+}
+
+#top-pagination {
+  margin-top: 20px;
+}
+
+.fill {
+  margin-top: 250px;
+}
+
+.page-link {
+  background-color: #c4c4c4 !important;
+  /* border: 1px solid #d3a526 !important; */
+}
+
+#page-next {
+  background-color: #fff !important;
+  border: none !important;
+}
+
+#make-button {
+  background-color: #053e41 !important;
+  border-color: #053e41 !important;
+  color: #fafafa !important;
+}
+
+.card-text {
+  margin-top: 10px !important;
+}
+
+.card-footer {
+  border-top: 0px solid rgba(0,0,0,.125) !important;
+}
+
+.border-secondary {
+  border-color: #7c7c7c!important;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 0.2rem 1rem;
+}
+
+.overlay {
+  position: absolute;
+  top: 2%;
+  background: rgb(0, 0, 0);
+  background: rgba(211, 165, 38, 0.5);
+  color: #f1f1f1;
+  width: 10%;
+  transition: .5s ease;
+  opacity:1;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  z-index: 100;
+  border-radius: 50%;
+  cursor: pointer;
+}

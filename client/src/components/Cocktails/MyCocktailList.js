@@ -43,7 +43,7 @@ function MyCocktailList({ currentUser }) {
           <Card className="text-center">
             <Card.Body>
               <Card.Title>
-                You can make {myCocktails.length} cocktails!
+                You can make {myCocktails.length} cocktails! 🥂
               </Card.Title>
             </Card.Body>
           </Card>

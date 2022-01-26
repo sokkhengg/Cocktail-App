@@ -4,8 +4,12 @@ import "./Cocktail.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import ListGroup from "react-bootstrap/ListGroup";
+import Badge from "react-bootstrap/Badge";
 
-// might have an option for user to leave their review 
+// might have an option for user to leave their review
 
 function CocktailCard({ cocktail, currentUser }) {
   const [deleteCocktail, setDeleteCocktail] = useState([]);
@@ -111,113 +115,139 @@ function CocktailCard({ cocktail, currentUser }) {
 
   return (
     <>
-      <Card border="secondary" style={{ width: "18rem", margin: "10px" }}>
-        <Link to={cocktail ? `/cocktails/${cocktail.id}` : null}>
-          <Card.Img
-            className="card-image-top"
-            variant="top"
-            style={{ width: "109.5%" }}
-            src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg"
-          />
-        </Link>
-        <br></br>
-        <div className="border"></div>
-        <Card.Body>
-          <Card.Title>
-            {name} <span className="alcoholic">{alcoholic}</span>
-          </Card.Title>
-          <div className="border"></div>
-          <Card.Text>
-            <ul>
-              {ingredient_1_id ? (
-                <li>
-                  {measure_1} {ingredient_1_name}{" "}
-                  {found1 ? (
-                    <span className="have">✅</span>
-                  ) : (
-                    <span className="need">Need</span>
-                  )}
-                </li>
-              ) : null}
-              {ingredient_2_id ? (
-                <li>
-                  {measure_2} {ingredient_2_name}{" "}
-                  {found2 ? (
-                    <span className="have">✅</span>
-                  ) : (
-                    <span className="need">Need</span>
-                  )}
-                </li>
-              ) : null}
-              {ingredient_3_id ? (
-                <li>
-                  {measure_3} {ingredient_3_name}{" "}
-                  {found3 ? (
-                    <span className="have">✅</span>
-                  ) : (
-                    <span className="need">Need</span>
-                  )}
-                </li>
-              ) : null}
-              {ingredient_4_id ? (
-                <li>
-                  {measure_4} {ingredient_4_name}{" "}
-                  {found4 ? (
-                    <span className="have">✅</span>
-                  ) : (
-                    <span className="need">Need</span>
-                  )}
-                </li>
-              ) : null}
-              {ingredient_5_id ? (
-                <li>
-                  {measure_6} {ingredient_5_name}{" "}
-                  {found5 ? (
-                    <span className="have">✅</span>
-                  ) : (
-                    <span className="need">Need</span>
-                  )}
-                </li>
-              ) : null}
-              {ingredient_6_id ? (
-                <li>
-                  {measure_6} {ingredient_6_name}{" "}
-                  {found6 ? (
-                    <span className="have">✅</span>
-                  ) : (
-                    <span className="need">Need</span>
-                  )}
-                </li>
-              ) : null}
-            </ul>
-          </Card.Text>
-          <Link
-            className="make"
-            to={cocktail ? `/cocktails/${cocktail.id}` : null}
-          >
-            <Button variant="success">Make a {name}</Button>
+      <Card style={{ width: "19rem", margin: "12px", marginBottom: "25px" }}>
+        
+          <Link to={cocktail ? `/cocktails/${cocktail.id}` : null}>
+            <Card.Img
+              className="card-image-top"
+              variant="top"
+              style={{ width: "109.5%", borderRadius: "50%", padding: "15px" }}
+              src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg"
+            />
           </Link>
-          <br />
-          <br />
-          {/* {currentUser.username ? (
-            <Button
-              data-cocktail-id={cocktail.id}
-              onClick={(e) => handleLikeClick(e)}
-            >
-              Like
-            </Button>
-          ) : null} */}
+          <div
+            class="overlay"
+            onClick={() => console.log("clicked", { cocktail })}
+          >
+            ♡
+          </div>
+        
+        {/* <br></br>
+        <div className="border"></div> */}
+        <Card.Body
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
+          <div>
+            <Card.Title className="text-center">
+              {name} <br />
+              <span className="alcoholic">{alcoholic}</span>
+            </Card.Title>
+            <div className="border"></div>
+            <Card.Text>
+              <ul>
+                {ingredient_1_id ? (
+                  <li>
+                    {measure_1} {ingredient_1_name}{" "}
+                    {found1 ? (
+                      <span className="have">✅</span>
+                    ) : (
+                      <span className="need">Need</span>
+                    )}
+                  </li>
+                ) : null}
+                {ingredient_2_id ? (
+                  <li>
+                    {measure_2} {ingredient_2_name}{" "}
+                    {found2 ? (
+                      <span className="have">✅</span>
+                    ) : (
+                      <span className="need">Need</span>
+                    )}
+                  </li>
+                ) : null}
+                {ingredient_3_id ? (
+                  <li>
+                    {measure_3} {ingredient_3_name}{" "}
+                    {found3 ? (
+                      <span className="have">✅</span>
+                    ) : (
+                      <span className="need">Need</span>
+                    )}
+                  </li>
+                ) : null}
+                {ingredient_4_id ? (
+                  <li>
+                    {measure_4} {ingredient_4_name}{" "}
+                    {found4 ? (
+                      <span className="have">✅</span>
+                    ) : (
+                      <span className="need">Need</span>
+                    )}
+                  </li>
+                ) : null}
+                {ingredient_5_id ? (
+                  <li>
+                    {measure_6} {ingredient_5_name}{" "}
+                    {found5 ? (
+                      <span className="have">✅</span>
+                    ) : (
+                      <span className="need">Need</span>
+                    )}
+                  </li>
+                ) : null}
+                {ingredient_6_id ? (
+                  <li>
+                    {measure_6} {ingredient_6_name}{" "}
+                    {found6 ? (
+                      <span className="have">✅</span>
+                    ) : (
+                      <span className="need">Need</span>
+                    )}
+                  </li>
+                ) : null}
+              </ul>
+            </Card.Text>
+          </div>
+
+          <div>
+            <Card.Footer style={{ backgroundColor: "#fff" }}>
+              <Row>
+                <Col></Col>
+                <Col xs={12} className="text-center">
+                  <Link
+                    className="make"
+                    to={cocktail ? `/cocktails/${cocktail.id}` : null}
+                  >
+                    <Button
+                      variant="success"
+                      id="make-button"
+                      className="text-center"
+                    >
+                      Make the {name}
+                    </Button>
+                  </Link>
+                </Col>
+                <Col></Col>
+              </Row>
+            </Card.Footer>
+          </div>
         </Card.Body>
         {/* testing a delete button */}
-        <Button
+
+        {/* <Button
+        
           variant="outline-danger"
           size="sm"
-          // get the that we wanted to deleted 
+          // get the that we wanted to deleted
           data-cocktail-id={cocktail.id}
           onClick={(e) => handleDeleteUserCocktailList(e)}
         >
           🗑️
-        </Button>
+        </Button> */}
       </Card>
     </>
   );
