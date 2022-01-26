@@ -36,7 +36,7 @@
 }
 
 .cocktail-image {
-  border-radius: 15%;
+  border-radius: 50%;
   width: 400px;
   height: auto;
   padding: 15px;
@@ -53,10 +53,6 @@ ul {
 
 .instructions {
   text-align: left;
-  border: black;
-  border: solid;
-  border-color: #020051;
-  border-radius: 2px;
 }
 
 .border {
@@ -85,7 +81,6 @@ ul {
 
 .page-link {
   background-color: #c4c4c4 !important;
-  /* border: 1px solid #d3a526 !important; */
 }
 
 #page-next {
@@ -116,13 +111,19 @@ ul {
   padding: 0.2rem 1rem;
 }
 
+.container {
+  position: relative;
+  width: 50%;
+  max-width: 300px;
+}
+
 .overlay {
   position: absolute;
   top: 2%;
   background: rgb(0, 0, 0);
   background: rgba(211, 165, 38, 0.5);
   color: #f1f1f1;
-  width: 10%;
+  width: 30px;
   transition: .5s ease;
   opacity:1;
   color: white;
