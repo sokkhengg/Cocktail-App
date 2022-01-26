@@ -25,6 +25,10 @@ class CocktailsController < ApplicationController
         render json: total, status: :ok
     end
 
+    def random
+        render json: Cocktail.all.order("random()").limit(20).as_json, status: :ok
+    end
+
     #come back later
     def destroy
         cocktail = find_cocktail
