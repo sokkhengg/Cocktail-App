@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   
   get "/cocktail-total", to: "cocktails#total" #returns the total number of cocktails in the db (for pagination)
   
-
+  get "/cocktails-random", to: "cocktails#random"
 
   
   # Routing logic: fallback requests for React Router.

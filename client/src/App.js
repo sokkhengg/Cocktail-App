@@ -1,7 +1,6 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
-
 import SignupForm from "./components/User/SignupForm";
 import Header from "./components/Header/Header";
 import Form from "./components/User/Form";
@@ -10,6 +9,7 @@ import MyCocktailList from "./components/Cocktails/MyCocktailList";
 import CocktailForm from "./components/Cocktails/CocktailForm";
 import MyLiquorCabinet from "./components/User/MyLiquorCabinet";
 import CocktailDetail from "./components/Cocktails/CocktailDetail";
+import Carousel from "./components/Home/Carousel";
 
 function App() {
   // state for the current logged in use, set in the useEffect & fetch below
@@ -96,6 +96,14 @@ function App() {
             />
           )}
         />
+
+        <Route
+          path="/"
+          component={() => (
+              <Carousel />
+          )}
+        />
+
       </Switch>
      
     </div>

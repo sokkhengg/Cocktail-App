@@ -67,6 +67,10 @@ function CocktailList({ currentUser }) {
 // console.log(cocktails)
 // console.log(cocktailsToDisplay)
 
+if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
+   setCurrentPage(1)
+}
+
   return (
     <>
       <Container id="top-pagination">

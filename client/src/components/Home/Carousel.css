@@ -1,0 +1,20 @@
+.carousel {
+    margin: auto;
+    width: 400px;
+    height: auto;
+    border-radius: 40px !important;
+}
+
+.caption {
+    color: black;
+    background-color: white;
+    opacity: .5;
+}
+
+.image {
+    width: 400px;
+    height: auto;
+    border-radius: 40px;
+
+}
+
