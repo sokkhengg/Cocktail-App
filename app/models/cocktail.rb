@@ -14,6 +14,7 @@ class Cocktail < ApplicationRecord
 
     # All user can view all cocktails.
     #  Current user can "hide the cocktails". Then the cocktails it is not shown, but shown to users who do not have hidden cocktails
+    # maybe a custom serializer 
     def self.visible_for_user(user)
         # byebug
         subquery = user.hidden_cocktails.select("hidden_cocktails.cocktail_id").to_sql

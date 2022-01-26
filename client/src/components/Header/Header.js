@@ -38,6 +38,7 @@ function Header({ currentUser }) {
               <LinkContainer to="/new-cocktail">
                 <Nav.Link className="nav-links">New Cocktail</Nav.Link>
               </LinkContainer>
+              {/* if the current user is not log in display the log in button otherwise display the logout */}
               {!currentUser.username ? (
                 <LinkContainer to="/login">
                   <Nav.Link className="nav-links">Login</Nav.Link>
