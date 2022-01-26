@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_25_052257) do
+ActiveRecord::Schema.define(version: 2022_01_26_063844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(version: 2022_01_25_052257) do
     t.string "measure_6"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "hidden_cocktails", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "cocktail_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cocktail_id"], name: "index_hidden_cocktails_on_cocktail_id"
+    t.index ["user_id"], name: "index_hidden_cocktails_on_user_id"
   end
 
   create_table "ingredients", force: :cascade do |t|

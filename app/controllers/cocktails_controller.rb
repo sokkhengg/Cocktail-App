@@ -33,6 +33,14 @@ class CocktailsController < ApplicationController
         # head :no_content
     end
 
+    # inside cocktail model might work out better
+    # def hide_cocktail
+    #     cocktail = find_cocktail
+    #     if cocktail
+            
+    #     end
+    # end
+
     private
     
     def render_unprocessable_entity_response(exception)
