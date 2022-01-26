@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :cocktail_ingredients, only: [ :index, :show ]
   # add an option to delete cocktails
   resources :cocktails, only: [ :index, :show, :create, :destroy ]
-  resources :user_cocktails, only: [ :index, :create, :update ]
+  resources :user_cocktails, only: [ :index, :create, :update, :show ]
   resources :ingredients, only: [ :index, :show ]
   resources :user_ingredients, only: [ :index, :create, :show, :destroy ]
   resources :users, only: [ :index, :show, :create ]
