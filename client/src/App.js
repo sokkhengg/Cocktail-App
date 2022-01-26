@@ -1,25 +1,25 @@
-import './App.css';
-import { useEffect, useState } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import "./App.css";
+import { useEffect, useState } from "react";
+import { Switch, Route } from "react-router-dom";
 
-import SignupForm from './components/User/SignupForm';
-import Header from './components/Header/Header';
-import Form from './components/User/Form';
-import CocktailList from './components/Cocktails/CocktailList';
-import MyCocktailList from './components/Cocktails/MyCocktailList';
-import CocktailForm from './components/Cocktails/CocktailForm';
-import MyLiquorCabinet from './components/User/MyLiquorCabinet';
-import CocktailDetail from './components/Cocktails/CocktailDetail';
+import SignupForm from "./components/User/SignupForm";
+import Header from "./components/Header/Header";
+import Form from "./components/User/Form";
+import CocktailList from "./components/Cocktails/CocktailList";
+import MyCocktailList from "./components/Cocktails/MyCocktailList";
+import CocktailForm from "./components/Cocktails/CocktailForm";
+import MyLiquorCabinet from "./components/User/MyLiquorCabinet";
+import CocktailDetail from "./components/Cocktails/CocktailDetail";
 
 function App() {
   // state for the current logged in use, set in the useEffect & fetch below
-  const [currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState("");
 
   const [ingredients, setIngredients] = useState([]);
 
   // auth keeps the user logged in as they move through the app (doesn't work if the page is refreshed!)
   useEffect(() => {
-    fetch('auth') // hits the auth endpoint aka users#show in the UsersController
+    fetch("auth") // hits the auth endpoint aka users#show in the UsersController
       .then((res) => {
         if (res.ok) {
           res.json().then((user) => setCurrentUser([user])); // sets the state
@@ -38,26 +38,21 @@ function App() {
 
   // grabs all ingredients from the backend, for use in various forms
   useEffect(() => {
-    fetch('/ingredients')
+    fetch("/ingredients")
       .then((r) => r.json())
       .then((ingredients) => setIngredients(ingredients));
   }, []);
-
 
   //console.log(cocktails)
 
   return (
     <div className="App">
-      <Header currentUser={currentUser}/>
-      
-      {/* checks if the currentUser exists and shows a confirmation message if so, or displays the login form */}
-      {/* {currentUser ? "You logged in, " + currentUser.username + "!" : <LoginForm setCurrentUser={setCurrentUser} currentUser={currentUser} /> } */}
+      <Header currentUser={currentUser} />
 
       <Switch>
-
-      <Route
+        <Route
           path="/cocktails/:id"
-          component={() => <CocktailDetail currentUser={currentUser}/>}
+          component={() => <CocktailDetail currentUser={currentUser} />}
         />
 
         <Route
@@ -73,16 +68,19 @@ function App() {
         <Route
           path="/login"
           component={() => (
-            <Form
-              setCurrentUser={setCurrentUser}
-              currentUser={currentUser}
-            />
+            <Form setCurrentUser={setCurrentUser} currentUser={currentUser} />
           )}
         />
 
-        <Route path="/cocktail-list" component={() => <CocktailList currentUser={currentUser}/>} />
+        <Route
+          path="/cocktail-list"
+          component={() => <CocktailList currentUser={currentUser} />}
+        />
 
-        <Route path="/my-cocktail-list" component={() => <MyCocktailList currentUser={currentUser} />} />
+        <Route
+          path="/my-cocktail-list"
+          component={() => <MyCocktailList currentUser={currentUser} />}
+        />
 
         <Route
           path="/new-cocktail"
@@ -91,9 +89,15 @@ function App() {
 
         <Route
           path="/my-liquor-cabinet"
-          component={() => <MyLiquorCabinet ingredients={ingredients} currentUser={currentUser} />}
+          component={() => (
+            <MyLiquorCabinet
+              ingredients={ingredients}
+              currentUser={currentUser}
+            />
+          )}
         />
       </Switch>
+     
     </div>
   );
 }

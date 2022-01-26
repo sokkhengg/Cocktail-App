@@ -1,0 +1,53 @@
+.form-tabs { 
+    margin-top: 50px;
+}
+
+.form-control { 
+    background-color: #fafafa !important;
+}
+
+.nav-tabs {
+    border-color: #d3a526 !important;  
+}
+
+.nav-links {
+    border-color: #d3a526 !important;
+}
+
+#floatingTextarea {
+    color:#7c7c7c
+}
+
+.nav-item {
+    border-color: #d3a526 !important;
+    
+}
+
+.nav-link:hover .nav-item:hover{
+    border-bottom: none !important;
+}
+
+.form-body {
+    border-left: 1px solid #d3a526;
+    border-right: 1px solid #d3a526;
+    border-bottom: 1px solid #d3a526;
+}
+
+.nav-link.active {
+    border-left: 1px solid #d3a526 !important;
+    border-right: 1px solid #d3a526 !important;
+    border-top: 1px solid #d3a526 !important;
+    border-bottom: 1px solid #fafafa !important;
+    background-color: #d3a526 !important;
+    color: #fafafa !important;
+}
+
+
+#login-button {
+    background-color: #d3a526;
+    border-color: #d3a526;
+}
+
+#form-logo {
+    margin-bottom: 10px;
+}

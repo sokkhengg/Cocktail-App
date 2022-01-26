@@ -13,7 +13,6 @@ function CocktailList({ currentUser }) {
   const [totalCocktails, setTotalCocktails] = useState();
   const [resultsPerPage, setResultsPerPage] = useState(24);
 
-
   //grabs all cocktails
   useEffect(() => {
     fetch(`/cocktails?per_page=${resultsPerPage}&page=${currentPage}`)
@@ -39,7 +38,6 @@ function CocktailList({ currentUser }) {
   function handlePageClick(page) {
     setCurrentPage(parseInt(page.target.text));
   }
-
 
   function handleResultsPerPage(e) {
     setResultsPerPage(parseInt(e.target.value));
@@ -74,17 +72,19 @@ function CocktailList({ currentUser }) {
       <Container id="top-pagination">
         <Row>
           <Col>
+
             <Form.Select
               aria-label="Results per page"
               onChange={handleResultsPerPage}
             >
-              <option>Results per page</option>
+              <option value="24">Results per page</option>
               <option value="24">24</option>
               <option value="48">48</option>
               <option value="72">72</option>
             </Form.Select>
+
           </Col>
-          <Col xs={10} flex className="d-flex justify-content-center">
+          <Col xs={8} flex className="d-flex justify-content-center">
             <Pagination>
               {currentPage === 1 ? (
                 <Pagination.Prev disabled />
