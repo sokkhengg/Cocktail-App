@@ -96,11 +96,7 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
                 <Pagination.Prev onClick={handlePreviousClick} id="page-next"/>
               )}
               <Pagination>{items}</Pagination>
-              {currentPage === Math.ceil(totalCocktails / 24) ? (
-                <Pagination.Next disabled id="page-next"/>
-              ) : (
                 <Pagination.Next onClick={handleNextClick} id="page-next"/>
-              )}
             </Pagination>
           </Col>
           <Col></Col>
@@ -139,17 +135,10 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
           <Col></Col>
           <Col xs={10} flex className="d-flex justify-content-center">
             <Pagination>
-              {currentPage === 1 ? (
-                <Pagination.Prev disabled />
-              ) : (
                 <Pagination.Prev onClick={handlePreviousClick} />
-              )}
               <Pagination>{items}</Pagination>
-              {currentPage === Math.ceil(totalCocktails / 24) ? (
                 <Pagination.Next disabled />
-              ) : (
                 <Pagination.Next onClick={handleNextClick} />
-              )}
             </Pagination>
           </Col>
           <Col></Col>
