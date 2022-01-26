@@ -9,7 +9,7 @@ import Col from "react-bootstrap/Col";
 
 // might have an option for user to leave their review
 
-function CocktailCard({ cocktail, currentUser }) {
+function CocktailCard({ cocktail, currentUser, liked }) {
   const [deleteCocktail, setDeleteCocktail] = useState([]);
   const [currentUserIngredients, setCurrentUserIngredients] = useState([]);
 
@@ -71,7 +71,7 @@ function CocktailCard({ cocktail, currentUser }) {
           //setSuccessMessage(success);
         });
       } else {
-        //r.json().then((err) => setErrorNewCocktail(err));
+        r.json().then((err) => console.log(err));
       }
     });
   }
@@ -153,7 +153,7 @@ function CocktailCard({ cocktail, currentUser }) {
             class="overlay"
             onClick={() => handleLikeClick(cocktail)}
           >
-            ♡
+            {liked ? "♡" : "♥"} 
           </div>
 
           {/* hiddent button */}

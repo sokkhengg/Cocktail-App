@@ -12,6 +12,7 @@ function CocktailList({ currentUser }) {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCocktails, setTotalCocktails] = useState();
   const [resultsPerPage, setResultsPerPage] = useState(24);
+  const [likedCocktails, setLikedCocktails] = useState([])
 
   //grabs all cocktails
   useEffect(() => {
@@ -19,13 +20,23 @@ function CocktailList({ currentUser }) {
       .then((r) => r.json())
       .then((cocktails) => {
         setCocktails(cocktails);
-  })}, [currentPage, resultsPerPage]);
+  })
+  }, [currentPage, resultsPerPage]);
 
   useEffect(() => {
     fetch(`/cocktail-total`)
       .then((r) => r.json())
       .then((r) => setTotalCocktails(r));
   }, [resultsPerPage]);
+
+  //getting likes, reviews, made status
+  useEffect(() => {
+    //fetch(`/user_cocktails/${currentUser.id}`)
+    fetch(`/user_cocktails/1`) // hard-coded for testing!!!
+    .then(r => r.json())
+    .then(r => console.log(r))
+   }, []);
+   
 
   function handleNextClick() {
     setCurrentPage(currentPage + 1);
@@ -124,6 +135,7 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
                   key={cock.id}
                   cocktail={cock}
                   currentUser={currentUser}
+                  liked={true}
                 />
               ))
             : null}
