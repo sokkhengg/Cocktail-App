@@ -24,8 +24,15 @@ class UserCocktailsController < ApplicationController
     def user_cocktails_all
         user = User.find(params[:id]) #find current user
         cocktails = []
+
         # # loop through all Cocktails and check the ingredient
-        Cocktail.all.each do |c|
+        # cocktail = HiddenCocktail.where(user_id: user.id)
+
+        # # loop through all visible_cocktails and check the ingredient
+        # button for hidden
+        # user.hidden_cocktails.create(cocktail_id: 1)
+      
+        user.visible_cocktails.all.each do |c|
             ctail = c.ingredients.all? do |i|
                 user.ingredients.include?(i)
             end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :ingredients, only: [ :index, :show ]
   resources :user_ingredients, only: [ :index, :create, :show, :destroy ]
   resources :users, only: [ :index, :show, :create ]
+  resources :hidden_cocktails, only: [:create ]
 
   get "/auth", to: "users#show" # used for continuous authentication as the user moves through the app
   post "/signup", to: "users#create"
@@ -18,7 +19,8 @@ Rails.application.routes.draw do
   
   get "/cocktail-total", to: "cocktails#total" #returns the total number of cocktails in the db (for pagination)
   
-
+  get "/cocktails-random", to: "cocktails#random"
+  # get "/hidden_cocktails", to: "cocktails#random"
 
   
   # Routing logic: fallback requests for React Router.

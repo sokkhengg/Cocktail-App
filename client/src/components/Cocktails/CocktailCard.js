@@ -76,6 +76,31 @@ function CocktailCard({ cocktail, currentUser, liked }) {
     });
   }
 
+  function handleHiddenClick(cocktail) {
+    const cocktailHidden = {
+      cocktail_id: cocktail.id,
+      user_id: 1
+    };
+    console.log(cocktailHidden)
+
+  fetch(`/hidden_cocktails`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(cocktailHidden),
+  }).then((r) => {
+    if (r.ok) {
+      r.json().then((success) => {
+        console.log(success);
+        // setSuccessMessage(success);
+      });
+    } else {
+      r.json().then((err) => console.log(err));
+    }
+  });
+}
+
   // testing add a button to delete a drink that user try to make
   function handleDeleteUserCocktailList(e) {
     // need to get the right id
@@ -130,6 +155,15 @@ function CocktailCard({ cocktail, currentUser, liked }) {
           >
             {liked ? "♡" : "♥"} 
           </div>
+
+          {/* hiddent button */}
+
+          <div
+            class="overlay"
+            onClick={() => handleHiddenClick(cocktail)}
+          >
+            hide me
+          </div>
         
         {/* <br></br>
         <div className="border"></div> */}
@@ -147,7 +181,7 @@ function CocktailCard({ cocktail, currentUser, liked }) {
             </Card.Title>
             <div className="border"></div>
             <Card.Text>
-              <ul>
+              <ul className='card-list'>
                 {ingredient_1_id ? (
                   <li>
                     {measure_1} {ingredient_1_name}{" "}

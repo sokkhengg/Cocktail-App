@@ -1,0 +1,32 @@
+.carousel {
+    margin: auto;
+    width: 400px;
+    height: auto;
+    border-radius: 40px !important;
+}
+
+.caption {
+    color: black;
+    background-color: white;
+    opacity: .5;
+}
+
+.image {
+    width: 400px;
+    height: auto;
+    border-radius: 50%;
+
+}
+
+.home-header {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    text-decoration: underline;
+}
+
+.app-instructions {
+    margin-top: 40px;
+    margin-right: 70px;
+    margin-left: 70px;
+}
