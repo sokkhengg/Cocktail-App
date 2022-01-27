@@ -8,8 +8,8 @@ class UserCocktailsController < ApplicationController
         existing_record = UserCocktail.find_by_user_id_and_cocktail_id(params[:user_id],params[:cocktail_id])
 
         if existing_record
-            existing_record.update!(:like=>[:like])
-            render json: {"message: " => "Updated record"}, status: :ok
+            updated_record = existing_record.update!(:like=>params[:like])
+            render json: existing_record.like, status: :ok
         else
             new_like = UserCocktail.create!(:user_id=> params[:user_id], :cocktail_id=> params[:cocktail_id], :like=>[:like])
             render json: new_like, status: :ok
@@ -17,8 +17,9 @@ class UserCocktailsController < ApplicationController
     end
 
     def show
-        user_cocktails = UserCocktail.where(:user_id => params[:id])
-        render json: user_cocktails, status: :ok
+        user_cocktails = User.where(:id => params[:id])
+        x = UserCocktail.where(:user_id => params[:id]).where(:like => true)
+        render json: x, status: :ok
     end
 
     def user_cocktails_all

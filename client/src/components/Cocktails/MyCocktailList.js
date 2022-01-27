@@ -49,7 +49,7 @@ function MyCocktailList({ currentUser }) {
             <Row
               xs={1}
               md={3}
-              className="g-4"
+              //className="g-4"
               className="d-flex justify-content-center"
             >
               {myCocktails

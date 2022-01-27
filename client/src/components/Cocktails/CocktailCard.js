@@ -6,12 +6,18 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { FiMinusCircle } from "react-icons/fi";
 
 // might have an option for user to leave their review
 
-function CocktailCard({ cocktail, currentUser, liked }) {
-  // const [deleteCocktail, setDeleteCocktail] = useState([]);
-  const [hiddenCocktail, setHiddenCocktail] = useState([]);
+// <<<<<<< wednesday2
+// function CocktailCard({ cocktail, currentUser, liked }) {
+//   // const [deleteCocktail, setDeleteCocktail] = useState([]);
+//   const [hiddenCocktail, setHiddenCocktail] = useState([]);
+// =======
+function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedAction }) {
+  const [deleteCocktail, setDeleteCocktail] = useState([]);
+// >>>>>>> main
   const [currentUserIngredients, setCurrentUserIngredients] = useState([]);
 
   const {
@@ -51,38 +57,33 @@ function CocktailCard({ cocktail, currentUser, liked }) {
       .then((r) => setCurrentUserIngredients(r));
   }, []);
 
-  function handleLikeClick(cocktail) {
+  function handleLikeClick(cocktail, liked) { 
     const cocktailLiked = {
       cocktail_id: cocktail.id,
       user_id: 1,
-      like:true
+      like: !liked
     };
-    console.log(cocktailLiked)
-
     fetch(`/user_cocktails`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(cocktailLiked),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((success) => {
-          console.log(success);
-          //setSuccessMessage(success);
-        });
-      } else {
-        r.json().then((err) => console.log(err));
-      }
-    });
+    })
+    setLikedAction(!likedAction)
   }
 
-  // useEffect(() => {
+// <<<<<<< wednesday2
+//   // useEffect(() => {
 
-  // }, [])
+//   // }, [])
   
-  // maybe we use the post method that why it does not disappear right the way
-  function handleHiddenClick(cocktail) {
+//   // maybe we use the post method that why it does not disappear right the way
+//   function handleHiddenClick(cocktail) {
+// =======
+  function handleHiddenClick(cocktail, liked) {
+    console.log(liked)
+// >>>>>>> main
     const cocktailHidden = {
       cocktail_id: cocktail.id,
       user_id: 1
@@ -108,7 +109,11 @@ function CocktailCard({ cocktail, currentUser, liked }) {
   });
 }
 
+// <<<<<<< wednesday2
   // testing add a button to delete a drink that user try to make
+=======
+  // // testing add a button to delete a drink that user try to make
+// >>>>>>> main
   // function handleDeleteUserCocktailList(e) {
   //   // need to get the right id
   //   const CocktailToDelete = e.target.attributes[0].value;
@@ -158,18 +163,20 @@ function CocktailCard({ cocktail, currentUser, liked }) {
           </Link>
           <div
             class="overlay"
-            onClick={() => handleLikeClick(cocktail)}
+            data-liked={liked}
+            data-cid={cocktail}
+            onClick={() => handleLikeClick(cocktail, liked)}
           >
-            {liked ? "♡" : "♥"} 
+            {liked ? "♥" : "♡"} 
           </div>
 
           {/* hiddent button */}
 
           <div
-            class="overlay"
+            class="hidden"
             onClick={() => handleHiddenClick(cocktail)}
           >
-            hide me
+            <FiMinusCircle className='minus'/>
           </div>
         
         {/* <br></br>
