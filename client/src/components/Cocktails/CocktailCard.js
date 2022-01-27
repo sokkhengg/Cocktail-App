@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import "./Cocktail.css";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
@@ -10,14 +10,8 @@ import { FiMinusCircle } from "react-icons/fi";
 
 // might have an option for user to leave their review
 
-// <<<<<<< wednesday2
-// function CocktailCard({ cocktail, currentUser, liked }) {
-//   // const [deleteCocktail, setDeleteCocktail] = useState([]);
-//   const [hiddenCocktail, setHiddenCocktail] = useState([]);
-// =======
 function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedAction }) {
-  const [deleteCocktail, setDeleteCocktail] = useState([]);
-// >>>>>>> main
+  // const [deleteCocktail, setDeleteCocktail] = useState([]);
   const [currentUserIngredients, setCurrentUserIngredients] = useState([]);
 
   const {
@@ -73,17 +67,10 @@ function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedActio
     setLikedAction(!likedAction)
   }
 
-// <<<<<<< wednesday2
-//   // useEffect(() => {
-
-//   // }, [])
-  
 //   // maybe we use the post method that why it does not disappear right the way
 //   function handleHiddenClick(cocktail) {
-// =======
   function handleHiddenClick(cocktail, liked) {
     console.log(liked)
-// >>>>>>> main
     const cocktailHidden = {
       cocktail_id: cocktail.id,
       user_id: 1
@@ -109,11 +96,6 @@ function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedActio
   });
 }
 
-// <<<<<<< wednesday2
-  // testing add a button to delete a drink that user try to make
-// =======
-  // // testing add a button to delete a drink that user try to make
-// >>>>>>> main
   // function handleDeleteUserCocktailList(e) {
   //   // need to get the right id
   //   const CocktailToDelete = e.target.attributes[0].value;
@@ -170,8 +152,7 @@ function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedActio
             {liked ? "♥" : "♡"} 
           </div>
 
-          {/* hiddent button */}
-
+          {/* hidden button */}
           <div
             class="hidden"
             onClick={() => handleHiddenClick(cocktail)}
