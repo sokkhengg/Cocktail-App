@@ -10,7 +10,8 @@ import Col from "react-bootstrap/Col";
 // might have an option for user to leave their review
 
 function CocktailCard({ cocktail, currentUser, liked }) {
-  const [deleteCocktail, setDeleteCocktail] = useState([]);
+  // const [deleteCocktail, setDeleteCocktail] = useState([]);
+  const [hiddenCocktail, setHiddenCocktail] = useState([]);
   const [currentUserIngredients, setCurrentUserIngredients] = useState([]);
 
   const {
@@ -76,11 +77,17 @@ function CocktailCard({ cocktail, currentUser, liked }) {
     });
   }
 
+  // useEffect(() => {
+
+  // }, [])
+  
+  // maybe we use the post method that why it does not disappear right the way
   function handleHiddenClick(cocktail) {
     const cocktailHidden = {
       cocktail_id: cocktail.id,
       user_id: 1
     };
+    alert('This will hide your drink');
     console.log(cocktailHidden)
 
   fetch(`/hidden_cocktails`, {
@@ -93,7 +100,7 @@ function CocktailCard({ cocktail, currentUser, liked }) {
     if (r.ok) {
       r.json().then((success) => {
         console.log(success);
-        // setSuccessMessage(success);
+        //setHiddenCocktail(hiddenCocktail);
       });
     } else {
       r.json().then((err) => console.log(err));
@@ -102,21 +109,21 @@ function CocktailCard({ cocktail, currentUser, liked }) {
 }
 
   // testing add a button to delete a drink that user try to make
-  function handleDeleteUserCocktailList(e) {
-    // need to get the right id
-    const CocktailToDelete = e.target.attributes[0].value;
-    fetch(`http://localhost:3000/cocktails/${CocktailToDelete}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((r) => r.json())
-      .then((r) => {
-        console.log(r);
-        setDeleteCocktail(!deleteCocktail);
-      });
-  }
+  // function handleDeleteUserCocktailList(e) {
+  //   // need to get the right id
+  //   const CocktailToDelete = e.target.attributes[0].value;
+  //   fetch(`http://localhost:3000/cocktails/${CocktailToDelete}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((r) => r.json())
+  //     .then((r) => {
+  //       console.log(r);
+  //       setDeleteCocktail(!deleteCocktail);
+  //     });
+  // }
 
   const found1 = currentUserIngredients.find(
     (i) => i.ingredient.name === ingredient_1_name
