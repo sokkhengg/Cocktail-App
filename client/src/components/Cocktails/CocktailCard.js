@@ -111,7 +111,7 @@ function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedActio
 
 // <<<<<<< wednesday2
   // testing add a button to delete a drink that user try to make
-=======
+// =======
   // // testing add a button to delete a drink that user try to make
 // >>>>>>> main
   // function handleDeleteUserCocktailList(e) {
