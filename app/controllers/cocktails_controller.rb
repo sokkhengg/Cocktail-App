@@ -37,12 +37,12 @@ class CocktailsController < ApplicationController
     end
 
     #come back later
-    def destroy
-        cocktail = find_cocktail
-        cocktail.destroy
-        render json: { message: "Cocktail deleted" }, status: :ok
-        # head :no_content
-    end
+    # def destroy
+    #     cocktail = find_cocktail
+    #     cocktail.destroy
+    #     render json: { message: "Cocktail deleted" }, status: :ok
+    #     # head :no_content
+    # end
 
     # inside cocktail model might work out better
     # def hide_cocktail
