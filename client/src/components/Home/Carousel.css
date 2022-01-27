@@ -30,3 +30,25 @@
     margin-right: 70px;
     margin-left: 70px;
 }
+
+.created-by {
+    text-align: center;
+    margin: 25px;
+}
+
+.creator-title {
+    text-decoration: underline;
+}
+
+.creator-container {
+    margin-bottom: 50px;
+}
+
+.creator-links{
+    text-decoration: none;
+    color: black;
+}
+
+.linkedin {
+    color:blue;
+}
