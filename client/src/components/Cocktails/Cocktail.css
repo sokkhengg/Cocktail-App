@@ -133,3 +133,29 @@
   border-radius: 50%;
   cursor: pointer;
 }
+
+.hidden {
+  position: absolute;
+  margin-left: 245px;
+  top: 2%;
+  background: rgba(211, 165, 38, 0.5);
+  width: 30px;
+  color: #f1f1f1;
+  transition: .5s ease;
+  opacity:1;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  z-index: 100;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.minus {
+  margin-bottom: 4px;
+}
+
+.page-select {
+  width: 150px !important;
+  margin-left: 200px;
+}

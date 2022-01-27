@@ -8,7 +8,7 @@ import Pagination from "react-bootstrap/Pagination";
 import Form from "react-bootstrap/Form";
 
 function CocktailList({ currentUser }) {
-  const [cocktails, setCocktails] = useState("");
+  const [cocktails, setCocktails] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCocktails, setTotalCocktails] = useState();
   const [resultsPerPage, setResultsPerPage] = useState(24);
@@ -67,11 +67,11 @@ function CocktailList({ currentUser }) {
     );
   }
 
-//   const [cocktailSearch, setCocktailSearch] = useState('');
+  const [cocktailSearch, setCocktailSearch] = useState('');
   
 
- 
-//   const cocktailsToDisplay = cocktails.filter((cocktail) => {
+
+//    const cocktailsToDisplay = cocktails.filter((cocktail) => {
 //     cocktail.name.toLowerCase().includes(cocktailSearch.toLowerCase())
 //   }) 
 
@@ -88,25 +88,41 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
         <Row>
           <Col>
 
-            <Form.Select
-              aria-label="Results per page"
-              onChange={handleResultsPerPage}
-            >
-              <option value="24">Results per page</option>
-              <option value="24">24</option>
-              <option value="48">48</option>
-              <option value="72">72</option>
-            </Form.Select>
+            
 
           </Col>
+
           <Col xs={8} flex className="d-flex justify-content-center">
+            <Form.Select
+            className='page-select'
+              // aria-label="Results per page"
+              onChange={handleResultsPerPage}
+            >
+              {/* <option value="24">Results per page</option> */}
+              <option value="24">24 per page</option>
+              <option value="48">48 per page</option>
+              <option value="72">72 per page</option>
+            </Form.Select>
             <Pagination>
+              
               {currentPage === 1 ? (
                 <Pagination.Prev disabled id="page-next"/>
               ) : (
                 <Pagination.Prev onClick={handlePreviousClick} id="page-next"/>
               )}
-              <Pagination>{items}</Pagination>
+              <Pagination>
+                {currentPage > 1 ?
+              <Pagination.Item onClick={handlePageClick}>
+                {currentPage-1}
+              </Pagination.Item> : null }
+              <Pagination.Item active={currentPage} className='page-item.active' >
+                {currentPage}
+              </Pagination.Item>
+              {currentPage < (Math.ceil(totalCocktails/resultsPerPage)) ?
+              <Pagination.Item onClick={handlePageClick}>
+                {currentPage+1}
+              </Pagination.Item> : null }
+              </Pagination>
                 <Pagination.Next onClick={handleNextClick} id="page-next"/>
             </Pagination>
           </Col>
@@ -149,7 +165,6 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
             <Pagination>
                 <Pagination.Prev onClick={handlePreviousClick} />
               <Pagination>{items}</Pagination>
-                <Pagination.Next disabled />
                 <Pagination.Next onClick={handleNextClick} />
             </Pagination>
           </Col>

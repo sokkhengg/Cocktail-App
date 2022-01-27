@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { FiMinusCircle } from "react-icons/fi";
 
 // might have an option for user to leave their review
 
@@ -159,10 +160,10 @@ function CocktailCard({ cocktail, currentUser, liked }) {
           {/* hiddent button */}
 
           <div
-            class="overlay"
+            class="hidden"
             onClick={() => handleHiddenClick(cocktail)}
           >
-            hide me
+            <FiMinusCircle className='minus'/>
           </div>
         
         {/* <br></br>
