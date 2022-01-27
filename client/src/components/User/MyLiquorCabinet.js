@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AddNewIngredient from "./AddNewIngredient";
 import MyCurrentIngredients from "./MyCurrentIngredients";
 import Container from "react-bootstrap/Container";

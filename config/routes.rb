@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   get "/cocktails-random", to: "cocktails#random"
   # get "/hidden_cocktails", to: "cocktails#random"
 
+  get "/popular", to:"cocktails#popular"
+
   
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

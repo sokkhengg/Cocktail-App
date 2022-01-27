@@ -13,6 +13,7 @@ function CocktailList({ currentUser }) {
   const [totalCocktails, setTotalCocktails] = useState();
   const [resultsPerPage, setResultsPerPage] = useState(24);
   const [likedCocktails, setLikedCocktails] = useState([])
+  const [likedAction, setLikedAction] = useState(false)
 
   //grabs all cocktails
   useEffect(() => {
@@ -21,7 +22,7 @@ function CocktailList({ currentUser }) {
       .then((cocktails) => {
         setCocktails(cocktails);
   })
-  }, [currentPage, resultsPerPage]);
+  }, [currentPage, resultsPerPage, likedAction]);
 
   useEffect(() => {
     fetch(`/cocktail-total`)
@@ -34,8 +35,13 @@ function CocktailList({ currentUser }) {
     //fetch(`/user_cocktails/${currentUser.id}`)
     fetch(`/user_cocktails/1`) // hard-coded for testing!!!
     .then(r => r.json())
-    .then(r => console.log(r))
-   }, []);
+    .then(r => setLikedCocktails(r))
+   }, [likedAction]);
+
+   // create an array of the liked cocktail's ids
+   const likedCocktailsIdArray = []
+   likedCocktails.map(c => {
+     likedCocktailsIdArray.push(c.cocktail.id) })
    
 
   function handleNextClick() {
@@ -67,14 +73,10 @@ function CocktailList({ currentUser }) {
     );
   }
 
-  const [cocktailSearch, setCocktailSearch] = useState('');
-  
-
-
+  const [cocktailSearch, setCocktailSearch] = useState('')
 //    const cocktailsToDisplay = cocktails.filter((cocktail) => {
 //     cocktail.name.toLowerCase().includes(cocktailSearch.toLowerCase())
 //   }) 
-
 // console.log(cocktails)
 // console.log(cocktailsToDisplay)
 
@@ -145,15 +147,30 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
           className="g-4"
           className="d-flex justify-content-center"
         >
+          
           {cocktails
-            ? cocktails.map((cock) => (
-                <CocktailCard
+            ? cocktails.map((cock) => {
+                if (likedCocktailsIdArray.includes(cock.id)) 
+                   return <CocktailCard
                   key={cock.id}
                   cocktail={cock}
                   currentUser={currentUser}
                   liked={true}
+                  setLikedAction={setLikedAction}
+                  likedAction={likedAction}
+                  /> 
+                 else 
+                  return <CocktailCard
+                  key={cock.id}
+                  cocktail={cock}
+                  currentUser={currentUser}
+                  liked={false}
+                  setLikedAction={setLikedAction}
+                  likedAction={likedAction}
                 />
-              ))
+                
+            }
+              )
             : null}
         </Row>
       </Container>

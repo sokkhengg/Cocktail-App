@@ -10,7 +10,7 @@ import { FiMinusCircle } from "react-icons/fi";
 
 // might have an option for user to leave their review
 
-function CocktailCard({ cocktail, currentUser, liked }) {
+function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedAction }) {
   const [deleteCocktail, setDeleteCocktail] = useState([]);
   const [currentUserIngredients, setCurrentUserIngredients] = useState([]);
 
@@ -51,33 +51,24 @@ function CocktailCard({ cocktail, currentUser, liked }) {
       .then((r) => setCurrentUserIngredients(r));
   }, []);
 
-  function handleLikeClick(cocktail) {
+  function handleLikeClick(cocktail, liked) { 
     const cocktailLiked = {
       cocktail_id: cocktail.id,
       user_id: 1,
-      like:true
+      like: !liked
     };
-    console.log(cocktailLiked)
-
     fetch(`/user_cocktails`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(cocktailLiked),
-    }).then((r) => {
-      if (r.ok) {
-        r.json().then((success) => {
-          console.log(success);
-          //setSuccessMessage(success);
-        });
-      } else {
-        r.json().then((err) => console.log(err));
-      }
-    });
+    })
+    setLikedAction(!likedAction)
   }
 
-  function handleHiddenClick(cocktail) {
+  function handleHiddenClick(cocktail, liked) {
+    console.log(liked)
     const cocktailHidden = {
       cocktail_id: cocktail.id,
       user_id: 1
@@ -102,22 +93,22 @@ function CocktailCard({ cocktail, currentUser, liked }) {
   });
 }
 
-  // testing add a button to delete a drink that user try to make
-  function handleDeleteUserCocktailList(e) {
-    // need to get the right id
-    const CocktailToDelete = e.target.attributes[0].value;
-    fetch(`http://localhost:3000/cocktails/${CocktailToDelete}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((r) => r.json())
-      .then((r) => {
-        console.log(r);
-        setDeleteCocktail(!deleteCocktail);
-      });
-  }
+  // // testing add a button to delete a drink that user try to make
+  // function handleDeleteUserCocktailList(e) {
+  //   // need to get the right id
+  //   const CocktailToDelete = e.target.attributes[0].value;
+  //   fetch(`http://localhost:3000/cocktails/${CocktailToDelete}`, {
+  //     method: "DELETE",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   })
+  //     .then((r) => r.json())
+  //     .then((r) => {
+  //       console.log(r);
+  //       setDeleteCocktail(!deleteCocktail);
+  //     });
+  // }
 
   const found1 = currentUserIngredients.find(
     (i) => i.ingredient.name === ingredient_1_name
@@ -152,9 +143,11 @@ function CocktailCard({ cocktail, currentUser, liked }) {
           </Link>
           <div
             class="overlay"
-            onClick={() => handleLikeClick(cocktail)}
+            data-liked={liked}
+            data-cid={cocktail}
+            onClick={() => handleLikeClick(cocktail, liked)}
           >
-            {liked ? "♡" : "♥"} 
+            {liked ? "♥" : "♡"} 
           </div>
 
           {/* hiddent button */}

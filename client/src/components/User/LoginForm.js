@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
-import { Link } from "react-router-dom";
 
 function LoginForm({ setCurrentUser }) {
   function handleLoginSubmit(e) {

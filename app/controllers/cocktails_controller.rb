@@ -31,6 +31,11 @@ class CocktailsController < ApplicationController
         render json: Cocktail.all.order("random()").limit(20).as_json, status: :ok
     end
 
+    def popular
+        popular_cocktails = UserCocktail.where(:like => true).group(:cocktail_id).count
+        render json: popular_cocktails, each_serializer: PopularCocktailSerializer, status: :ok
+    end
+
     #come back later
     def destroy
         cocktail = find_cocktail
