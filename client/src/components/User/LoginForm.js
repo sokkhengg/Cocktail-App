@@ -7,13 +7,19 @@ import Col from "react-bootstrap/Col";
 // import Link from "react-router-bootstrap";
 // import { LinkContainer } from 'react-router-bootstrap';
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Error from "./Error";
 
 
 function LoginForm({ setCurrentUser, currentUser }) {
   const [errors, setErrors] = useState([]);
 
+  const [isLoading, setIsLoading] = useState(false);
+
+
   function handleLoginSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
+
     console.log(e);
 
     const user_object = {
@@ -30,6 +36,7 @@ function LoginForm({ setCurrentUser, currentUser }) {
       body: JSON.stringify(user_object),
     }).then((r) => {
       if (r.ok) {
+      setIsLoading(false);
         r.json().then((user) => {
           setCurrentUser(user);
         });
@@ -81,7 +88,7 @@ function LoginForm({ setCurrentUser, currentUser }) {
                 <Col></Col>
                 <Col className="text-center">
                   <Button variant="primary" type="submit" id="login-button">
-                    Log in
+                  {isLoading ? "Loading..." : "Login"}
                   </Button>
                 </Col>
                 <Col></Col>
@@ -89,7 +96,7 @@ function LoginForm({ setCurrentUser, currentUser }) {
                 <Container className="text-center">
                   <br />
         {errors.map((err) => (
-          <p key={err}>{err}</p>
+          <Error key={err}>{err}</Error>
         ))}
       </Container>
               </Row>
