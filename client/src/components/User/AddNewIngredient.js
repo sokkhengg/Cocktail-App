@@ -30,7 +30,7 @@ function AddNewIngredient({ ingredients, currentUser, ingredientsUpdated, setIng
     e.preventDefault();
 
     const newUserIngredient = {
-      user_id: 1,
+      user_id: currentUser.id,
       ingredient_id: ingredientToAdd.value,
     };
 

@@ -14,8 +14,8 @@ function MyCocktailList({ currentUser }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    //fetch(`/my-custom-cocktails/?id=${currentUser.id}`)
-    fetch(`/my-custom-cocktails/?id=1`) //hardcoded for testing!!!!!
+    fetch(`/my-custom-cocktails/?id=${currentUser.id}`)
+    // fetch(`/my-custom-cocktails/?id=1`) //hardcoded for testing!!!!!
       .then((r) => r.json())
       .then((r) => {
         setMyCocktails(r);
