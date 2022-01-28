@@ -19,7 +19,7 @@ export default function Form({ currentUser, setCurrentUser }) {
           <Col xs={6} >
           
             <Tabs
-              defaultActiveKey="signup"
+              defaultActiveKey="login"
               id="login-signup"
               className="mb-3"
               className="form-border"

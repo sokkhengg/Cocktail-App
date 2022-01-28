@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
-  #skip checking authorization because we know they haven't (they're trying to login for the first time)
-  # skip_before_action :authorized
+  # skip checking authorization because we know they haven't (they're trying to login for the first time)
+  skip_before_action :authorized
   
   #login
   def create
@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       render json: user
     else
-      render json: { errors: ["Invalid username or password"] }, status: :unauthorized
+      render json: {"x" => "Invalid username or password"}, status: :unauthorized
     end
   end
 

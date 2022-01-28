@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
-  # skip_before_action :authorized, only: :create
-
-  #wrap_parameters format: []
+  skip_before_action :authorized, only: :create
+  wrap_parameters format: []
 
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
@@ -19,12 +18,12 @@ class UsersController < ApplicationController
     def show
     render json: @current_user
 
-      # current_user = User.find(session[:user_id])
-      # if current_user
-      #   render json: current_user
-      # else
-      #   render json: { error: "Not authorized" }, status: :unauthorized
-      # end
+      current_user = User.find(session[:user_id])
+      if current_user
+        render json: current_user
+      else
+        render json: { error: "Not authorized" }, status: :unauthorized
+      end
     end
   
 

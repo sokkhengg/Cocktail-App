@@ -4,8 +4,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
   # this trickles down to the other controllers to check if the user is logged in before they can do stuff
-  # before_action :authorized
-
+  before_action :authorized
 
   # renders an error message if the session does not include the user_id
 

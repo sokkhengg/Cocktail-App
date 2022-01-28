@@ -18,7 +18,8 @@ function CocktailCarousel() {
   return (
     
     <section >
-      <h1 className='home-header'>Welcome to the Cocktail App</h1>
+      <h1 className='home-header'>Welcome to Cocktailor</h1>
+      <h3 className='home-header'>Cocktail recipes tailor-made for what you have on hand!</h3>
       <Carousel className="carousel">
         {cocktails.map((cock) => {
           return (

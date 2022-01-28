@@ -6,7 +6,7 @@ class Cocktail < ApplicationRecord
     has_many :users, through: :user_cocktail
     has_many :hidden_cocktails
 
-    # validates :name, :instructions, :ingredient_1_name, :ingredient_2_name, :ingredient_1_id, :ingredient_2_id, :measure_1, :measure_2, presence: true
+    validates :name, :instructions, :ingredient_1_name, :ingredient_2_name, :ingredient_1_id, :ingredient_2_id, :measure_1, :measure_2, presence: true
 
     def as_json(options={})
         super(options).reject { |k, v| v.nil? || v === 0 }

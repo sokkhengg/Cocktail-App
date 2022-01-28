@@ -9,7 +9,7 @@ import './Header.css';
 function Header({ currentUser }) {
   const loggedin = `Logged in as ${currentUser.username}`;
 
-  //console.log(currentUser)
+  console.log(currentUser)
   return (
     <Navbar
       className="sticky-top nav-bar"
@@ -19,24 +19,39 @@ function Header({ currentUser }) {
     >
       <Container>
         <LinkContainer to="/">
-          <Navbar.Brand className="title">Cocktail App</Navbar.Brand>
+          <Navbar.Brand className="title">Cocktailor</Navbar.Brand>
         </LinkContainer>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <div>
             <Nav className="nav-container">
-              <LinkContainer to="/my-cocktail-list">
+
+              { currentUser ? <LinkContainer to="/my-cocktail-list">
                 <Nav.Link className="nav-links"> My Cocktails</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> : null }
+
+              
+
+
+              { currentUser ? 
               <LinkContainer className="nav-links" to="/cocktail-list">
                 <Nav.Link>Cocktails</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/my-liquor-cabinet">
+              : null }
+
+              {currentUser ? <LinkContainer to="/my-liquor-cabinet">
                 <Nav.Link className="nav-links">My Liquor Cabinet</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/new-cocktail">
+              </LinkContainer> : null}
+
+              {currentUser ? <LinkContainer to="/new-cocktail">
                 <Nav.Link className="nav-links">New Cocktail</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> : null }
+
+              {/* <LinkContainer to="/popular-cocktails">
+                <Nav.Link className="nav-links">Popular Cocktails</Nav.Link>
+              </LinkContainer> */}
+
+
               {/* if the current user is not log in display the log in button otherwise display the logout */}
               {!currentUser.username ? (
                 <LinkContainer to="/login">
@@ -47,6 +62,7 @@ function Header({ currentUser }) {
                   <NavDropdown.Item href="/login">Logout</NavDropdown.Item>
                 </NavDropdown>
               )}
+
             </Nav>
           </div>
         </Navbar.Collapse>
