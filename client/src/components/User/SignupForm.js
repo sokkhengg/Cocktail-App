@@ -35,7 +35,7 @@ function SignupForm({ setCurrentUser }) {
         if (r.ok) {
           r.json().then((user) => {
             setCurrentUser(user)
-            window.location = "/my-liquor-cabinet";
+            //window.location = "/my-liquor-cabinet";
           });
           
 
