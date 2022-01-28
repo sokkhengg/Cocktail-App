@@ -75,33 +75,15 @@ function CocktailList({ currentUser }) {
     );
   }
 
-  // testing a seatch bar feature
   const [cocktailSearch, setCocktailSearch] = useState("")
-  // const [searchShow, setSearchShow] = useState(false)
 
-  
-  // console.log(cocktails)
-  // console.log(cocktailsToDisplay)
+    let cocktailsToDisplay = []
+    cocktailsToDisplay = cocktails.filter((cocktail) =>
+    cocktail.name.toLowerCase().includes(cocktailSearch.toLowerCase())
+  );
 
-  // const handleSearchChange = e => {
-  //   setCocktailSearch(e.target.value);
-  //   if (e.target.value === ""){
-  //     setSearchShow(false);
-  //   }
-  //   else {
-  //     setSearchShow(true);
-  //   }
-  //   }
 
-    // function searchList() {
-    //   if (searchShow) {
-    //     return (
-    //       <>
-    //         <SearchList cocktails={cocktails}/>
-    //       </>
-    //     )
-    //   }
-    // }
+
 
 if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
    setCurrentPage(1)
@@ -151,31 +133,12 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
         </Row>
       </Container>
 
-      <div >
         <input
           type="text"
           placeholder="Search by cocktail..."
           onChange={(e) => setCocktailSearch(e.target.value)}
         />
-
-         {/* since we have multiple pages, we might need to graps all the cocktails from all the page and filter those */}
-            {cocktails.filter((val)=> {
-              if (cocktailSearch === "") {
-                return val
-              } else if (val.name.toLowerCase().includes(cocktailSearch.toLowerCase()))
-              return val
-            }).map((val, key) => {
-              return (
-                <div key={key}>
-                 
-                  {/* <CocktailCard key={key}/> */}
-                  <p>{val.name}</p>
-                </div>
-              )
-            })
-          }
-      </div>
-      
+         
       <Container>
         <Row
           xs={1}
@@ -185,7 +148,7 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
         >
           
           {cocktails
-            ? cocktails.map((cock) => {
+            ? cocktailsToDisplay.map((cock) => {
                 if (likedCocktailsIdArray.includes(cock.id)) 
                    return <CocktailCard
                   key={cock.id}
