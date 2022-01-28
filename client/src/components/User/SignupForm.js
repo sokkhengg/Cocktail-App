@@ -5,12 +5,15 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Error from "./Error";
 
 function SignupForm({ setCurrentUser }) {
   const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   function handleSignupSubmit(e) {
     e.preventDefault();
+    setIsLoading(true);
     setErrors([]);
 
     const user_object = {
@@ -28,6 +31,7 @@ function SignupForm({ setCurrentUser }) {
       body: JSON.stringify(user_object),
     })
       .then((r) => {
+      setIsLoading(false);
         if (r.ok) {
           r.json().then((user) => {
             setCurrentUser(user)
@@ -83,14 +87,14 @@ function SignupForm({ setCurrentUser }) {
                 <Col></Col>
                 <Col className="text-center">
                   <Button variant="primary" type="submit" id="login-button">
-                    Sign Up
+                  {isLoading ? "Loading..." : "Sign Up"}
                   </Button>
                 </Col>
                 <Col></Col>
                   <br/>
                 <Container>
         {errors.map((err) => (
-          <p key={err}>{err}</p>
+          <Error key={err}>{err}</Error>
         ))}
       </Container>
               </Row>
