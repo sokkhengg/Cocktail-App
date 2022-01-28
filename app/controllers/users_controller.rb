@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   skip_before_action :authorized, only: :create
-  wrap_parameters format: []
+  # wrap_parameters format: []
 
 
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
