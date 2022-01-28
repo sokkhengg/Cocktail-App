@@ -11,7 +11,6 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 
 function LoginForm({ setCurrentUser, currentUser }) {
   const [errors, setErrors] = useState([]);
-  // const [errorMsg, setErrorMsg] = useState({});
 
   function handleLoginSubmit(e) {
     e.preventDefault();
@@ -36,10 +35,6 @@ function LoginForm({ setCurrentUser, currentUser }) {
         });
       } else {
         r.json().then((err) => setErrors(err.errors));
-        // r.json().then((err) => {
-        //   console.log(err)
-        //   // setErrorMsg(err)
-        // });
       }
     });
   }
@@ -91,7 +86,8 @@ function LoginForm({ setCurrentUser, currentUser }) {
                 </Col>
                 <Col></Col>
                 <br/>
-                <Container>
+                <Container className="text-center">
+                  <br />
         {errors.map((err) => (
           <p key={err}>{err}</p>
         ))}
@@ -100,24 +96,7 @@ function LoginForm({ setCurrentUser, currentUser }) {
             </Form>
           </Col>
           <Col></Col>
-        </Row>
-        <Row>&nbsp;</Row>
-
-        {/* {errorMsg !== {} ? <p>no error</p> : <p>error</p>} */}
-
-        {/* {currentUser ? (
-          <>
-            <Row>
-              <Col></Col>
-              <Col className="text-center">
-
-                <Link to="/cocktail-list">Cocktails</Link>
-
-              </Col>
-              <Col></Col>
-            </Row>
-          </>
-        ) : null} */}
+        </Row>        
         <Row>&nbsp;</Row>
         <Row>&nbsp;</Row>
       </Container>
