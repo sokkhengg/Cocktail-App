@@ -53,7 +53,7 @@ function CocktailDetail({}) {
 <Row>
     <Col></Col>
     <Col>
-    <Row>&#60; Back<br /><br /></Row>
+
     <div class="container">
         <img className="cocktail-image" src="https://www.liquor.com/thmb/zJ7_To3UNS5DNJ0aeyc4dVHUAac=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__10144903__Manhattan-720x720-recipe-9497922907c14d91898f557cb51f2ea3.jpg" alt={name}/>
 

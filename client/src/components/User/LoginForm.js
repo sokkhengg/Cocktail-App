@@ -12,6 +12,7 @@ import Error from "./Error";
 
 function LoginForm({ setCurrentUser, currentUser }) {
   const [errors, setErrors] = useState([]);
+  const [success, setSuccess] = useState([]);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -38,7 +39,8 @@ function LoginForm({ setCurrentUser, currentUser }) {
       if (r.ok) {
       setIsLoading(false);
         r.json().then((user) => {
-          setCurrentUser(user);
+          setCurrentUser(user)
+          setSuccess(user)
         });
       } else {
         r.json().then((err) => setErrors(err.errors));
@@ -96,6 +98,9 @@ function LoginForm({ setCurrentUser, currentUser }) {
                 <Container className="text-center">
                   <br />
         {errors.map((err) => (
+          <Error key={err}>{err}</Error>
+        ))}
+        {success.map((err) => (
           <Error key={err}>{err}</Error>
         ))}
       </Container>

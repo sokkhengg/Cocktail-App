@@ -1,5 +1,7 @@
 class UserCocktailsController < ApplicationController
 
+    skip_before_action :authorized
+    
     def index
         render json: UserCocktail.all
     end

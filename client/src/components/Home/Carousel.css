@@ -9,6 +9,7 @@
     color: black;
     background-color: white;
     opacity: .5;
+    border-radius: 30px;
 }
 
 .image {
@@ -20,9 +21,9 @@
 
 .home-header {
     text-align: center;
-    margin-top: 15px;
-    margin-bottom: 25px;
-    text-decoration: underline;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    color: #073142;
 }
 
 .app-instructions {
@@ -37,7 +38,7 @@
 }
 
 .creator-title {
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .creator-container {

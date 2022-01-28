@@ -45,7 +45,7 @@ function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedActio
   // const { id } = useParams();
 
   useEffect(() => {
-     fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
+     fetch(`http://localhost:3000/user_ingredients/${currentUser}`)
       .then((r) => r.json())
       .then((r) => setCurrentUserIngredients(r));
   }, []);
@@ -72,7 +72,7 @@ function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedActio
     console.log(liked)
     const cocktailHidden = {
       cocktail_id: cocktail.id,
-      user_id: 1
+      user_id: currentUser.id
     };
     alert('This will hide your drink');
     console.log(cocktailHidden)

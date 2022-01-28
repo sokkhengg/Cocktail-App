@@ -12,16 +12,32 @@ import PulseLoader from "react-spinners/PulseLoader";
 function MyCocktailList({ currentUser }) {
   const [myCocktails, setMyCocktails] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [likedAction, setLikedAction] = useState(false);
+  const [likedCocktails, setLikedCocktails] = useState([]);
 
   useEffect(() => {
-    fetch(`/my-custom-cocktails/?id=${currentUser.id}`)
-    // fetch(`/my-custom-cocktails/?id=1`) //hardcoded for testing!!!!!
+    fetch(`/my-custom-cocktails/?id=1`)
       .then((r) => r.json())
       .then((r) => {
         setMyCocktails(r);
         setLoading(false);
       });
   }, []);
+
+    //getting likes, reviews, made status
+    useEffect(() => {
+      fetch(`/user_cocktails/1`)
+        .then((r) => r.json())
+        .then((r) => setLikedCocktails(r));
+    }, [likedAction]);
+  
+    // create an array of the liked cocktail's ids
+    const likedCocktailsIdArray = [];
+    likedCocktails.map((c) => {
+      likedCocktailsIdArray.push(c.cocktail.id);
+    });
+    console.log(likedCocktailsIdArray)
+    console.log(myCocktails)
 
   return (
     <div>
@@ -52,9 +68,44 @@ function MyCocktailList({ currentUser }) {
               //className="g-4"
               className="d-flex justify-content-center"
             >
+
+
+
+{myCocktails
+            ? myCocktails.map((cock) => {
+                if (likedCocktailsIdArray.includes(cock.id))
+                  return (
+                    <CocktailCard
+                      key={cock.id}
+                      cocktail={cock}
+                      currentUser={currentUser}
+                      liked={true}
+                      setLikedAction={setLikedAction}
+                      likedAction={likedAction}
+                    />
+                  )
+                else
+                  return (
+                    
+                    <CocktailCard
+                      key={cock.id}
+                      cocktail={cock}
+                      currentUser={currentUser}
+                      liked={false}
+                      setLikedAction={setLikedAction}
+                      likedAction={likedAction}
+                    />
+                  );
+              })
+            : null}
+
+
+
+
+
               {myCocktails
                 ? myCocktails.map((cock) => (
-                    <CocktailCard key={cock.id} cocktail={cock} />
+                    <CocktailCard key={cock.id} cocktail={cock} currentUser={currentUser} liked={true}likedAction={likedAction} setLikedAction={setLikedAction} />
                   ))
                 : null}
             </Row>

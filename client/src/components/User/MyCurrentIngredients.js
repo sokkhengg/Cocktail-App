@@ -14,16 +14,17 @@ function MyCurrentIngredients({
 }) {
 
   useEffect(() => {
-
-    fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
-    // fetch(`http://localhost:3000/user_ingredients/1`) //hardcoded for ease of testing! replace with your user_id
+    console.log(currentUser.id)
+      fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
       .then((r) => r.json())
       .then((r) => setCurrentIngredients(r));
   }, [ingredientsUpdated]);
 
 
   function handleDeleteUserIngredient(e) {
-    const ingredientToDelete = e.target.attributes[0].value;
+    console.log(e)
+    const ingredientToDelete = e.target.attributes[1].value;
+    console.log(ingredientToDelete)
     fetch(`http://localhost:3000/user_ingredients/${ingredientToDelete}`, {
       method: "DELETE",
       headers: {
@@ -62,7 +63,7 @@ function MyCurrentIngredients({
                           </div>
                         </div>
                         <Button id='trash'
-                          variant="outline-danger"
+                          variant="outline-light"
                           
                           size="sm"
                           data-useringredient-id={ingredient.id}
