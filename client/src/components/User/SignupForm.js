@@ -11,6 +11,8 @@ function SignupForm({ setCurrentUser }) {
 
   function handleSignupSubmit(e) {
     e.preventDefault();
+    setErrors([]);
+
     const user_object = {
       username: e.target[0].value,
       password: e.target[1].value,
@@ -85,6 +87,11 @@ function SignupForm({ setCurrentUser }) {
                   </Button>
                 </Col>
                 <Col></Col>
+                <Container>
+        {errors.map((err) => (
+          <p key={err}>{err}</p>
+        ))}
+      </Container>
               </Row>
             </Form>
           </Col>
