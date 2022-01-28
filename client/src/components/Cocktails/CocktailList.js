@@ -1,21 +1,19 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import CocktailCard from "./CocktailCard";
-import Pagination from "react-bootstrap/Pagination";
-import Form from "react-bootstrap/Form";
-import SearchList from "./SearchList";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import CocktailCard from './CocktailCard';
+import Pagination from 'react-bootstrap/Pagination';
+import Form from 'react-bootstrap/Form';
 
 function CocktailList({ currentUser }) {
   const [cocktails, setCocktails] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCocktails, setTotalCocktails] = useState();
   const [resultsPerPage, setResultsPerPage] = useState(24);
-  const [likedCocktails, setLikedCocktails] = useState([])
-  const [likedAction, setLikedAction] = useState(false)
-  
+  const [likedCocktails, setLikedCocktails] = useState([]);
+  const [likedAction, setLikedAction] = useState(false);
 
   //grabs all cocktails
   useEffect(() => {
@@ -23,7 +21,7 @@ function CocktailList({ currentUser }) {
       .then((r) => r.json())
       .then((cocktails) => {
         setCocktails(cocktails);
-  })
+      });
   }, [currentPage, resultsPerPage, likedAction]);
 
   useEffect(() => {
@@ -36,15 +34,15 @@ function CocktailList({ currentUser }) {
   useEffect(() => {
     //fetch(`/user_cocktails/${currentUser.id}`)
     fetch(`/user_cocktails/1`) // hard-coded for testing!!!
-    .then(r => r.json())
-    .then(r => setLikedCocktails(r))
-   }, [likedAction]);
+      .then((r) => r.json())
+      .then((r) => setLikedCocktails(r));
+  }, [likedAction]);
 
-   // create an array of the liked cocktail's ids
-   const likedCocktailsIdArray = []
-   likedCocktails.map(c => {
-     likedCocktailsIdArray.push(c.cocktail.id) })
-   
+  // create an array of the liked cocktail's ids
+  const likedCocktailsIdArray = [];
+  likedCocktails.map((c) => {
+    likedCocktailsIdArray.push(c.cocktail.id);
+  });
 
   function handleNextClick() {
     setCurrentPage(currentPage + 1);
@@ -63,7 +61,11 @@ function CocktailList({ currentUser }) {
   }
 
   let items = [];
-  for (let number = 1; number <= Math.ceil(totalCocktails / resultsPerPage ); number++) {
+  for (
+    let number = 1;
+    number <= Math.ceil(totalCocktails / resultsPerPage);
+    number++
+  ) {
     items.push(
       <Pagination.Item
         key={number}
@@ -75,29 +77,25 @@ function CocktailList({ currentUser }) {
     );
   }
 
-  const [cocktailSearch, setCocktailSearch] = useState("")
+  const [cocktailSearch, setCocktailSearch] = useState('');
 
-    let cocktailsToDisplay = []
-    cocktailsToDisplay = cocktails.filter((cocktail) =>
+  let cocktailsToDisplay = [];
+  cocktailsToDisplay = cocktails.filter((cocktail) =>
     cocktail.name.toLowerCase().includes(cocktailSearch.toLowerCase())
   );
 
-
-
-
-if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
-   setCurrentPage(1)
-}
+  if (currentPage === Math.ceil(totalCocktails / resultsPerPage) + 1) {
+    setCurrentPage(1);
+  }
 
   return (
     <>
       <Container id="top-pagination">
         <Row>
-          <Col>
-          </Col>
+          <Col></Col>
           <Col xs={8} flex className="d-flex justify-content-center">
             <Form.Select
-            className='page-select'
+              className="page-select"
               // aria-label="Results per page"
               onChange={handleResultsPerPage}
             >
@@ -107,38 +105,42 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
               <option value="72">72 per page</option>
             </Form.Select>
             <Pagination>
-              
               {currentPage === 1 ? (
-                <Pagination.Prev disabled id="page-next"/>
+                <Pagination.Prev disabled id="page-next" />
               ) : (
-                <Pagination.Prev onClick={handlePreviousClick} id="page-next"/>
+                <Pagination.Prev onClick={handlePreviousClick} id="page-next" />
               )}
               <Pagination>
-                {currentPage > 1 ?
-              <Pagination.Item onClick={handlePageClick}>
-                {currentPage-1}
-              </Pagination.Item> : null }
-              <Pagination.Item active={currentPage} className='page-item.active' >
-                {currentPage}
-              </Pagination.Item>
-              {currentPage < (Math.ceil(totalCocktails/resultsPerPage)) ?
-              <Pagination.Item onClick={handlePageClick}>
-                {currentPage+1}
-              </Pagination.Item> : null }
+                {currentPage > 1 ? (
+                  <Pagination.Item onClick={handlePageClick}>
+                    {currentPage - 1}
+                  </Pagination.Item>
+                ) : null}
+                <Pagination.Item
+                  active={currentPage}
+                  className="page-item.active"
+                >
+                  {currentPage}
+                </Pagination.Item>
+                {currentPage < Math.ceil(totalCocktails / resultsPerPage) ? (
+                  <Pagination.Item onClick={handlePageClick}>
+                    {currentPage + 1}
+                  </Pagination.Item>
+                ) : null}
               </Pagination>
-                <Pagination.Next onClick={handleNextClick} id="page-next"/>
+              <Pagination.Next onClick={handleNextClick} id="page-next" />
             </Pagination>
           </Col>
           <Col></Col>
         </Row>
       </Container>
 
-        <input
-          type="text"
-          placeholder="Search by cocktail..."
-          onChange={(e) => setCocktailSearch(e.target.value)}
-        />
-         
+      <input
+        type="text"
+        placeholder="Search by cocktail..."
+        onChange={(e) => setCocktailSearch(e.target.value)}
+      />
+
       <Container>
         <Row
           xs={1}
@@ -146,30 +148,31 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
           className="g-4"
           className="d-flex justify-content-center"
         >
-          
           {cocktails
             ? cocktailsToDisplay.map((cock) => {
-                if (likedCocktailsIdArray.includes(cock.id)) 
-                   return <CocktailCard
-                  key={cock.id}
-                  cocktail={cock}
-                  currentUser={currentUser}
-                  liked={true}
-                  setLikedAction={setLikedAction}
-                  likedAction={likedAction}
-                  /> 
-                 else 
-                  return <CocktailCard
-                  key={cock.id}
-                  cocktail={cock}
-                  currentUser={currentUser}
-                  liked={false}
-                  setLikedAction={setLikedAction}
-                  likedAction={likedAction}
-                />
-                
-            }
-              )
+                if (likedCocktailsIdArray.includes(cock.id))
+                  return (
+                    <CocktailCard
+                      key={cock.id}
+                      cocktail={cock}
+                      currentUser={currentUser}
+                      liked={true}
+                      setLikedAction={setLikedAction}
+                      likedAction={likedAction}
+                    />
+                  );
+                else
+                  return (
+                    <CocktailCard
+                      key={cock.id}
+                      cocktail={cock}
+                      currentUser={currentUser}
+                      liked={false}
+                      setLikedAction={setLikedAction}
+                      likedAction={likedAction}
+                    />
+                  );
+              })
             : null}
         </Row>
       </Container>
@@ -179,9 +182,9 @@ if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
           <Col></Col>
           <Col xs={10} flex className="d-flex justify-content-center">
             <Pagination>
-                <Pagination.Prev onClick={handlePreviousClick} />
+              <Pagination.Prev onClick={handlePreviousClick} />
               <Pagination>{items}</Pagination>
-                <Pagination.Next onClick={handleNextClick} />
+              <Pagination.Next onClick={handleNextClick} />
             </Pagination>
           </Col>
           <Col></Col>

@@ -19,6 +19,8 @@ function CocktailDetail({}) {
         });
     }, []);
 
+    console.log(cocktail)
+
     const { name, instructions, alcoholic, category, image, glass, iba, ingredient_1_name,
         ingredient_2_name, ingredient_3_name, ingredient_4_name, ingredient_5_name,
         ingredient_6_name, ingredient_1_id, ingredient_2_id, ingredient_3_id, ingredient_4_id,
