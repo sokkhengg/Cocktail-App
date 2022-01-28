@@ -46,7 +46,6 @@ function CocktailCard({ cocktail, currentUser, liked, setLikedAction, likedActio
 
   useEffect(() => {
      fetch(`http://localhost:3000/user_ingredients/${currentUser.id}`)
-    //fetch(`http://localhost:3000/user_ingredients/1`) //hardcoded for ease of testing! replace with your user_id
       .then((r) => r.json())
       .then((r) => setCurrentUserIngredients(r));
   }, []);
