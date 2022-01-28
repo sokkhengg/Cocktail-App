@@ -77,6 +77,66 @@ function CocktailList({ currentUser }) {
     );
   }
 
+
+  // testing a seatch bar feature
+  // const [cocktailSearch, setCocktailSearch] = useState("")
+  // const [searchShow, setSearchShow] = useState(false)
+
+  
+  // console.log(cocktails)
+  // console.log(cocktailsToDisplay)
+
+  // const handleSearchChange = e => {
+  //   setCocktailSearch(e.target.value);
+  //   if (e.target.value === ""){
+  //     setSearchShow(false);
+  //   }
+  //   else {
+  //     setSearchShow(true);
+  //   }
+  //   }
+
+    // function searchList() {
+    //   if (searchShow) {
+    //     return (
+    //       <>
+    //         <SearchList cocktails={cocktails}/>
+    //       </>
+    //     )
+    //   }
+    // }
+
+    // second ways
+
+    //  {/* <div >
+    //     <input
+    //       type="text"
+    //       placeholder="Search by cocktail..."
+    //       onChange={(e) => setCocktailSearch(e.target.value)}
+    //     />
+
+    //      {/* since we have multiple pages, we might need to graps all the cocktails from all the page and filter those */}
+    //         {/* {cocktails.filter((val)=> {
+    //           if (cocktailSearch === "") {
+    //             return val
+    //           } else if (val.name.toLowerCase().includes(cocktailSearch.toLowerCase()))
+    //           return val
+    //         }).map((val, key) => {
+    //           return (
+    //             <div key={key}>
+                 
+    //               {/* <CocktailCard key={key}/> */}
+    //               <p>{val.name}</p>
+    //             </div>
+    //           )
+    //         })
+    //       } */}
+    //   {/* </div> */} */}
+
+if (currentPage === Math.ceil(totalCocktails/resultsPerPage)+1) {
+   setCurrentPage(1)
+}
+
   const [cocktailSearch, setCocktailSearch] = useState('');
 
   let cocktailsToDisplay = [];
@@ -87,6 +147,7 @@ function CocktailList({ currentUser }) {
   if (currentPage === Math.ceil(totalCocktails / resultsPerPage) + 1) {
     setCurrentPage(1);
   }
+
 
   return (
     <>
@@ -135,11 +196,13 @@ function CocktailList({ currentUser }) {
         </Row>
       </Container>
 
+
       <input
         type="text"
         placeholder="Search by cocktail..."
         onChange={(e) => setCocktailSearch(e.target.value)}
       />
+
 
       <Container>
         <Row

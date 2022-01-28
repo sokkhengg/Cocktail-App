@@ -3,7 +3,12 @@ class CocktailsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
     rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
 
+
+    # alllow user to see the random cocktails and also create it
+#     skip_before_action :authorized, only: [:random, :create, :show, :index, :total]
+
     skip_before_action :authorized
+
 
     def index
        
