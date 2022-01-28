@@ -4,12 +4,14 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Link from "react-router-bootstrap";
-import { LinkContainer } from 'react-router-bootstrap';
+// import Link from "react-router-bootstrap";
+// import { LinkContainer } from 'react-router-bootstrap';
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 
+
 function LoginForm({ setCurrentUser, currentUser }) {
-  const [errorMsg, setErrorMsg] = useState({});
+  const [errors, setErrors] = useState([]);
+  // const [errorMsg, setErrorMsg] = useState({});
 
   function handleLoginSubmit(e) {
     e.preventDefault();
@@ -33,10 +35,11 @@ function LoginForm({ setCurrentUser, currentUser }) {
           setCurrentUser(user);
         });
       } else {
-        r.json().then((err) => {
-          console.log(err)
-          setErrorMsg(err)
-        });
+        r.json().then((err) => setErrors(err.errors));
+        // r.json().then((err) => {
+        //   console.log(err)
+        //   // setErrorMsg(err)
+        // });
       }
     });
   }
@@ -87,6 +90,12 @@ function LoginForm({ setCurrentUser, currentUser }) {
                   </Button>
                 </Col>
                 <Col></Col>
+                <br/>
+                <Container>
+        {errors.map((err) => (
+          <p key={err}>{err}</p>
+        ))}
+      </Container>
               </Row>
             </Form>
           </Col>

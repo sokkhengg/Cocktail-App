@@ -87,6 +87,7 @@ function SignupForm({ setCurrentUser }) {
                   </Button>
                 </Col>
                 <Col></Col>
+                  <br/>
                 <Container>
         {errors.map((err) => (
           <p key={err}>{err}</p>
