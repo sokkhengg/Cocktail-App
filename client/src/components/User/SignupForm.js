@@ -15,7 +15,7 @@ function SignupForm({ setCurrentUser }) {
       username: e.target[0].value,
       password: e.target[1].value,
     };
-    console.log(user_object);
+
 
     fetch("signup", {
       // hits the users#create endpoint to add a new user to the database
@@ -25,17 +25,20 @@ function SignupForm({ setCurrentUser }) {
       },
       body: JSON.stringify(user_object),
     })
-      // .then((r) => r.json())
-      // .then((user) => setCurrentUser(user));
       .then((r) => {
-        // setIsLoading(false);
         if (r.ok) {
-          r.json().then((user) => setCurrentUser(user));
+          r.json().then((user) => {
+            setCurrentUser(user)
+            window.location = "/my-liquor-cabinet";
+          });
+          
+
         } else {
           r.json().then((err) => setErrors(err.errors));
         }
       });
   }
+  //display error message on frontend
 
   return (
     <>

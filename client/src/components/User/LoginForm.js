@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Link from "react-router-bootstrap";
+import { LinkContainer } from 'react-router-bootstrap';
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 
-function LoginForm({ setCurrentUser }) {
+function LoginForm({ setCurrentUser, currentUser }) {
+  const [errorMsg, setErrorMsg] = useState({});
+
   function handleLoginSubmit(e) {
     e.preventDefault();
     console.log(e);
@@ -25,9 +29,14 @@ function LoginForm({ setCurrentUser }) {
       body: JSON.stringify(user_object),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setCurrentUser(user));
+        r.json().then((user) => {
+          setCurrentUser(user);
+        });
       } else {
-        r.json().then((err) => console.log(err));
+        r.json().then((err) => {
+          console.log(err)
+          setErrorMsg(err)
+        });
       }
     });
   }
@@ -51,22 +60,22 @@ function LoginForm({ setCurrentUser }) {
           <Col xs={10}>
             <Form onSubmit={(e) => handleLoginSubmit(e)}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-              <FloatingLabel
+                <FloatingLabel
                   controlId="floatingTextarea"
                   label="Username"
                   className="mb-3"
                 >
-                <Form.Control type="text" placeholder="Enter username" />
+                  <Form.Control type="text" placeholder="Enter username" />
                 </FloatingLabel>
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
-              <FloatingLabel
+                <FloatingLabel
                   controlId="floatingTextarea"
                   label="Password"
                   className="mb-3"
                 >
-                <Form.Control type="password" placeholder="Password" />
+                  <Form.Control type="password" placeholder="Password" />
                 </FloatingLabel>
               </Form.Group>
 
@@ -83,10 +92,25 @@ function LoginForm({ setCurrentUser }) {
           </Col>
           <Col></Col>
         </Row>
+        <Row>&nbsp;</Row>
 
+        {/* {errorMsg !== {} ? <p>no error</p> : <p>error</p>} */}
+
+        {/* {currentUser ? (
+          <>
+            <Row>
+              <Col></Col>
+              <Col className="text-center">
+
+                <Link to="/cocktail-list">Cocktails</Link>
+
+              </Col>
+              <Col></Col>
+            </Row>
+          </>
+        ) : null} */}
         <Row>&nbsp;</Row>
         <Row>&nbsp;</Row>
-        
       </Container>
     </>
   );

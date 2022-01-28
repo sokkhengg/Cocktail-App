@@ -10,6 +10,7 @@ import CocktailForm from "./components/Cocktails/CocktailForm";
 import MyLiquorCabinet from "./components/User/MyLiquorCabinet";
 import CocktailDetail from "./components/Cocktails/CocktailDetail";
 import Carousel from "./components/Home/Carousel";
+// import PopularCocktails from "./components/Cocktails/PopularCocktails";
 
 function App() {
   // state for the current logged in use, set in the useEffect & fetch below
@@ -86,6 +87,11 @@ function App() {
           path="/new-cocktail"
           component={() => <CocktailForm ingredients={ingredients} />}
         />
+
+{/* <Route
+          path="/popular-cocktails"
+          component={() => <PopularCocktails currentUser={currentUser} />}
+        /> */}
 
         <Route
           path="/my-liquor-cabinet"
