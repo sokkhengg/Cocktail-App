@@ -7,10 +7,6 @@ As a user, I can:
 - Search cocktails and see their recipes (highlighting ingredients you have/don't have).
 - Track the cocktails you have made.
 - Create a wishlist of cocktails you want to make.
-- Star a specific cocktail, or add a public review to a specific cocktail.
-- Display a list of my starred cocktails.
-- Show a list of top-starred/reviewed cocktails.
-- Deploy the app so it is publicly available.
 
 Front-end: React<br />
 Back-end: Rails<br />
