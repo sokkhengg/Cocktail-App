@@ -2,7 +2,7 @@
   "name": "heroku-deploy",
   "description": "Build scripts for Heroku",
   "engines": {
-    "node": "16.13.0"
+    "node": "20.x"
   },
   "scripts": {
     "clean": "rm -rf public",
