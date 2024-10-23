@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
+    origins 'https://cocktail-app-frontend-b1vy7up6b-sokhengs-projects-eed95b72.vercel.app/'
 
     resource '*',
       :expose => ['item_count'],
