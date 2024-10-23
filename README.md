@@ -12,3 +12,5 @@ Front-end: React<br />
 Back-end: Rails<br />
 Front-end Framework: Bootstrap.
 
+Link to backend: https://github.com/sokkhengg/Cocktail-App-frontend
+
