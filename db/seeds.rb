@@ -19,17 +19,14 @@ ingredients = CSV.parse(ingredients_csv, headers: true, encoding: 'ISO-8859-1')
 
 ingredients.each do |row|
   ingredient_name = row['ingredient_name']
-  ingredient_id = row['ingredient_id'].to_i
 
   if ingredient_name.present?
-    Ingredient.create!(id: ingredient_id, name: ingredient_name)
+    Ingredient.find_or_create_by!(name: ingredient_name)
   end
 end
 
-puts "Seeded #{Ingredient.count} ingredients."
-
-
 puts "Seeding cocktails..."
+
 
 # Read cocktails from CSV and create Cocktail records
 cocktails_csv = File.read(Rails.root.join('lib', 'seeds', 'Cocktail App Data - Final - Cleaned Cocktails.csv'))
